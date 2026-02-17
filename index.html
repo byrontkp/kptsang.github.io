@@ -276,15 +276,12 @@
   <a class="skip-link" href="#main">Skip to content</a>
 
   <header>
-    <div class="container">
-      <div class="topbar">
-        <div class="brand" aria-label="Site identity">
-          <div class="name">Kwok Ping (Byron) Tsang</div>
-          <div class="meta">
-            Economist • Academic Researcher<br />
-            <span class="mono">kptsang.com</span>
-          </div>
-        </div>
+<div class="meta">
+  Associate Professor, Department of Economics, Virginia Tech<br />
+  Affiliated Faculty, Kellogg Center for Philosophy, Politics, and Economics (Virginia Tech)<br />
+  Co-editor, Contemporary Economic Policy
+</div>
+
 
         <nav aria-label="Primary">
           <ul>
@@ -305,9 +302,10 @@
         <div class="hero-grid">
           <div class="hero-card">
             <h1>Academic Homepage</h1>
-            <p class="subtitle">
-              Title and affiliations: <strong>add your current title + affiliations here</strong>.
-            </p>
+       <p class="subtitle">
+  Associate Professor, Department of Economics, Virginia Tech • Affiliated Faculty, Kellogg Center for Philosophy, Politics, and Economics (Virginia Tech) • Co-editor, Contemporary Economic Policy
+</p>
+
 
             <p class="bio">
               I work on <strong>monetary economics</strong>, <strong>political economy</strong>, and related empirical and theoretical questions.
@@ -317,7 +315,7 @@
             <div class="quick" aria-label="Quick facts">
               <span class="pill"><strong>Research:</strong> monetary, political economy, finance</span>
               <span class="pill"><strong>CV:</strong> PDF + full list</span>
-              <span class="pill"><strong>Updated:</strong> <span class="mono">YYYY-MM</span></span>
+<span class="pill"><strong>Updated:</strong> <span class="mono" id="last-updated"></span></span>
             </div>
 
             <p class="note">
@@ -469,7 +467,7 @@
 
         <div class="hero-card" style="box-shadow:none; background:#fff;">
           <p style="margin:0;">
-            Email: <a href="mailto:YOUR_EMAIL_HERE"><strong>YOUR_EMAIL_HERE</strong></a>
+Email: <a href="mailto:byront@vt.edu"><strong>byront@vt.edu</strong></a>
           </p>
           <p style="margin:10px 0 0 0; color:var(--muted); font-size:13px;">
             Optional: add Google Scholar / SSRN / ORCID links here.
@@ -499,5 +497,14 @@
     // Small, safe enhancement: current year only.
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+  const d = new Date();
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth()+1).padStart(2,"0");
+  const el = document.getElementById("last-updated");
+  if (el) el.textContent = `${yyyy}-${mm}`;
+</script>
+
 </body>
 </html>
