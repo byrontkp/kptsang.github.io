@@ -289,8 +289,7 @@
 <nav aria-label="Primary">
   <ul>
     <li><a href="/research.html">Research</a></li>
-    <li><a href="/assets/cv_short.pdf" target="_blank" rel="noopener" class="cv-button">CV</a></li>
-    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="/assets/cv.pdf" class="cv-button">CV</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -380,38 +379,34 @@
       </section>
 
       <section id="teaching" aria-label="Teaching">
-        <div class="section-title">
-          <h2>Teaching</h2>
-          <div class="hint">Courses + materials, minimal maintenance</div>
-        </div>
-
-        <div class="hero-card" style="box-shadow:none; background:#fff;">
-          <ul style="margin:0; padding-left:18px;">
-            <li><strong>Course 1:</strong> Title (Term/Year) — <a href="#" target="_blank" rel="noopener">syllabus</a>, <a href="#" target="_blank" rel="noopener">notes</a></li>
-            <li><strong>Course 2:</strong> Title (Term/Year) — <a href="#" target="_blank" rel="noopener">syllabus</a></li>
-            <li><strong>Course 3:</strong> Title (Term/Year)</li>
-          </ul>
-          <p style="margin-bottom:0; color:var(--muted); font-size:13px;">
-            Keep this short. You can move detailed materials into a separate page later.
-          </p>
-        </div>
       </section>
 
-      <section id="contact" aria-label="Contact">
-        <div class="section-title">
-          <h2>Contact</h2>
-          <div class="hint">One reliable email is enough</div>
-        </div>
+    <section id="contact" aria-label="Contact">
+  <div class="section-title">
+    <h2>Contact</h2>
+  </div>
 
-        <div class="hero-card" style="box-shadow:none; background:#fff;">
-          <p style="margin:0;">
-Email: <a href="mailto:byront@vt.edu"><strong>byront@vt.edu</strong></a>
-          </p>
-          <p style="margin:10px 0 0 0; color:var(--muted); font-size:13px;">
-            Optional: add Google Scholar / SSRN / ORCID links here.
-          </p>
-        </div>
-      </section>
+  <div class="hero-card" style="box-shadow:none; background:#fff;">
+    <p style="margin:0 0 8px 0;">
+      Email:
+      <a href="mailto:byront@vt.edu"><strong>byront@vt.edu</strong></a>
+    </p>
+
+    <p style="margin:0 0 8px 0;">
+      Google Scholar:
+      <a href="https://scholar.google.com/citations?user=2PBDz_wAAAAJ&hl=en" target="_blank" rel="noopener">
+        Profile
+      </a>
+    </p>
+
+    <p style="margin:0; color:var(--muted); font-size:14px;">
+      3016 Pamplin Hall, Mail Code 0316<br />
+      880 West Campus Drive<br />
+      Blacksburg, VA 24061
+    </p>
+  </div>
+</section>
+
 
     </div>
   </main>
