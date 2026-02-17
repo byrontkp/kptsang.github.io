@@ -223,12 +223,12 @@
       gap:10px;
       min-height: 150px;
     }
-    .card .label{
-      font-size:12px;
-      color:var(--muted);
-      text-transform:uppercase;
-      letter-spacing:.25px;
-    }
+.card .label{
+  font-size:12px;
+  color:var(--muted);
+  text-transform:none;
+  font-weight:600;
+}
     .card .title{
       margin:0;
       font-weight:650;
@@ -371,11 +371,9 @@
             <div class="label">${venue ? venue : "Publication"}</div>
             <p class="title"><a href="${pdf}" target="_blank" rel="noopener">${title}</a></p>
             <p class="authors">${authors}${year ? " • " + year : ""}</p>
-            <div class="links">
-              <a href="${pdf}" target="_blank" rel="noopener">PDF</a>
-              ${extra}
-              <a href="/research.html">All papers</a>
-            </div>
+<div class="links">
+  ${extra}
+</div>
           </article>
         `;
       }).join("");
