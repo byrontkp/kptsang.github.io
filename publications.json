@@ -1,0 +1,574 @@
+[
+  {
+    "id": "lai-ng-tsang-foreign-minority-shareholders",
+    "title": "Do Foreign Minority Shareholders Matter? A Theoretical Framework",
+    "authors": [
+      "Tat-kei Lai",
+      "Travis Ng",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2026,
+    "venue": "Economics Letters",
+    "links": {
+      "pdf": "/assets/papers/LNT_el_2026.pdf"
+    },
+    "type": "publication",
+    "status": "accepted",
+    "date": "2026"
+  },
+  {
+    "id": "tsang-yang-hidden-dissent-fomc",
+    "title": "Agree to Disagree: Measuring Hidden Dissent in FOMC Meetings",
+    "authors": [
+      "Kwok Ping Tsang",
+      "Zichao Yang"
+    ],
+    "year": 2025,
+    "venue": "Journal of Economic Dynamics and Control",
+    "links": {
+      "pdf": "/assets/papers/TY_jedc_2025.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2025"
+  },
+  {
+    "id": "lai-ng-tsang-dividend-desires",
+    "title": "Do Foreign Firms Cater to American Investors' Dividend Desires?",
+    "authors": [
+      "Tat-kei Lai",
+      "Travis Ng",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2025,
+    "venue": "Journal of International Money and Finance",
+    "links": {
+      "pdf": "/assets/papers/LNT_jimf_2025.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2025"
+  },
+  {
+    "id": "wong-tsang-stock-connect-inclusions-exclusions",
+    "title": "Inclusions and Exclusions of Stocks in Cross-Border Investments: The Case of Stock Connect",
+    "authors": [
+      "Kin Ming Wong",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2023,
+    "venue": "Asia-Pacific Financial Markets",
+    "links": {
+      "pdf": "/assets/papers/WT_apfm_2023.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2023"
+  },
+  {
+    "id": "check-lo-tsang-unit-root-tests",
+    "title": "Are Unit Root Tests Useful for Univariate Time Series Forecasts with Different Orders of Integration? A Monte Carlo Study",
+    "authors": [
+      "Adam J. Check",
+      "Ming Chien Lo",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2023,
+    "venue": "Economics Bulletin",
+    "links": {
+      "pdf": "/assets/papers/CLT_eb_2023.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2023"
+  },
+  {
+    "id": "tsang-rise-invisible-hand-metaphor",
+    "title": "The Rise of the \"Invisible Hand\" Metaphor",
+    "authors": [
+      "Kwok Ping Tsang"
+    ],
+    "year": 2023,
+    "venue": "History of Economic Thought",
+    "links": {
+      "pdf": "/assets/papers/T_HET_2023.pdf"
+    },
+    "type": "publication",
+    "status": "accepted",
+    "date": "2023"
+  },
+  {
+    "id": "sun-tsang-yield-curve-macroeconomy-housing",
+    "title": "Yield Curve and the Macroeconomy: Evidence from a DSGE Model with Housing",
+    "authors": [
+      "Xiaojin Sun",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2022,
+    "venue": "Journal of Macroeconomics",
+    "links": {
+      "pdf": "/assets/papers/ST_jmacro_2022.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2022"
+  },
+  {
+    "id": "tsang-yang-connections-bitcoin-market",
+    "title": "Do Connections Pay Off in the Bitcoin Market?",
+    "authors": [
+      "Kwok Ping Tsang",
+      "Zichao Yang"
+    ],
+    "year": 2022,
+    "venue": "Journal of Empirical Finance",
+    "links": {
+      "pdf": "/assets/papers/TY_jempfin_2022.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2022"
+  },
+  {
+    "id": "ng-chan-tsang-leung-greenfield-fdi-persistence",
+    "title": "Greenfield Foreign Direct Investment: Social Learning Drives Persistence",
+    "authors": [
+      "Joe Cho Yiu Ng",
+      "Tommy Chao Hung Chan",
+      "Kwok Ping Tsang",
+      "Charles Ka Yui Leung"
+    ],
+    "year": 2022,
+    "venue": "Journal of International Money and Finance",
+    "links": {
+      "pdf": "/assets/papers/NCTL_jimf_2022.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2022"
+  },
+  {
+    "id": "leung-tsang-tsui-collusion-private-procurement",
+    "title": "Collusion in Private Procurement: How Does Mandatory Building Repair Increase Renovation Prices?",
+    "authors": [
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang",
+      "Kevin K. Tsui"
+    ],
+    "year": 2022,
+    "venue": "The Singapore Economic Review",
+    "links": {
+      "pdf": "/assets/papers/LTT_ser_2022.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2022-05-05"
+  },
+  {
+    "id": "tsang-yang-market-bitcoin-transactions",
+    "title": "The Market for Bitcoin Transactions",
+    "authors": [
+      "Kwok Ping Tsang",
+      "Zichao Yang"
+    ],
+    "year": 2021,
+    "venue": "Journal of International Financial Markets, Institutions & Money",
+    "links": {
+      "pdf": "/assets/papers/TY_intfin_2021.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2021"
+  },
+  {
+    "id": "leung-tsang-tsui-inferior-seats-underpriced",
+    "title": "Why Are Inferior Seats 'Underpriced'? Evidence from the English Premier League",
+    "authors": [
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang",
+      "Kevin K. Tsui"
+    ],
+    "year": 2021,
+    "venue": "Man and the Economy",
+    "links": {
+      "pdf": "/assets/papers/LTT_meco_2021.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2021"
+  },
+  {
+    "id": "luo-tsang-hubei-lockdown-output-impact",
+    "title": "China and World Output Impact of the Hubei Lockdown During the Coronavirus Outbreak",
+    "authors": [
+      "Shaowen Luo",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2020,
+    "venue": "Contemporary Economic Policy",
+    "links": {
+      "pdf": "/assets/papers/LT_coep_2020.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2020"
+  },
+  {
+    "id": "luo-tsang-elasticity-attention-monetary-policy",
+    "title": "Elasticity of Attention and Optimal Monetary Policy",
+    "authors": [
+      "Shaowen Luo",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2020,
+    "venue": "Economics Letters",
+    "links": {
+      "pdf": "/assets/papers/LT_el_2020.pdf",
+      "appendix": "/assets/papers/LT_el_2020_appendix.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2020"
+  },
+  {
+    "id": "solat-tsang-forecasting-exchange-rates-espca",
+    "title": "Forecasting Exchange Rates with Elliptically Symmetric Principal Components",
+    "authors": [
+      "Karo Solat",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2020,
+    "venue": "International Journal of Forecasting",
+    "links": {
+      "pdf": "/assets/papers/ST_ijf_2020.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2020"
+  },
+  {
+    "id": "tsang-yang-price-dispersion-bitcoin-exchanges",
+    "title": "Price Dispersion in Bitcoin Exchanges",
+    "authors": [
+      "Kwok Ping Tsang",
+      "Zichao Yang"
+    ],
+    "year": 2020,
+    "venue": "Economics Letters",
+    "links": {
+      "pdf": "/assets/papers/TY_el_2020.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2020"
+  },
+  {
+    "id": "ashley-tsang-verbrugge-persistence-rule",
+    "title": "A New Look at Historical Monetary Policy (and the Great Inflation) Through the Lens of a Persistence-Dependent Policy Rule",
+    "authors": [
+      "Richard A. Ashley",
+      "Kwok Ping Tsang",
+      "Randal Verbrugge"
+    ],
+    "year": 2020,
+    "venue": "Oxford Economic Papers",
+    "links": {
+      "pdf": "/assets/papers/ATV_oep_2020.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2020"
+  },
+  {
+    "id": "leung-tsang-tsui-deregulators-electricity",
+    "title": "What Can Deregulators Deregulate? The Case of Electricity",
+    "authors": [
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang",
+      "Kevin K. Tsui"
+    ],
+    "year": 2019,
+    "venue": "Journal of Regulatory Economics",
+    "links": {
+      "pdf": "/assets/papers/LTT_jre_2019.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2019-08-05"
+  },
+  {
+    "id": "sun-tsang-large-price-movements-housing",
+    "title": "Large Price Movements in Housing Markets",
+    "authors": [
+      "Xiaojin Sun",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2019,
+    "venue": "Journal of Economic Behavior & Organization",
+    "links": {
+      "pdf": "/assets/papers/ST_jebo_2019.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2019"
+  },
+  {
+    "id": "sun-tsang-data-detrending-dsge",
+    "title": "What Data Cycles? Data Detrending in DSGE Models",
+    "authors": [
+      "Xiaojin Sun",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2018,
+    "venue": "Studies in Nonlinear Dynamics & Econometrics",
+    "links": {
+      "pdf": "/assets/papers/ST_snde_2018.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2018"
+  },
+  {
+    "id": "sun-tsang-monetary-policy-local-housing",
+    "title": "The Impact of Monetary Policy on Local Housing Markets: Do Regulations Matter?",
+    "authors": [
+      "Xiaojin Sun",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2018,
+    "venue": "Empirical Economics",
+    "links": {
+      "pdf": "/assets/papers/ST_ee_2018.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2018"
+  },
+  {
+    "id": "wong-tsang-right-to-choose-dc-plans",
+    "title": "Does the Right to Choose Matter for Defined Contribution Plans?",
+    "authors": [
+      "Kin Ming Wong",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2017,
+    "venue": "Contemporary Economic Policy",
+    "links": {
+      "pdf": "/assets/papers/WT_coep_2017.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2017"
+  },
+  {
+    "id": "sun-tsang-owner-occupied-rental-markets",
+    "title": "What Drives the Owner-Occupied and Rental Housing Markets? Evidence from an Estimated DSGE Model",
+    "authors": [
+      "Xiaojin Sun",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2017,
+    "venue": "Journal of Money, Credit and Banking",
+    "links": {
+      "pdf": "/assets/papers/ST_jmcb_2017.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2017"
+  },
+  {
+    "id": "leung-leung-tsang-tax-driven-bunching",
+    "title": "Tax-driven Bunching of Housing Market Transactions: The Case of Hong Kong",
+    "authors": [
+      "Charles Ka Yui Leung",
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2015,
+    "venue": "International Real Estate Review",
+    "links": {
+      "pdf": "/assets/papers/LLT_irer_2015.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2015"
+  },
+  {
+    "id": "sun-tsang-optimal-interest-rate-rule-housing",
+    "title": "Optimal Interest Rate Rule in a DSGE Model with Housing Market Spillovers",
+    "authors": [
+      "Xiaojin Sun",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2014,
+    "venue": "Economics Letters",
+    "links": {
+      "pdf": "/assets/papers/ST_el_2014.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2014"
+  },
+  {
+    "id": "ashley-tsang-credible-granger-causality",
+    "title": "Credible Granger-Causality Inference with Modest Sample Lengths: A Cross-Sample Validation Approach",
+    "authors": [
+      "Richard A. Ashley",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2014,
+    "venue": "Econometrics",
+    "links": {
+      "pdf": "/assets/papers/AT_econometrics_2014.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2014-03-25"
+  },
+  {
+    "id": "dave-tsang-recursive-preferences-learning",
+    "title": "Recursive Preferences, Learning and Large Deviations",
+    "authors": [
+      "Chetan Dave",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2014,
+    "venue": "Economics Letters",
+    "links": {
+      "pdf": "/assets/papers/DT_el_2014.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2014"
+  },
+  {
+    "id": "leung-tsang-anchoring-loss-aversion",
+    "title": "Anchoring and Loss Aversion in the Housing Market: Implications on Price Dynamics",
+    "authors": [
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2013,
+    "venue": "China Economic Review",
+    "links": {
+      "pdf": "/assets/papers/LT_cer_2013.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2013"
+  },
+  {
+    "id": "chen-tsang-yield-curve-exchange-rate",
+    "title": "What Does the Yield Curve Tell Us about Exchange Rate Predictability?",
+    "authors": [
+      "Yu-chin Chen",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2013,
+    "venue": "The Review of Economics and Statistics",
+    "links": {
+      "pdf": "/assets/papers/CT_restat_2013.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2013"
+  },
+  {
+    "id": "leung-tsang-anchoring-loss-aversion-predictability",
+    "title": "Can Anchoring and Loss Aversion Explain the Predictability of Housing Prices?",
+    "authors": [
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2013,
+    "venue": "Pacific Economic Review",
+    "links": {
+      "pdf": "/assets/papers/LT_per_2013.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2013"
+  },
+  {
+    "id": "leung-tsang-love-thy-neighbor",
+    "title": "Love Thy Neighbor: Income Distribution and Housing Preferences",
+    "authors": [
+      "Tin Cheuk Leung",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2012,
+    "venue": "Journal of Housing Economics",
+    "links": {
+      "pdf": "/assets/papers/LT_jhe_2012.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2012"
+  },
+  {
+    "id": "startz-tsang-nonexponential-discounting",
+    "title": "Nonexponential Discounting: A Direct Test and Perhaps a New Puzzle",
+    "authors": [
+      "Richard Startz",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2012,
+    "venue": "The B.E. Journal of Macroeconomics",
+    "links": {
+      "pdf": "/assets/papers/ST_bejmacro_2012.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2012"
+  },
+  {
+    "id": "startz-tsang-unobserved-components-yield-curve",
+    "title": "An Unobserved Components Model of the Yield Curve",
+    "authors": [
+      "Richard Startz",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2010,
+    "venue": "Journal of Money, Credit and Banking",
+    "links": {
+      "pdf": "/assets/papers/ST_jmcb_2010.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2010"
+  },
+  {
+    "id": "romich-lundberg-tsang-independence-giving",
+    "title": "Independence Giving or Autonomy Taking? Childhood Predictors of Decision-Sharing Patterns Between Young Adolescents and Parents",
+    "authors": [
+      "Jennifer L. Romich",
+      "Shelly Lundberg",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2009,
+    "venue": "Journal of Research on Adolescence",
+    "links": {
+      "pdf": "/assets/papers/RLT_jra_2009.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2009"
+  },
+  {
+    "id": "lundberg-romich-tsang-decision-making-children",
+    "title": "Decision-making by Children",
+    "authors": [
+      "Shelly Lundberg",
+      "Jennifer L. Romich",
+      "Kwok Ping Tsang"
+    ],
+    "year": 2009,
+    "venue": "Review of Economics of the Household",
+    "links": {
+      "pdf": "/assets/papers/LRT_reho_2009.pdf"
+    },
+    "type": "publication",
+    "status": "published",
+    "date": "2009"
+  }
+]
