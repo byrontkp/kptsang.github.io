@@ -26,7 +26,8 @@
     "year": 2025,
     "venue": "Journal of Economic Dynamics and Control",
     "links": {
-      "pdf": "/assets/papers/TY_jedc_2025.pdf"
+      "pdf": "/assets/papers/TY_jedc_2025.pdf",
+      "data": "https://www.digitecon.org/hidden-dissent-index"
     },
     "type": "publication",
     "status": "published",
