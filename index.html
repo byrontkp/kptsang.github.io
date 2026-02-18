@@ -93,7 +93,14 @@
   font-weight:600;
 }
 
-    
+    .contact-card p{
+  margin:0 0 8px 0;
+}
+.contact-card p:last-child{
+  font-size:14px;
+  color:var(--muted);
+}
+
     /* Hero */
     .hero{
       padding:34px 0 18px;
@@ -483,34 +490,34 @@ ${(items || []).map(p => {
 
 
       
-    <section id="contact" aria-label="Contact">
+<section id="contact" aria-label="Contact">
   <div class="section-title">
     <h2>Contact</h2>
   </div>
 
-  <div class="hero-card" style="box-shadow:none; background:#fff;">
-    <p style="margin:0 0 8px 0;">
+  <div class="hero-card contact-card">
+    <p>
       Email:
       <a href="mailto:byront@vt.edu"><strong>byront@vt.edu</strong></a>
     </p>
 
-    <p style="margin:0 0 8px 0;">
+    <p>
       Google Scholar:
-      <a href="https://scholar.google.com/citations?user=2PBDz_wAAAAJ&hl=en" target="_blank" rel="noopener">
+      <a href="https://scholar.google.com/citations?user=2PBDz_wAAAAJ&hl=en">
         Profile
       </a>
     </p>
 
-<p style="margin:0;">
-  Address: 3016 Pamplin Hall, Mail Code 0316, 880 West Campus Drive, Blacksburg, VA 24061
-</p>
+    <p>
+      Address: 3016 Pamplin Hall, Mail Code 0316, 880 West Campus Drive, Blacksburg, VA 24061
+    </p>
 
-    <p style="margin:0;">
-  Info for undergraduate students: I will provide a letter of recommendation only if you got an A minus or above in my class.
-</p>
-
+    <p>
+      Info for undergraduate students: I will provide a letter of recommendation only if you got an A minus or above in my class.
+    </p>
   </div>
 </section>
+
 
 
     </div>
