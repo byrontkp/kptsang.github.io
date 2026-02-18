@@ -34,14 +34,12 @@
         </div>
         <nav>
           <a href="/">Home</a>
-          <a href="/research.html">Research</a>
         </nav>
       </div>
     </div>
   </header>
 
   <main class="wrap">
-    <h1>Research</h1>
     <div id="pub-list"></div>
   </main>
 
@@ -111,8 +109,7 @@
 
             const metaBits = [
               authors ? authors : null,
-              venue ? venue : null,
-              status ? `(${status})` : null
+              venue ? venue : null
             ].filter(Boolean).join(" • ");
 
             return `
