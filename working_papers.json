@@ -1,0 +1,74 @@
+[
+  {
+    "date": "2026-02-01",
+    "year": 2026,
+    "month": 2,
+    "title": "Political Shocks and Price Discovery in Prediction Markets: Evidence from the 2024 U.S. Presidential Election",
+    "authors": ["Kwok Ping (Byron) Tsang", "Zichao Yang"],
+    "status_note": "February 2026.",
+    "links": { "pdf": https://papers.ssrn.com/abstract=6248859 }
+  },
+  {
+    "date": "2026-02-01",
+    "year": 2026,
+    "month": 2,
+    "title": "EFBN Issuance and Money-Market Rates",
+    "authors": ["Kwok Ping (Byron) Tsang", "Cloud Yip"],
+    "status_note": "February 2026, under review.",
+    "links": { "pdf": https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6233839 }
+  },
+  {
+    "date": "2026-02-01",
+    "year": 2026,
+    "month": 2,
+    "title": "Causal Images and Aggregate Dynamics",
+    "authors": ["Kwok Ping (Byron) Tsang"],
+    "status_note": "February 2026, under review.",
+    "links": { "pdf": https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6117107 }
+  },
+  {
+    "date": "2025-12-01",
+    "year": 2025,
+    "month": 12,
+    "title": "#EconTwitter and Elon Musk: Anatomy of a Failed Exodus",
+    "authors": ["Kwok Ping (Byron) Tsang", "Tin Cheuk Leung"],
+    "status_note": "December 2025, under review.",
+    "links": { "pdf": https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5923585 }
+  },
+  {
+    "date": "2025-11-01",
+    "year": 2025,
+    "month": 11,
+    "title": "Division of Labor and the Minimal State",
+    "authors": ["Kwok Ping (Byron) Tsang"],
+    "status_note": "November 2025, R&R.",
+    "links": { "pdf": https://drive.google.com/file/d/1NEq5EjiUaEV-1urOd2w6HAnF4JPACpoE/view?usp=drive_link }
+  },
+  {
+    "date": "2025-11-01",
+    "year": 2025,
+    "month": 11,
+    "title": "Tipping as a Pricing Signal",
+    "authors": ["Kwok Ping (Byron) Tsang"],
+    "status_note": "November 2025, under review.",
+    "links": { "pdf": https://drive.google.com/file/d/1k48o64yJRXLjVG883xGh5ocMShktKM8P/view?usp=drive_link }
+  },
+  {
+    "date": "2025-10-01",
+    "year": 2025,
+    "month": 10,
+    "title": "On the Present Value Model in a Cross Section of Stocks",
+    "authors": ["Kwok Ping (Byron) Tsang", "Richard Startz"],
+    "status_note": "October 2025 (new version coming soon!).",
+    "links": { "pdf": https://www.econ.ucsb.edu/~startz/PV%20in%20a%20Cross%20Section.pdf }
+  },
+  {
+    "date": "2024-09-01",
+    "year": 2024,
+    "month": 9,
+    "title": "Quantifying Racial Prejudices with Housing Transaction Data",
+    "authors": ["Kwok Ping (Byron) Tsang", "Tin Cheuk Leung", "Xiaojin Sun"],
+    "status_note": "September 2024 (new version coming soon!).",
+    "links": { "pdf": https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4249510 }
+  }
+]
