@@ -459,11 +459,21 @@
       root.innerHTML = `
         <div class="hero-card" style="box-shadow:none; background:#fff;">
           <ul style="margin:0; padding-left:18px;">
-            ${(items || []).map(p => {
-              const title = safeText(p.title);
-              const authors = joinAuthors(p.authors);
-              return `<li style="margin:6px 0;"><strong>${title}</strong>${authors ? ` <span style="color:var(--muted);">(${authors})</span>` : ""}</li>`;
-            }).join("")}
+${(items || []).map(p => {
+  const title = safeText(p.title);
+
+  // Remove your own name
+  const coauthors = (p.authors || []).filter(a =>
+    a !== "Kwok Ping (Byron) Tsang"
+  );
+
+  const coauthorText = coauthors.length > 0
+    ? ` <span style="color:var(--muted);">(with ${coauthors.join(", ")})</span>`
+    : "";
+
+  return `<li style="margin:6px 0;"><strong>${title}</strong>${coauthorText}</li>`;
+}).join("")}
+
           </ul>
         </div>
       `;
