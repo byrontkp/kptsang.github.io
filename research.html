@@ -5,32 +5,90 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Research — Kwok Ping (Byron) Tsang</title>
   <style>
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.55;color:#111827}
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      line-height:1.55;
+      color:#111827;
+      background:#fff;
+    }
     a{
-  color:#111827;
-  text-decoration:none;
-}
-
-a:hover{
-  text-decoration:underline;
-}
-
-    header{border-bottom:1px solid #e5e7eb;background:#fff}
-    .wrap{max-width:980px;margin:0 auto;padding:0 18px}
-    .top{display:flex;gap:14px;align-items:baseline;justify-content:space-between;flex-wrap:wrap;padding:14px 0}
-    .name{font-weight:700}
-nav a{margin-right:10px}
-    nav a:hover{text-decoration:underline}
-    main{padding:22px 0}
-    h1{margin:0 0 6px 0;font-size:26px}
-    .muted{color:#4b5563}
-    .year{margin:22px 0 10px;font-size:18px}
-    .pub{padding:14px;border:1px solid #e5e7eb;border-radius:12px;margin:10px 0;background:#fff}
-    .title{font-weight:650;margin:0 0 6px}
-    .meta{margin:0;color:#4b5563;font-size:14px}
-    .links{margin-top:8px;font-size:14px}
-    .links a{margin-right:10px}
-    footer{border-top:1px solid #e5e7eb;padding:16px 0;margin-top:22px;color:#4b5563;font-size:13px}
+      color:#111827;
+      text-decoration:none;
+    }
+    a:hover{
+      text-decoration:underline;
+    }
+    header{
+      border-bottom:1px solid #e5e7eb;
+      background:#fff;
+    }
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:0 18px;
+    }
+    .top{
+      display:flex;
+      gap:14px;
+      align-items:baseline;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      padding:14px 0;
+    }
+    .name{
+      font-weight:700;
+    }
+    nav a{
+      margin-right:10px;
+    }
+    nav a:hover{
+      text-decoration:underline;
+    }
+    main{
+      padding:22px 0;
+    }
+    h1{
+      margin:0 0 6px 0;
+      font-size:26px;
+    }
+    .muted{
+      color:#4b5563;
+    }
+    .year{
+      margin:22px 0 10px;
+      font-size:18px;
+    }
+    .pub{
+      padding:14px;
+      border:1px solid #e5e7eb;
+      border-radius:12px;
+      margin:10px 0;
+      background:#fff;
+    }
+    .title{
+      font-weight:650;
+      margin:0 0 6px;
+    }
+    .meta{
+      margin:0;
+      color:#4b5563;
+      font-size:14px;
+    }
+    .links{
+      margin-top:8px;
+      font-size:14px;
+    }
+    .links a{
+      margin-right:10px;
+    }
+    footer{
+      border-top:1px solid #e5e7eb;
+      padding:16px 0;
+      margin-top:22px;
+      color:#4b5563;
+      font-size:13px;
+    }
   </style>
 </head>
 <body>
@@ -57,58 +115,80 @@ nav a{margin-right:10px}
   </footer>
 
   <script>
-    function safeText(x){ return (x ?? "").toString(); }
-    function joinAuthors(a){
-      if (!a) return "";
-      if (Array.isArray(a)) return a.join(", ");
-      return safeText(a);
+    const SELF_NAMES = new Set([
+      "Kwok Ping (Byron) Tsang",
+      "Kwok Ping Tsang",
+      "Byron Tsang"
+    ]);
+
+    function safeText(x){
+      return (x ?? "").toString();
     }
+
+    function normalizeAuthors(a){
+      if (!a) return [];
+      if (Array.isArray(a)) {
+        return a.map(x => safeText(x).trim()).filter(Boolean);
+      }
+      return safeText(a)
+        .split(",")
+        .map(x => x.trim())
+        .filter(Boolean);
+    }
+
+    function coauthorText(authors){
+      const others = normalizeAuthors(authors).filter(a => !SELF_NAMES.has(a));
+      if (others.length === 0) return "";
+      if (others.length === 1) return `with ${others[0]}`;
+      if (others.length === 2) return `with ${others[0]} and ${others[1]}`;
+      return `with ${others.slice(0, -1).join(", ")}, and ${others[others.length - 1]}`;
+    }
+
     function linkHtml(label, url){
       if (!url) return "";
       return `<a href="${url}" target="_blank" rel="noopener">${label}</a>`;
     }
+
     function getSortDate(p){
-      // Prefer p.date as YYYY-MM-DD; fallback to year.
       if (p && p.date) return p.date;
       if (p && p.year) return `${p.year}-01-01`;
       return "0000-01-01";
     }
 
-    fetch("/publications.json", {cache:"no-store"})
-      .then(r => { if(!r.ok) throw new Error("Failed to load publications.json"); return r.json(); })
+    fetch("/publications.json", { cache: "no-store" })
+      .then(r => {
+        if (!r.ok) throw new Error("Failed to load publications.json");
+        return r.json();
+      })
       .then(items => {
-        // Keep only publications (customize if you also store working papers)
-        const pubs = (items || []).filter(p => (p.type || "publication") === "publication");
+        const pubs = (items || [])
+          .filter(p => (p.type || "publication") === "publication")
+          .sort((a, b) => getSortDate(b).localeCompare(getSortDate(a)));
 
-        // Sort newest first
-        pubs.sort((a,b) => getSortDate(b).localeCompare(getSortDate(a)));
-
-        // Group by year
         const byYear = new Map();
-        for (const p of pubs){
-          const y = p.year || (p.date ? parseInt(p.date.slice(0,4),10) : null) || 0;
+        for (const p of pubs) {
+          const y = p.year || (p.date ? parseInt(p.date.slice(0, 4), 10) : null) || 0;
           if (!byYear.has(y)) byYear.set(y, []);
           byYear.get(y).push(p);
         }
 
-        const years = Array.from(byYear.keys()).sort((a,b)=>b-a);
+        const years = Array.from(byYear.keys()).sort((a, b) => b - a);
 
         const root = document.getElementById("pub-list");
+        if (!root) return;
+
         root.innerHTML = years.map(y => {
           const blocks = byYear.get(y).map(p => {
             const title = safeText(p.title);
-            const authors = joinAuthors(p.authors);
+            const withLine = coauthorText(p.authors);
             const venue = safeText(p.venue);
-            const status = safeText(p.status);
             const links = p.links || {};
-            const pdf = links.pdf;
-            const journal = links.journal;
-            const ssrn = links.ssrn;
-            const data = links.data;
-            const code = links.code;
-
-
-            const appendix = links.appendix;
+            const pdf = links.pdf || "";
+            const journal = links.journal || "";
+            const ssrn = links.ssrn || "";
+            const data = links.data || "";
+            const code = links.code || "";
+            const appendix = links.appendix || "";
 
             const linkRow = [
               linkHtml("Journal", journal),
@@ -119,15 +199,17 @@ nav a{margin-right:10px}
             ].filter(Boolean).join("");
 
             const metaBits = [
-              authors ? authors : null,
-              venue ? venue : null
+              withLine || null,
+              venue || null
             ].filter(Boolean).join(" • ");
 
             return `
               <div class="pub">
-<p class="title">${pdf ? `<a href="${pdf}">${title}</a>` : title}</p>
-                <p class="meta">${metaBits}</p>
-                <div class="links">${linkRow}</div>
+                <p class="title">
+                  ${pdf ? `<a href="${pdf}" target="_blank" rel="noopener">${title}</a>` : title}
+                </p>
+                ${metaBits ? `<p class="meta">${metaBits}</p>` : ""}
+                ${linkRow ? `<div class="links">${linkRow}</div>` : ""}
               </div>
             `;
           }).join("");
@@ -140,6 +222,9 @@ nav a{margin-right:10px}
           `<p class="muted">Error loading publications list. Check that <code>/publications.json</code> exists and is valid JSON.</p>`;
         console.error(err);
       });
+
+    const y = document.getElementById("y");
+    if (y) y.textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
