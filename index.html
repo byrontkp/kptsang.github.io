@@ -345,12 +345,31 @@
 </section>
 
 <script>
+  const SELF_NAMES = new Set([
+    "Kwok Ping (Byron) Tsang",
+    "Kwok Ping Tsang",
+    "Byron Tsang"
+  ]);
+
   function safeText(x){ return (x ?? "").toString(); }
-  function joinAuthors(a){
-    if (!a) return "";
-    if (Array.isArray(a)) return a.join(", ");
-    return safeText(a);
+
+  function normalizeAuthors(a){
+    if (!a) return [];
+    if (Array.isArray(a)) return a.map(x => safeText(x).trim()).filter(Boolean);
+    return safeText(a)
+      .split(",")
+      .map(x => x.trim())
+      .filter(Boolean);
   }
+
+  function coauthorText(authors){
+    const others = normalizeAuthors(authors).filter(a => !SELF_NAMES.has(a));
+    if (others.length === 0) return "";
+    if (others.length === 1) return `with ${others[0]}`;
+    if (others.length === 2) return `with ${others[0]} and ${others[1]}`;
+    return `with ${others.slice(0, -1).join(", ")}, and ${others[others.length - 1]}`;
+  }
+
   function getSortDate(p){
     if (p && p.date) return p.date;
     if (p && p.year) return `${p.year}-01-01`;
@@ -421,18 +440,7 @@
   <div id="wip-list"></div>
 </section>
 
-<script>
-  function safeText(x){ return (x ?? "").toString(); }
-  function joinAuthors(a){
-    if (!a) return "";
-    if (Array.isArray(a)) return a.join(", ");
-    return safeText(a);
-  }
-  function getSortDate(p){
-    if (p && p.date) return p.date;
-    if (p && p.year) return `${p.year}-01-01`;
-    return "0000-01-01";
-  }
+
 
   // Working papers (cards)
   fetch("/working_papers.json", {cache:"no-store"})
