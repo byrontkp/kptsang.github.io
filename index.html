@@ -387,20 +387,10 @@
       const root = document.getElementById("featured-cards");
       root.innerHTML = pubs.map(p => {
         const title = safeText(p.title);
-        const authors = joinAuthors(p.authors);
-        const venue = safeText(p.venue);
-        const year = p.year || (p.date ? p.date.slice(0,4) : "");
-        const links = p.links || {};
-        const pdf = links.pdf || "#";
-        const journal = links.journal || "";
-
-        const extra = journal ? `<a href="${journal}" target="_blank" rel="noopener">Journal</a>` : "";
-
-        return `
-          <article class="card">
-            <div class="label">${venue ? venue : "Publication"}</div>
-            <p class="title"><a href="${pdf}" target="_blank" rel="noopener">${title}</a></p>
-            <p class="authors">${authors}${year ? " • " + year : ""}</p>
+const withLine = coauthorText(p.authors);
+const meta = [withLine, year].filter(Boolean).join(" • ");
+...
+<p class="authors">${meta}</p>
 <div class="links">
   ${extra}
 </div>
@@ -442,30 +432,32 @@
 
 
 
+<script>
   // Working papers (cards)
   fetch("/working_papers.json", {cache:"no-store"})
-  .then(r => { if(!r.ok) throw new Error("Failed to load working_papers.json"); return r.json(); })
-  .then(items => {
-    const w = (items || []).sort((a,b) => getSortDate(b).localeCompare(getSortDate(a)));
-    const root = document.getElementById("working-papers-cards");
-    if (!root) return;
+    .then(r => { if(!r.ok) throw new Error("Failed to load working_papers.json"); return r.json(); })
+    .then(items => {
+      const w = (items || []).sort((a,b) => getSortDate(b).localeCompare(getSortDate(a)));
+      const root = document.getElementById("working-papers-cards");
+      if (!root) return;
 
-    root.innerHTML = w.map(p => {
-      const title = safeText(p.title);
-      const authors = joinAuthors(p.authors);
-      const note = safeText(p.status_note || "");
-      const pdf = (p.links && p.links.pdf) ? p.links.pdf : "";
+      root.innerHTML = w.map(p => {
+        const title = safeText(p.title);
+        const withLine = coauthorText(p.authors);
+        const note = safeText(p.status_note || "");
+        const meta = [withLine, note].filter(Boolean).join(" • ");
+        const pdf = (p.links && p.links.pdf) ? p.links.pdf : "";
 
-      return `
-        <article class="card">
-          <div class="label">Working paper</div>
-          <p class="title">${pdf ? `<a href="${pdf}">${title}</a>` : title}</p>
-          <p class="authors">${authors}${note ? " • " + note : ""}</p>
-        </article>
-      `;
-    }).join("");
-  })
-  .catch(err => console.error(err));
+        return `
+          <article class="card">
+            <div class="label">Working paper</div>
+            <p class="title">${pdf ? `<a href="${pdf}">${title}</a>` : title}</p>
+            <p class="authors">${meta}</p>
+          </article>
+        `;
+      }).join("");
+    })
+    .catch(err => console.error(err));
 
   // Works in progress (compact list)
   fetch("/works_in_progress.json", {cache:"no-store"})
@@ -477,21 +469,15 @@
       root.innerHTML = `
         <div class="hero-card" style="box-shadow:none; background:#fff;">
           <ul style="margin:0; padding-left:18px;">
-${(items || []).map(p => {
-  const title = safeText(p.title);
+            ${(items || []).map(p => {
+              const title = safeText(p.title);
+              const withLine = coauthorText(p.authors);
+              const extra = withLine
+                ? ` <span style="color:var(--muted);">(${withLine})</span>`
+                : "";
 
-  // Remove your own name
-  const coauthors = (p.authors || []).filter(a =>
-    a !== "Kwok Ping (Byron) Tsang"
-  );
-
-  const coauthorText = coauthors.length > 0
-    ? ` <span style="color:var(--muted);">(with ${coauthors.join(", ")})</span>`
-    : "";
-
-  return `<li style="margin:6px 0;"><strong>${title}</strong>${coauthorText}</li>`;
-}).join("")}
-
+              return `<li style="margin:6px 0;"><strong>${title}</strong>${extra}</li>`;
+            }).join("")}
           </ul>
         </div>
       `;
@@ -537,12 +523,14 @@ ${(items || []).map(p => {
 
   </footer>
 
-  <script>
-    // Small, safe enhancement: current year only.
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-  <script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+ <script>
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+<script>
+  const yearEl2 = document.getElementById("year");
+  if (yearEl2) yearEl2.textContent = new Date().getFullYear();
+
   const d = new Date();
   const yyyy = d.getFullYear();
   const mm = String(d.getMonth()+1).padStart(2,"0");
