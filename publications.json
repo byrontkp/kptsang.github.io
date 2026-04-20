@@ -1,5 +1,20 @@
 [
   {
+    "id": "tsang-tipping",
+    "title": "Tipping as a Pricing Signal",
+    "authors": [
+      "Kwok Ping Tsang"
+    ],
+    "year": 2026,
+    "venue": "The B.E. Journal of Theoretical Economics",
+    "links": {
+      "pdf": "https://drive.google.com/file/d/1k48o64yJRXLjVG883xGh5ocMShktKM8P/view?usp=drive_link"
+    },
+    "type": "publication",
+    "status": "accepted",
+    "date": "2026"
+  },
+  {
     "id": "lai-ng-tsang-foreign-minority-shareholders",
     "title": "Do Foreign Minority Shareholders Matter? A Theoretical Framework",
     "authors": [
