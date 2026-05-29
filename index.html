@@ -494,22 +494,28 @@
         const root = document.getElementById("working-papers-cards");
         if (!root) return;
 
-        root.innerHTML = papers.map(p => {
-          const title = safeText(p.title);
-          const withLine = coauthorText(p.authors);
-          const note = safeText(p.status_note || "");
-          const meta = [withLine, note].filter(Boolean).join(" • ");
-          const pdf = (p.links && p.links.pdf) ? p.links.pdf : "";
+root.innerHTML = `
+  <div class="hero-card" style="box-shadow:none; background:#fff;">
+    <ul style="margin:0; padding-left:18px;">
+      ${papers.map(p => {
+        const title = safeText(p.title);
+        const withLine = coauthorText(p.authors);
+        const note = safeText(p.status_note || "");
+        const meta = [withLine, note].filter(Boolean).join(" • ");
+        const pdf = (p.links && p.links.pdf) ? p.links.pdf : "";
 
-          return `
-            <article class="card">
-              <p class="title">
-                ${pdf ? `<a href="${pdf}" target="_blank" rel="noopener">${title}</a>` : title}
-              </p>
-              ${meta ? `<p class="authors">${meta}</p>` : ""}
-            </article>
-          `;
-        }).join("");
+        return `
+          <li style="margin:8px 0;">
+            <strong>
+              ${pdf ? `<a href="${pdf}" target="_blank" rel="noopener">${title}</a>` : title}
+            </strong>
+            ${meta ? ` <span style="color:var(--muted);">(${meta})</span>` : ""}
+          </li>
+        `;
+      }).join("")}
+    </ul>
+  </div>
+`;
       })
       .catch(err => {
         console.error(err);
