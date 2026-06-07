@@ -1,4 +1,19 @@
 [
+{
+    "id": "tsang-minstate",
+    "title": "Division of Labor and the Minimal State",
+    "authors": [
+      "Kwok Ping Tsang"
+    ]
+    "year": 2026,
+    "venue": "Economics and Philosophy",
+    "links": {
+      "pdf": "https://drive.google.com/file/d/1NEq5EjiUaEV-1urOd2w6HAnF4JPACpoE/view?usp=drive_link"
+    },
+    "type": "publication",
+    "status": "accepted",
+    "date": "2026"
+  },
     {
     "id": "tsang-downstream",
     "title": "Downstream Centrality and Industry Lobbying in Production Networks",
