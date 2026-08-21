@@ -187,6 +187,7 @@
             const journal = links.journal || "";
             const ssrn = links.ssrn || "";
             const data = links.data || "";
+            const package = links.package || "";
             const code = links.code || "";
             const appendix = links.appendix || "";
 
@@ -194,6 +195,7 @@
               linkHtml("Journal", journal),
               linkHtml("SSRN", ssrn),
               linkHtml("Data", data),
+              linkHtml("Replication Package", package),
               linkHtml("Code", code),
               linkHtml("Appendix", appendix)
             ].filter(Boolean).join("");
