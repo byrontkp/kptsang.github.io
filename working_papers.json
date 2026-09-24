@@ -19,13 +19,13 @@
   },
  
  {
-    "date": "2026-06-12",
+    "date": "2026-09-24",
     "year": 2026,
-    "month": 6,
-    "title": "Partial Identification of Spatial Production Networks",
+    "month": 9,
+    "title": "Decision-Relevant Information in Partially Observed Production Networks",
     "authors": ["Shaowen Luo", "Kwok Ping Tsang", "Zichao Yang"],
-    "status_note": "June 2026.",
-    "links": { "pdf": "http://arxiv.org/abs/2606.17079" }
+    "status_note": "September 2026, under review.",
+    "links": { "pdf": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3571866" }
   },
    
    {
