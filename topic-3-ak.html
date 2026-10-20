@@ -1,0 +1,749 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Three interactive teaching-page designs for the Rebelo two-sector growth model.">
+  <title>Rebelo model — teaching page designs</title>
+  <style>
+    :root { color-scheme: light dark; }
+    html { background: light-dark(#eef1f3, #11161b); }
+    body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; color: light-dark(#192b32,#e5edf1); }
+    .design-navigation, main { max-width: 1120px; margin: 0 auto; }
+    .design-navigation { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; padding-bottom: 20px; }
+    .design-navigation h1 { font-size: 15px; font-weight: 600; margin: 0; }
+    .design-navigation p { font-size: 12px; margin: 5px 0 0; color: light-dark(#52616a,#b0bdc5); }
+    .design-choices { display: flex; gap: 6px; flex-wrap: wrap; }
+    .design-choices button { border: 1px solid light-dark(#d1dade,#45515d); border-radius: 7px; padding: 10px 14px; font: inherit; font-size: 13px; min-height: 44px; background: light-dark(#fff,#202a32); color: inherit; cursor: pointer; }
+    .design-choices button[aria-pressed="true"] { background: light-dark(#253c47,#d9e8f1); color: light-dark(#fff,#17232b); border-color: transparent; }
+    .cursor-interaction { cursor: pointer; }
+    [hidden] { display: none !important; }
+    .browser-note { max-width: 1120px; margin: 15px auto 0; color: light-dark(#52616a,#b0bdc5); font-size: 12px; }
+    @media (max-width: 600px) { body { padding: 12px; } .design-navigation { gap: 12px; } .design-choices { width: 100%; } .design-choices button { flex: 1; padding: 8px; } }
+  </style>
+</head>
+<body>
+  <nav class="design-navigation" aria-label="Choose a teaching-page design">
+    <div><h1>Rebelo model · Teaching page designs</h1><p>The same model in three layouts. All controls are live.</p></div>
+    <div class="design-choices">
+      <button type="button" data-page-choice="lecture" aria-pressed="true">Lecture notes</button>
+      <button type="button" data-page-choice="desk" aria-pressed="false">Experiment desk</button>
+      <button type="button" data-page-choice="guided" aria-pressed="false">Guided lesson</button>
+    </div>
+  </nav>
+  <main>
+<div id="rebelo-design-options" class="design-pages" aria-label="Rebelo teaching page designs">
+  <section data-variant="Lecture notes" aria-label="Lecture notes design">
+    <article class="rp lecture" data-design="lecture" aria-label="Lecture notes design">
+      <header class="site-line"><span>Kwok Ping (Byron) Tsang</span><span>ECON 3204 · Teaching</span></header>
+      <div class="page-content">
+        <div class="hero"><span class="eyebrow">TOPIC 3 / ENDOGENOUS GROWTH</span><h1>The Rebelo model</h1><p>How should an economy divide its capital between producing consumption and producing more capital?</p></div>
+        <div class="notes-theory">
+          <section class="technology" aria-label="Production equations"><h2>The economy in three equations</h2><div data-mount="technology">
+  <p class="time-convention">Time is continuous. We assume one unit of <i>t</i> represents one year, so rates are measured per year.</p>
+  <div class="equation-list">
+    <div class="equation-item"><span class="equation-name">Consumption</span><span data-tex="C_t=B(\phi Z_t)^\alpha T^{1-\alpha}">Cₜ = B(φZₜ)ᵅ T¹⁻ᵅ</span><p>Capital and a fixed factor produce consumption goods.</p></div>
+    <div class="equation-item"><span class="equation-name">Investment</span><span data-tex="I_t=A(1-\phi)Z_t">Iₜ = A(1 − φ)Zₜ</span><p>The remaining capital produces new capital goods.</p></div>
+    <div class="equation-item"><span class="equation-name">Accumulation</span><span data-tex="\dot Z_t=I_t-\delta Z_t">Żₜ = Iₜ − δZₜ</span><p>New investment adds to capital; depreciation subtracts from it.</p></div>
+  </div>
+</div></section>
+          <aside class="notation" aria-label="Symbols"><h2>Read the symbols</h2><div data-mount="symbols">
+  <p class="phi-definition"><span data-tex="\phi">φ</span> is the <strong>fraction of capital used to produce consumption</strong>. The fraction 1 − φ produces new capital.</p>
+  <dl class="symbol-list">
+    <div><dt>Cₜ</dt><dd>Consumption output per year</dd></div>
+    <div><dt>Zₜ</dt><dd>Capital stock at time t</dd></div>
+    <div><dt>Iₜ</dt><dd>Gross investment per year</dd></div>
+    <div><dt>pₜ</dt><dd>Price of a capital good in consumption goods</dd></div>
+    <div><dt>B</dt><dd>Consumption-sector productivity</dd></div>
+    <div><dt>T</dt><dd>Fixed factor used in consumption production</dd></div>
+    <div><dt>t, Żₜ</dt><dd>Time in years; change in Z per year</dd></div>
+  </dl>
+</div></aside>
+        </div>
+        <section class="controls-area" aria-label="Parameters"><div class="section-heading"><h2>Choose the economy</h2><span>Rates are % per year</span></div><div data-mount="controls">
+  <div class="preset-row"><label>Example<select data-preset class="cursor-interaction"><option value="growth">Growing economy · log utility</option><option value="crra">Growing economy · CRRA</option><option value="shrink">Declining capital · positive investment</option><option value="corner">Zero-investment corner</option><option value="tree">No investment or depreciation</option><option value="ak">AK special case</option><option value="custom">Custom parameters</option></select></label><label>Horizon · years<input data-param="years" type="number" min="1" max="150" step="1" value="60"></label></div>
+  <div class="parameter-grid">
+    <label class="parameter"><span><b>A</b> · Investment productivity</span><input data-param="A" type="number" min="0.1" max="30" step="0.5" value="12"><small>% per year</small></label>
+    <label class="parameter"><span><b>δ</b> · Depreciation</span><input data-param="delta" type="number" min="0" max="20" step="0.5" value="3"><small>% per year</small></label>
+    <label class="parameter rho-field"><span><b>ρ</b> · Impatience</span><input data-param="rho" type="number" min="0.1" max="30" step="0.5" value="4"><small>% per year</small><input data-rho-slider type="range" min="0.1" max="30" step="0.1" value="4" aria-label="Impatience, percent per year" class="cursor-interaction"></label>
+    <label class="parameter"><span><b>σ</b> · Utility curvature</span><input data-param="sigma" type="number" min="0.1" max="5" step="0.1" value="1"><small>σ = 1: log utility</small></label>
+    <label class="parameter"><span><b>α</b> · Capital elasticity</span><input data-param="alpha" type="number" min="0.05" max="1" step="0.05" value="0.6"><small>In consumption production</small></label>
+  </div>
+  <details class="levels"><summary class="cursor-interaction">Initial capital and other inputs</summary><div class="level-grid">
+    <label><span><b>Z₀</b> · Initial capital</span><input data-param="Z0" type="number" min="0.01" max="1000" step="1" value="10"></label>
+    <label><span><b>B</b> · Consumption productivity</span><input data-param="B" type="number" min="0.01" max="10" step="0.1" value="1"></label>
+    <label><span><b>T</b> · Fixed factor</span><input data-param="T" type="number" min="0.01" max="100" step="1" value="1"></label>
+  </div><p class="small-note">These inputs change levels, but not the optimal share or growth rates.</p></details>
+</div></section>
+        <section class="results-area" aria-label="Optimal allocation and paths"><div data-mount="results">
+  <div class="solution-summary" aria-live="polite">
+    <div><span>Optimal allocation · φ</span><strong data-result="phi">33.33%</strong><small>Of capital in consumption production</small></div>
+    <div><span>Consumption growth · g<sub>C</sub></span><strong data-result="gc">3%</strong><small>Per year</small></div>
+    <div><span>Capital growth · g<sub>Z</sub></span><strong data-result="gz">5%</strong><small>Per year</small></div>
+  </div>
+  <div class="allocation-label"><span data-result="allocation-left">Consumption production: 33.33%</span><span data-result="allocation-right">Investment production: 66.67%</span></div>
+  <div class="allocation-bar" role="img" aria-label="Allocation of capital"><span data-allocation="consumption"></span><span data-allocation="investment"></span></div>
+  <p class="regime" data-result="status"></p>
+  <p class="error" data-result="error" role="alert" hidden></p>
+</div><div data-mount="charts">
+  <div class="chart-grid">
+    <figure data-chart="C"><figcaption><span>Consumption <i>C</i></span><small data-value="C"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="Z"><figcaption><span>Capital <i>Z</i></span><small data-value="Z"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="I"><figcaption><span>Gross investment <i>I</i></span><small data-value="I"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="p"><figcaption><span>Relative price <i>p</i></span><small data-value="p"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+  </div>
+  <p class="chart-note">Hover over a curve to read all four quantities at the same date. Tap to pin the values.</p>
+</div></section>
+        <div data-mount="reference">
+  <details class="solution-reference"><summary class="cursor-interaction">Household choice, optimal allocation, and prices</summary>
+    <div class="reference-grid">
+      <section><h3>Household choice</h3>
+        <div data-tex="g_C=\frac{r_C-\rho}{\sigma}">gC = (rC − ρ) / σ</div>
+        <p>r<sub>C</sub> is the net return measured in consumption goods. ρ discounts future utility; σ measures utility curvature. With log utility, σ = 1.</p>
+        <p>For any positive variable X, g<sub>X</sub> = Ẋ/X is its instantaneous proportional growth rate.</p>
+        <div class="branch-interior"><h3>When both sectors operate</h3><div data-tex="r_C=A-\delta+g_p">rC = A − δ + gp</div><div data-tex="p_t=\frac{\alpha B(\phi Z_t)^{\alpha-1}T^{1-\alpha}}{A}">pₜ = αB(φZₜ)ᵅ⁻¹T¹⁻ᵅ / A</div></div>
+        <div class="branch-corner" hidden><h3>At zero investment</h3><div data-tex="r_C=\rho-\sigma\alpha\delta">rC = ρ − σαδ</div><div data-tex="p_t=\frac{\alpha C_t/Z_t}{\rho+\alpha(1-\sigma)\delta}">pₜ = (αCₜ/Zₜ) / [ρ + α(1−σ)δ]</div><p>The active-sector price equality is replaced by an inequality when the investment sector shuts down.</p></div>
+      </section>
+      <section><h3>The constant optimal share</h3>
+        <div data-tex="D=1-\alpha(1-\sigma)">D = 1 − α(1 − σ)</div>
+        <div data-tex="\phi^*=\frac{\rho-\alpha(1-\sigma)(A-\delta)}{AD}">φ* = [ρ − α(1−σ)(A−δ)] / AD</div>
+        <p>D is a positive abbreviation. A finite-utility interior solution requires <span data-tex="0&lt;\phi^*&lt;1">0 &lt; φ* &lt; 1</span>.</p>
+        <div class="branch-interior"><div data-tex="g_Z=\frac{A-\delta-\rho}{D},\quad g_C=\alpha g_Z">gZ = (A − δ − ρ)/D; gC = αgZ</div><p>φ = φ*. The share stays constant along each path.</p></div>
+        <div class="branch-corner" hidden><div data-tex="\phi=1,\quad I_t=0">φ = 1; Iₜ = 0</div><div data-tex="g_Z=-\delta,\quad g_C=-\alpha\delta">gZ = −δ; gC = −αδ</div><p>The formula gives φ* ≥ 1, so the feasible optimum is the zero-investment corner.</p></div>
+        <p>With constant φ, <span data-tex="g_p=(\alpha-1)g_Z">gp = (α−1)gZ</span>. A positive numerator requires <span data-tex="\rho&gt;\alpha(1-\sigma)(A-\delta)">ρ &gt; α(1−σ)(A−δ)</span>.</p>
+      </section>
+    </div>
+    <div class="tvc-note"><strong>Why this allocation?</strong> Feasibility and the transversality condition select the optimal path. The discounted marginal value of capital left in the distant future must vanish: <span data-tex="\lim_{t\to\infty}e^{-\rho t}C_t^{-\sigma}p_tZ_t=0">lim e⁻ρᵗCₜ⁻σpₜZₜ = 0</span>.</div>
+  </details>
+</div>
+        <footer class="page-foot">Rebelo (1991) · Two-sector benchmark · Constant optimal allocation</footer>
+      </div>
+      <div class="rp-tooltip" role="tooltip" hidden></div>
+    </article>
+  </section>
+  <section data-variant="Experiment desk" aria-label="Experiment desk design" hidden>
+    <article class="rp desk" data-design="desk" aria-label="Experiment desk design">
+      <header class="site-line"><span>kptsang.com / Teaching</span><span>ECON 3204 · Topic 3</span></header>
+      <div class="page-content">
+        <div class="hero"><span class="eyebrow">INTERACTIVE ECONOMICS</span><h1>Rebelo model explorer</h1><p>Change the parameters. Follow the optimal economy through time.</p></div>
+        <div class="desk-layout">
+          <aside class="controls-area" aria-label="Parameters"><div class="section-heading"><h2>Your economy</h2></div><p class="small-note">Rates are % per year.</p><div data-mount="controls">
+  <div class="preset-row"><label>Example<select data-preset class="cursor-interaction"><option value="growth">Growing economy · log utility</option><option value="crra">Growing economy · CRRA</option><option value="shrink">Declining capital · positive investment</option><option value="corner">Zero-investment corner</option><option value="tree">No investment or depreciation</option><option value="ak">AK special case</option><option value="custom">Custom parameters</option></select></label><label>Horizon · years<input data-param="years" type="number" min="1" max="150" step="1" value="60"></label></div>
+  <div class="parameter-grid">
+    <label class="parameter"><span><b>A</b> · Investment productivity</span><input data-param="A" type="number" min="0.1" max="30" step="0.5" value="12"><small>% per year</small></label>
+    <label class="parameter"><span><b>δ</b> · Depreciation</span><input data-param="delta" type="number" min="0" max="20" step="0.5" value="3"><small>% per year</small></label>
+    <label class="parameter rho-field"><span><b>ρ</b> · Impatience</span><input data-param="rho" type="number" min="0.1" max="30" step="0.5" value="4"><small>% per year</small><input data-rho-slider type="range" min="0.1" max="30" step="0.1" value="4" aria-label="Impatience, percent per year" class="cursor-interaction"></label>
+    <label class="parameter"><span><b>σ</b> · Utility curvature</span><input data-param="sigma" type="number" min="0.1" max="5" step="0.1" value="1"><small>σ = 1: log utility</small></label>
+    <label class="parameter"><span><b>α</b> · Capital elasticity</span><input data-param="alpha" type="number" min="0.05" max="1" step="0.05" value="0.6"><small>In consumption production</small></label>
+  </div>
+  <details class="levels"><summary class="cursor-interaction">Initial capital and other inputs</summary><div class="level-grid">
+    <label><span><b>Z₀</b> · Initial capital</span><input data-param="Z0" type="number" min="0.01" max="1000" step="1" value="10"></label>
+    <label><span><b>B</b> · Consumption productivity</span><input data-param="B" type="number" min="0.01" max="10" step="0.1" value="1"></label>
+    <label><span><b>T</b> · Fixed factor</span><input data-param="T" type="number" min="0.01" max="100" step="1" value="1"></label>
+  </div><p class="small-note">These inputs change levels, but not the optimal share or growth rates.</p></details>
+</div></aside>
+          <div class="workbench">
+            <section class="technology" aria-label="Production equations"><h2>The model</h2><div data-mount="technology">
+  <p class="time-convention">Time is continuous. We assume one unit of <i>t</i> represents one year, so rates are measured per year.</p>
+  <div class="equation-list">
+    <div class="equation-item"><span class="equation-name">Consumption</span><span data-tex="C_t=B(\phi Z_t)^\alpha T^{1-\alpha}">Cₜ = B(φZₜ)ᵅ T¹⁻ᵅ</span><p>Capital and a fixed factor produce consumption goods.</p></div>
+    <div class="equation-item"><span class="equation-name">Investment</span><span data-tex="I_t=A(1-\phi)Z_t">Iₜ = A(1 − φ)Zₜ</span><p>The remaining capital produces new capital goods.</p></div>
+    <div class="equation-item"><span class="equation-name">Accumulation</span><span data-tex="\dot Z_t=I_t-\delta Z_t">Żₜ = Iₜ − δZₜ</span><p>New investment adds to capital; depreciation subtracts from it.</p></div>
+  </div>
+</div></section>
+            <section class="results-area" aria-label="Optimal allocation and paths"><div data-mount="results">
+  <div class="solution-summary" aria-live="polite">
+    <div><span>Optimal allocation · φ</span><strong data-result="phi">33.33%</strong><small>Of capital in consumption production</small></div>
+    <div><span>Consumption growth · g<sub>C</sub></span><strong data-result="gc">3%</strong><small>Per year</small></div>
+    <div><span>Capital growth · g<sub>Z</sub></span><strong data-result="gz">5%</strong><small>Per year</small></div>
+  </div>
+  <div class="allocation-label"><span data-result="allocation-left">Consumption production: 33.33%</span><span data-result="allocation-right">Investment production: 66.67%</span></div>
+  <div class="allocation-bar" role="img" aria-label="Allocation of capital"><span data-allocation="consumption"></span><span data-allocation="investment"></span></div>
+  <p class="regime" data-result="status"></p>
+  <p class="error" data-result="error" role="alert" hidden></p>
+</div><div data-mount="charts">
+  <div class="chart-grid">
+    <figure data-chart="C"><figcaption><span>Consumption <i>C</i></span><small data-value="C"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="Z"><figcaption><span>Capital <i>Z</i></span><small data-value="Z"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="I"><figcaption><span>Gross investment <i>I</i></span><small data-value="I"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="p"><figcaption><span>Relative price <i>p</i></span><small data-value="p"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+  </div>
+  <p class="chart-note">Hover over a curve to read all four quantities at the same date. Tap to pin the values.</p>
+</div></section>
+          </div>
+        </div>
+        <aside class="notation" aria-label="Symbols"><h2>Read the symbols</h2><div data-mount="symbols">
+  <p class="phi-definition"><span data-tex="\phi">φ</span> is the <strong>fraction of capital used to produce consumption</strong>. The fraction 1 − φ produces new capital.</p>
+  <dl class="symbol-list">
+    <div><dt>Cₜ</dt><dd>Consumption output per year</dd></div>
+    <div><dt>Zₜ</dt><dd>Capital stock at time t</dd></div>
+    <div><dt>Iₜ</dt><dd>Gross investment per year</dd></div>
+    <div><dt>pₜ</dt><dd>Price of a capital good in consumption goods</dd></div>
+    <div><dt>B</dt><dd>Consumption-sector productivity</dd></div>
+    <div><dt>T</dt><dd>Fixed factor used in consumption production</dd></div>
+    <div><dt>t, Żₜ</dt><dd>Time in years; change in Z per year</dd></div>
+  </dl>
+</div></aside>
+        <div data-mount="reference">
+  <details class="solution-reference"><summary class="cursor-interaction">Household choice, optimal allocation, and prices</summary>
+    <div class="reference-grid">
+      <section><h3>Household choice</h3>
+        <div data-tex="g_C=\frac{r_C-\rho}{\sigma}">gC = (rC − ρ) / σ</div>
+        <p>r<sub>C</sub> is the net return measured in consumption goods. ρ discounts future utility; σ measures utility curvature. With log utility, σ = 1.</p>
+        <p>For any positive variable X, g<sub>X</sub> = Ẋ/X is its instantaneous proportional growth rate.</p>
+        <div class="branch-interior"><h3>When both sectors operate</h3><div data-tex="r_C=A-\delta+g_p">rC = A − δ + gp</div><div data-tex="p_t=\frac{\alpha B(\phi Z_t)^{\alpha-1}T^{1-\alpha}}{A}">pₜ = αB(φZₜ)ᵅ⁻¹T¹⁻ᵅ / A</div></div>
+        <div class="branch-corner" hidden><h3>At zero investment</h3><div data-tex="r_C=\rho-\sigma\alpha\delta">rC = ρ − σαδ</div><div data-tex="p_t=\frac{\alpha C_t/Z_t}{\rho+\alpha(1-\sigma)\delta}">pₜ = (αCₜ/Zₜ) / [ρ + α(1−σ)δ]</div><p>The active-sector price equality is replaced by an inequality when the investment sector shuts down.</p></div>
+      </section>
+      <section><h3>The constant optimal share</h3>
+        <div data-tex="D=1-\alpha(1-\sigma)">D = 1 − α(1 − σ)</div>
+        <div data-tex="\phi^*=\frac{\rho-\alpha(1-\sigma)(A-\delta)}{AD}">φ* = [ρ − α(1−σ)(A−δ)] / AD</div>
+        <p>D is a positive abbreviation. A finite-utility interior solution requires <span data-tex="0&lt;\phi^*&lt;1">0 &lt; φ* &lt; 1</span>.</p>
+        <div class="branch-interior"><div data-tex="g_Z=\frac{A-\delta-\rho}{D},\quad g_C=\alpha g_Z">gZ = (A − δ − ρ)/D; gC = αgZ</div><p>φ = φ*. The share stays constant along each path.</p></div>
+        <div class="branch-corner" hidden><div data-tex="\phi=1,\quad I_t=0">φ = 1; Iₜ = 0</div><div data-tex="g_Z=-\delta,\quad g_C=-\alpha\delta">gZ = −δ; gC = −αδ</div><p>The formula gives φ* ≥ 1, so the feasible optimum is the zero-investment corner.</p></div>
+        <p>With constant φ, <span data-tex="g_p=(\alpha-1)g_Z">gp = (α−1)gZ</span>. A positive numerator requires <span data-tex="\rho&gt;\alpha(1-\sigma)(A-\delta)">ρ &gt; α(1−σ)(A−δ)</span>.</p>
+      </section>
+    </div>
+    <div class="tvc-note"><strong>Why this allocation?</strong> Feasibility and the transversality condition select the optimal path. The discounted marginal value of capital left in the distant future must vanish: <span data-tex="\lim_{t\to\infty}e^{-\rho t}C_t^{-\sigma}p_tZ_t=0">lim e⁻ρᵗCₜ⁻σpₜZₜ = 0</span>.</div>
+  </details>
+</div>
+        <footer class="page-foot">Rebelo (1991) · Two-sector benchmark · Constant optimal allocation</footer>
+      </div>
+      <div class="rp-tooltip" role="tooltip" hidden></div>
+    </article>
+  </section>
+  <section data-variant="Guided lesson" aria-label="Guided lesson design" hidden>
+    <article class="rp guided" data-design="guided" aria-label="Guided lesson design">
+      <header class="site-line"><span>Kwok Ping (Byron) Tsang</span><span>ECON 3204 · Topic 3</span></header>
+      <div class="page-content">
+        <div class="hero"><span class="eyebrow">EXPLORE A QUESTION</span><h1>More consumption today.<br>What happens tomorrow?</h1><p>Start with the model. Then change impatience, ρ, and trace the consequences.</p></div>
+        <section class="lesson-model">
+          <div class="lesson-heading"><span class="step-label">1</span><h2>One capital stock, two uses</h2></div>
+          <div class="guided-theory"><div class="technology" data-mount="technology">
+  <p class="time-convention">Time is continuous. We assume one unit of <i>t</i> represents one year, so rates are measured per year.</p>
+  <div class="equation-list">
+    <div class="equation-item"><span class="equation-name">Consumption</span><span data-tex="C_t=B(\phi Z_t)^\alpha T^{1-\alpha}">Cₜ = B(φZₜ)ᵅ T¹⁻ᵅ</span><p>Capital and a fixed factor produce consumption goods.</p></div>
+    <div class="equation-item"><span class="equation-name">Investment</span><span data-tex="I_t=A(1-\phi)Z_t">Iₜ = A(1 − φ)Zₜ</span><p>The remaining capital produces new capital goods.</p></div>
+    <div class="equation-item"><span class="equation-name">Accumulation</span><span data-tex="\dot Z_t=I_t-\delta Z_t">Żₜ = Iₜ − δZₜ</span><p>New investment adds to capital; depreciation subtracts from it.</p></div>
+  </div>
+</div><aside class="notation" aria-label="Symbols"><div data-mount="symbols">
+  <p class="phi-definition"><span data-tex="\phi">φ</span> is the <strong>fraction of capital used to produce consumption</strong>. The fraction 1 − φ produces new capital.</p>
+  <dl class="symbol-list">
+    <div><dt>Cₜ</dt><dd>Consumption output per year</dd></div>
+    <div><dt>Zₜ</dt><dd>Capital stock at time t</dd></div>
+    <div><dt>Iₜ</dt><dd>Gross investment per year</dd></div>
+    <div><dt>pₜ</dt><dd>Price of a capital good in consumption goods</dd></div>
+    <div><dt>B</dt><dd>Consumption-sector productivity</dd></div>
+    <div><dt>T</dt><dd>Fixed factor used in consumption production</dd></div>
+    <div><dt>t, Żₜ</dt><dd>Time in years; change in Z per year</dd></div>
+  </dl>
+</div></aside></div>
+        </section>
+        <section class="controls-area" aria-label="Experiment with parameters">
+          <div class="lesson-heading"><span class="step-label">2</span><h2>Make households more impatient</h2></div>
+          <p class="lesson-prompt">Before changing ρ, predict: will more capital go to consumption production? Will capital grow faster or slower?</p>
+          <div data-mount="controls">
+  <div class="preset-row"><label>Example<select data-preset class="cursor-interaction"><option value="growth">Growing economy · log utility</option><option value="crra">Growing economy · CRRA</option><option value="shrink">Declining capital · positive investment</option><option value="corner">Zero-investment corner</option><option value="tree">No investment or depreciation</option><option value="ak">AK special case</option><option value="custom">Custom parameters</option></select></label><label>Horizon · years<input data-param="years" type="number" min="1" max="150" step="1" value="60"></label></div>
+  <div class="parameter-grid">
+    <label class="parameter"><span><b>A</b> · Investment productivity</span><input data-param="A" type="number" min="0.1" max="30" step="0.5" value="12"><small>% per year</small></label>
+    <label class="parameter"><span><b>δ</b> · Depreciation</span><input data-param="delta" type="number" min="0" max="20" step="0.5" value="3"><small>% per year</small></label>
+    <label class="parameter rho-field"><span><b>ρ</b> · Impatience</span><input data-param="rho" type="number" min="0.1" max="30" step="0.5" value="4"><small>% per year</small><input data-rho-slider type="range" min="0.1" max="30" step="0.1" value="4" aria-label="Impatience, percent per year" class="cursor-interaction"></label>
+    <label class="parameter"><span><b>σ</b> · Utility curvature</span><input data-param="sigma" type="number" min="0.1" max="5" step="0.1" value="1"><small>σ = 1: log utility</small></label>
+    <label class="parameter"><span><b>α</b> · Capital elasticity</span><input data-param="alpha" type="number" min="0.05" max="1" step="0.05" value="0.6"><small>In consumption production</small></label>
+  </div>
+  <details class="levels"><summary class="cursor-interaction">Initial capital and other inputs</summary><div class="level-grid">
+    <label><span><b>Z₀</b> · Initial capital</span><input data-param="Z0" type="number" min="0.01" max="1000" step="1" value="10"></label>
+    <label><span><b>B</b> · Consumption productivity</span><input data-param="B" type="number" min="0.01" max="10" step="0.1" value="1"></label>
+    <label><span><b>T</b> · Fixed factor</span><input data-param="T" type="number" min="0.01" max="100" step="1" value="1"></label>
+  </div><p class="small-note">These inputs change levels, but not the optimal share or growth rates.</p></details>
+</div>
+        </section>
+        <section class="results-area" aria-label="Optimal allocation and paths">
+          <div class="lesson-heading"><span class="step-label">3</span><h2>Follow the optimal path</h2></div>
+          <div data-mount="results">
+  <div class="solution-summary" aria-live="polite">
+    <div><span>Optimal allocation · φ</span><strong data-result="phi">33.33%</strong><small>Of capital in consumption production</small></div>
+    <div><span>Consumption growth · g<sub>C</sub></span><strong data-result="gc">3%</strong><small>Per year</small></div>
+    <div><span>Capital growth · g<sub>Z</sub></span><strong data-result="gz">5%</strong><small>Per year</small></div>
+  </div>
+  <div class="allocation-label"><span data-result="allocation-left">Consumption production: 33.33%</span><span data-result="allocation-right">Investment production: 66.67%</span></div>
+  <div class="allocation-bar" role="img" aria-label="Allocation of capital"><span data-allocation="consumption"></span><span data-allocation="investment"></span></div>
+  <p class="regime" data-result="status"></p>
+  <p class="error" data-result="error" role="alert" hidden></p>
+</div><div class="live-insight" aria-live="polite"></div><div data-mount="charts">
+  <div class="chart-grid">
+    <figure data-chart="C"><figcaption><span>Consumption <i>C</i></span><small data-value="C"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="Z"><figcaption><span>Capital <i>Z</i></span><small data-value="Z"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="I"><figcaption><span>Gross investment <i>I</i></span><small data-value="I"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+    <figure data-chart="p"><figcaption><span>Relative price <i>p</i></span><small data-value="p"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
+  </div>
+  <p class="chart-note">Hover over a curve to read all four quantities at the same date. Tap to pin the values.</p>
+</div>
+        </section>
+        <div data-mount="reference">
+  <details class="solution-reference"><summary class="cursor-interaction">Household choice, optimal allocation, and prices</summary>
+    <div class="reference-grid">
+      <section><h3>Household choice</h3>
+        <div data-tex="g_C=\frac{r_C-\rho}{\sigma}">gC = (rC − ρ) / σ</div>
+        <p>r<sub>C</sub> is the net return measured in consumption goods. ρ discounts future utility; σ measures utility curvature. With log utility, σ = 1.</p>
+        <p>For any positive variable X, g<sub>X</sub> = Ẋ/X is its instantaneous proportional growth rate.</p>
+        <div class="branch-interior"><h3>When both sectors operate</h3><div data-tex="r_C=A-\delta+g_p">rC = A − δ + gp</div><div data-tex="p_t=\frac{\alpha B(\phi Z_t)^{\alpha-1}T^{1-\alpha}}{A}">pₜ = αB(φZₜ)ᵅ⁻¹T¹⁻ᵅ / A</div></div>
+        <div class="branch-corner" hidden><h3>At zero investment</h3><div data-tex="r_C=\rho-\sigma\alpha\delta">rC = ρ − σαδ</div><div data-tex="p_t=\frac{\alpha C_t/Z_t}{\rho+\alpha(1-\sigma)\delta}">pₜ = (αCₜ/Zₜ) / [ρ + α(1−σ)δ]</div><p>The active-sector price equality is replaced by an inequality when the investment sector shuts down.</p></div>
+      </section>
+      <section><h3>The constant optimal share</h3>
+        <div data-tex="D=1-\alpha(1-\sigma)">D = 1 − α(1 − σ)</div>
+        <div data-tex="\phi^*=\frac{\rho-\alpha(1-\sigma)(A-\delta)}{AD}">φ* = [ρ − α(1−σ)(A−δ)] / AD</div>
+        <p>D is a positive abbreviation. A finite-utility interior solution requires <span data-tex="0&lt;\phi^*&lt;1">0 &lt; φ* &lt; 1</span>.</p>
+        <div class="branch-interior"><div data-tex="g_Z=\frac{A-\delta-\rho}{D},\quad g_C=\alpha g_Z">gZ = (A − δ − ρ)/D; gC = αgZ</div><p>φ = φ*. The share stays constant along each path.</p></div>
+        <div class="branch-corner" hidden><div data-tex="\phi=1,\quad I_t=0">φ = 1; Iₜ = 0</div><div data-tex="g_Z=-\delta,\quad g_C=-\alpha\delta">gZ = −δ; gC = −αδ</div><p>The formula gives φ* ≥ 1, so the feasible optimum is the zero-investment corner.</p></div>
+        <p>With constant φ, <span data-tex="g_p=(\alpha-1)g_Z">gp = (α−1)gZ</span>. A positive numerator requires <span data-tex="\rho&gt;\alpha(1-\sigma)(A-\delta)">ρ &gt; α(1−σ)(A−δ)</span>.</p>
+      </section>
+    </div>
+    <div class="tvc-note"><strong>Why this allocation?</strong> Feasibility and the transversality condition select the optimal path. The discounted marginal value of capital left in the distant future must vanish: <span data-tex="\lim_{t\to\infty}e^{-\rho t}C_t^{-\sigma}p_tZ_t=0">lim e⁻ρᵗCₜ⁻σpₜZₜ = 0</span>.</div>
+  </details>
+</div>
+        <footer class="page-foot">Rebelo (1991) · Two-sector benchmark · Constant optimal allocation</footer>
+      </div>
+      <div class="rp-tooltip" role="tooltip" hidden></div>
+    </article>
+  </section>
+</div>
+
+<style>
+  #rebelo-design-options > section { min-height: 100px; }
+  #rebelo-design-options .rp {
+    --rp-paper: light-dark(#ffffff, #171c22);
+    --rp-ink: light-dark(#192b32, #e5edf1);
+    --rp-secondary: light-dark(#52616a, #b0bdc5);
+    --rp-rule: light-dark(#dce3e5, #3a454e);
+    --rp-soft: light-dark(#f3f6f7, #232d35);
+    --rp-accent: light-dark(#136e70, #79cdca);
+    --rp-accent-soft: light-dark(#e8f3f1, #203d3d);
+    --rp-error: light-dark(#9b2525, #ffb9b9);
+    --rp-font: system-ui, -apple-system, "Segoe UI", sans-serif;
+    position: relative; background: var(--rp-paper); color: var(--rp-ink);
+    font-family: var(--rp-font); font-size: 14px; line-height: 1.55; border: 1px solid var(--rp-rule);
+    border-radius: 14px; overflow: clip; min-width: 0;
+  }
+  #rebelo-design-options .rp *, #rebelo-design-options .rp *::before, #rebelo-design-options .rp *::after { box-sizing: border-box; }
+  #rebelo-design-options .rp [hidden] { display: none !important; }
+  #rebelo-design-options .rp h1, #rebelo-design-options .rp h2, #rebelo-design-options .rp h3, #rebelo-design-options .rp p { margin: 0; }
+  #rebelo-design-options .rp h1 { font-size: 34px; line-height: 1.16; font-weight: 600; letter-spacing: -1px; margin: 10px 0 12px; }
+  #rebelo-design-options .rp h2 { font-size: 17px; line-height: 1.35; font-weight: 600; letter-spacing: -.2px; }
+  #rebelo-design-options .rp h3 { font-size: 15px; font-weight: 600; margin: 14px 0 8px; }
+  #rebelo-design-options .rp strong, #rebelo-design-options .rp b { font-weight: 600; }
+  #rebelo-design-options .rp small { font-size: 12px; }
+  #rebelo-design-options .site-line { display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; padding: 16px 30px; padding-right: 100px; border-bottom: 1px solid var(--rp-rule); font-size: 12px; color: var(--rp-secondary); }
+  #rebelo-design-options .page-content { padding: 30px; }
+  #rebelo-design-options .hero { max-width: 720px; margin-bottom: 30px; }
+  #rebelo-design-options .hero p { max-width: 600px; color: var(--rp-secondary); font-size: 15px; }
+  #rebelo-design-options .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.8px; }
+  #rebelo-design-options .section-heading { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px 15px; margin-bottom: 14px; }
+  #rebelo-design-options .section-heading > span, #rebelo-design-options .small-note { font-size: 12px; color: var(--rp-secondary); }
+  #rebelo-design-options .notes-theory { display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; padding: 26px 0; border-top: 1px solid var(--rp-rule); border-bottom: 1px solid var(--rp-rule); }
+  #rebelo-design-options .notes-theory .notation { border-left: 1px solid var(--rp-rule); padding-left: 28px; }
+  #rebelo-design-options .rp .time-convention { margin: 12px 0 16px; font-size: 12px; color: var(--rp-secondary); }
+  #rebelo-design-options .equation-list { display: grid; gap: 18px; margin-top: 16px; }
+  #rebelo-design-options .equation-item > [data-tex] { display: block; font-size: 18px; margin: 3px 0 4px; }
+  #rebelo-design-options .equation-name { font-size: 12px; color: var(--rp-secondary); }
+  #rebelo-design-options .equation-item p { font-size: 12px; color: var(--rp-secondary); }
+  #rebelo-design-options .phi-definition { margin-top: 16px !important; margin-bottom: 16px !important; }
+  #rebelo-design-options .symbol-list { margin: 0; display: grid; gap: 9px; }
+  #rebelo-design-options .symbol-list > div { display: grid; grid-template-columns: 48px minmax(0,1fr); gap: 12px; }
+  #rebelo-design-options .symbol-list dt { font-family: Georgia,serif; font-size: 17px; font-style: italic; }
+  #rebelo-design-options .symbol-list dd { margin: 0; color: var(--rp-secondary); font-size: 12px; align-self: center; }
+  #rebelo-design-options .controls-area { margin-top: 28px; }
+  #rebelo-design-options .preset-row { display: grid; grid-template-columns: minmax(0,1fr) 130px; gap: 16px; margin-bottom: 18px; }
+  #rebelo-design-options .rp label { display: grid; gap: 6px; min-width: 0; font-size: 12px; color: var(--rp-ink); }
+  #rebelo-design-options .rp input, #rebelo-design-options .rp select { font: inherit; font-size: 14px; color: var(--rp-ink); background: var(--rp-paper); border: 1px solid var(--rp-rule); border-radius: 7px; min-width: 0; width: 100%; padding: 9px 10px; }
+  #rebelo-design-options .rp input { font-variant-numeric: tabular-nums; }
+  #rebelo-design-options .rp select { padding-right: 23px; text-overflow: ellipsis; }
+  #rebelo-design-options .rp input[type="range"] { padding: 0; accent-color: var(--rp-accent); height: 30px; border: 0; }
+  #rebelo-design-options .parameter-grid { display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 12px; }
+  #rebelo-design-options .parameter { grid-template-rows: minmax(36px,auto) 40px auto; align-content: start; }
+  #rebelo-design-options .parameter > small { color: var(--rp-secondary); font-size: 11px; }
+  #rebelo-design-options .rp [data-rho-slider] { display: none; }
+  #rebelo-design-options .levels { margin-top: 17px; }
+  #rebelo-design-options .rp summary { font-size: 13px; padding: 7px 0; color: var(--rp-secondary); }
+  #rebelo-design-options .level-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 12px 0; }
+  #rebelo-design-options .solution-summary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; margin: 24px 0 18px; padding-top: 24px; border-top: 1px solid var(--rp-rule); }
+  #rebelo-design-options .solution-summary span { display: block; font-size: 12px; }
+  #rebelo-design-options .solution-summary strong { font-size: 29px; line-height: 1.4; display: block; font-variant-numeric: tabular-nums; letter-spacing: -.5px; font-weight: 500; }
+  #rebelo-design-options .solution-summary small { display: block; color: var(--rp-secondary); font-size: 11px; }
+  #rebelo-design-options .allocation-label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 5px 20px; font-size: 11px; color: var(--rp-secondary); margin-bottom: 6px; }
+  #rebelo-design-options .allocation-bar { display: flex; height: 8px; gap: 3px; margin-bottom: 12px; }
+  #rebelo-design-options .allocation-bar span:first-child { background: var(--rp-accent); width: 33.33%; }
+  #rebelo-design-options .allocation-bar span:last-child { background: var(--rp-rule); flex: 1; }
+  #rebelo-design-options .regime { font-size: 12px; color: var(--rp-secondary); margin: 10px 0 20px !important; }
+  #rebelo-design-options .error { color: var(--rp-error); padding: 12px 0; }
+  #rebelo-design-options .chart-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px 22px; }
+  #rebelo-design-options .rp figure { min-width: 0; margin: 0; }
+  #rebelo-design-options .rp figcaption { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+  #rebelo-design-options .rp figcaption > span { font-weight: 600; font-size: 14px; }
+  #rebelo-design-options .rp figcaption > small { color: var(--rp-secondary); font-variant-numeric: tabular-nums; font-size: 11px; }
+  #rebelo-design-options .model-chart { display: block; width: 100%; overflow: visible; }
+  #rebelo-design-options .model-chart text { fill: var(--rp-secondary); font-family: var(--rp-font); font-size: 11px; font-weight: 400; }
+  #rebelo-design-options .model-chart .domain { display: none; }
+  #rebelo-design-options .model-chart .tick line { stroke: var(--rp-rule); }
+  #rebelo-design-options .chart-note { font-size: 11px; color: var(--rp-secondary); margin: 12px 0 20px !important; }
+  #rebelo-design-options .solution-reference { border-top: 1px solid var(--rp-rule); border-bottom: 1px solid var(--rp-rule); margin-top: 20px; padding: 8px 0; }
+  #rebelo-design-options .solution-reference > summary { color: var(--rp-ink); font-weight: 600; }
+  #rebelo-design-options .reference-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 28px; padding: 4px 0 18px; }
+  #rebelo-design-options .reference-grid p { font-size: 12px; color: var(--rp-secondary); margin: 9px 0; }
+  #rebelo-design-options .reference-grid [data-tex] { margin: 7px 0; }
+  #rebelo-design-options .reference-grid p [data-tex] { white-space: normal; }
+  #rebelo-design-options .tvc-note { font-size: 12px; border-top: 1px solid var(--rp-rule); padding: 16px 0 10px; }
+  #rebelo-design-options .page-foot { color: var(--rp-secondary); font-size: 11px; margin-top: 22px; }
+  #rebelo-design-options .rp-tooltip { position: absolute; z-index: 5; background: var(--rp-paper); border: 1px solid var(--rp-rule); border-radius: 8px; padding: 10px 14px; box-shadow: 0 5px 20px #0002; pointer-events: none; font-size: 12px; width: 225px; }
+  #rebelo-design-options .rp-tooltip > div { display: flex; justify-content: space-between; gap: 20px; font-variant-numeric: tabular-nums; }
+  #rebelo-design-options .rp-tooltip > p { font-weight: 600; margin-bottom: 6px; }
+  #rebelo-design-options .lecture { --rp-paper: light-dark(#fffcf7,#211f1b); --rp-soft: light-dark(#f5f0e7,#2f2a22); --rp-rule: light-dark(#e1dbd1,#484237); --rp-ink: light-dark(#302d28,#eee8df); --rp-secondary: light-dark(#696257,#beb5a8); --rp-accent: light-dark(#526b4b,#a9c69e); }
+  #rebelo-design-options .lecture h1 { font-family: Georgia, "Times New Roman", serif; font-size: 43px; letter-spacing: -1.1px; font-weight: 400; }
+  #rebelo-design-options .lecture h2 { font-family: Georgia, "Times New Roman", serif; font-size: 21px; font-weight: 400; }
+  #rebelo-design-options .desk .hero { margin-bottom: 24px; }
+  #rebelo-design-options .desk-layout { display: grid; grid-template-columns: 228px minmax(0,1fr); gap: 26px; }
+  #rebelo-design-options .desk .controls-area { margin: 0; padding: 18px; border-radius: 10px; background: var(--rp-soft); }
+  #rebelo-design-options .desk .preset-row { grid-template-columns: minmax(0,1fr); gap: 12px; margin-top: 14px; }
+  #rebelo-design-options .desk .parameter-grid, #rebelo-design-options .desk .level-grid { grid-template-columns: minmax(0,1fr); }
+  #rebelo-design-options .desk .parameter { grid-template-rows: auto 38px auto; gap: 3px; }
+  #rebelo-design-options .desk .parameter-grid { gap: 14px; }
+  #rebelo-design-options .desk .parameter > small { font-size: 11px; }
+  #rebelo-design-options .desk .levels summary { font-size: 12px; }
+  #rebelo-design-options .desk .technology { border-bottom: 1px solid var(--rp-rule); padding-bottom: 18px; }
+  #rebelo-design-options .desk .equation-list { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
+  #rebelo-design-options .desk .equation-item > [data-tex] { font-size: 14px; }
+  #rebelo-design-options .desk .equation-item p { font-size: 11px; }
+  #rebelo-design-options .desk .solution-summary { margin-top: 0; border: 0; }
+  #rebelo-design-options .desk .solution-summary strong { font-size: 26px; }
+  #rebelo-design-options .desk .notation { border-top: 1px solid var(--rp-rule); padding-top: 22px; margin-top: 26px; }
+  #rebelo-design-options .desk .symbol-list { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px 22px; }
+  #rebelo-design-options .guided { --rp-accent: light-dark(#3f60a7,#9fbcff); --rp-accent-soft: light-dark(#edf2fc,#253044); }
+  #rebelo-design-options .guided .hero { background: var(--rp-accent-soft); margin: -30px -30px 30px; max-width: none; padding: 34px 30px; }
+  #rebelo-design-options .guided .hero h1 { font-size: 36px; max-width: 650px; }
+  #rebelo-design-options .lesson-heading { display: flex; gap: 12px; align-items: center; margin-bottom: 15px; }
+  #rebelo-design-options .step-label { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; width: 28px; height: 28px; background: var(--rp-accent-soft); font-size: 12px; font-weight: 600; }
+  #rebelo-design-options .guided-theory { display: grid; grid-template-columns: 1.1fr 1fr; gap: 32px; }
+  #rebelo-design-options .guided .equation-list { margin-top: 0; gap: 15px; }
+  #rebelo-design-options .guided .phi-definition { margin-top: 0 !important; }
+  #rebelo-design-options .guided .controls-area { padding: 24px; background: var(--rp-soft); border-radius: 10px; margin: 28px 0; }
+  #rebelo-design-options .lesson-prompt { color: var(--rp-secondary); max-width: 700px; margin-bottom: 18px !important; }
+  #rebelo-design-options .guided .preset-row { display: none; }
+  #rebelo-design-options .guided .parameter-grid { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  #rebelo-design-options .guided .rho-field { grid-column: 1 / -1; grid-row: 1; display: grid; grid-template-columns: 190px 80px 1fr; grid-template-rows: auto; align-items: center; gap: 10px; margin-bottom: 16px; }
+  #rebelo-design-options .guided .rho-field [data-rho-slider] { display: block; grid-column: 1 / -1; }
+  #rebelo-design-options .guided .solution-summary { border: 0; padding-top: 0; }
+  #rebelo-design-options .live-insight { color: var(--rp-secondary); margin: -5px 0 20px; padding-left: 15px; border-left: 3px solid var(--rp-accent); font-size: 13px; }
+  @media (max-width: 860px) {
+    #rebelo-design-options .desk-layout { grid-template-columns: 200px minmax(0,1fr); gap: 20px; }
+    #rebelo-design-options .desk .equation-list { grid-template-columns: minmax(0,1fr); gap: 10px; }
+    #rebelo-design-options .desk .equation-item { display: grid; grid-template-columns: 86px minmax(0,1fr); align-items: center; }
+    #rebelo-design-options .desk .equation-item p { grid-column: 1 / -1; }
+    #rebelo-design-options .desk .chart-grid { grid-template-columns: minmax(0,1fr); }
+    #rebelo-design-options .desk .solution-summary { gap: 10px; }
+    #rebelo-design-options .desk .solution-summary span { font-size: 11px; }
+  }
+  @media (max-width: 680px) {
+    #rebelo-design-options .page-content { padding: 22px; }
+    #rebelo-design-options .site-line { padding-left: 22px; padding-right: 90px; }
+    #rebelo-design-options .notes-theory, #rebelo-design-options .guided-theory { grid-template-columns: minmax(0,1fr); gap: 24px; }
+    #rebelo-design-options .notes-theory .notation { padding-left: 0; border-left: 0; border-top: 1px solid var(--rp-rule); padding-top: 20px; }
+    #rebelo-design-options .parameter-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    #rebelo-design-options .chart-grid, #rebelo-design-options .reference-grid { grid-template-columns: minmax(0,1fr); }
+    #rebelo-design-options .desk-layout { grid-template-columns: minmax(0,1fr); }
+    #rebelo-design-options .desk .parameter-grid { grid-template-columns: repeat(3,minmax(0,1fr)); }
+    #rebelo-design-options .desk .symbol-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    #rebelo-design-options .desk .preset-row { grid-template-columns: minmax(0,1fr) 110px; }
+    #rebelo-design-options .desk .equation-list { grid-template-columns: minmax(0,1fr); }
+    #rebelo-design-options .desk .equation-item > [data-tex] { font-size: 18px; }
+    #rebelo-design-options .guided .hero { margin: -22px -22px 26px; padding: 30px 22px; }
+    #rebelo-design-options .guided .parameter-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    #rebelo-design-options .guided .rho-field { grid-template-columns: minmax(0,1fr) 80px; }
+    #rebelo-design-options .guided .rho-field > small { grid-column: 2; }
+  }
+  @media (max-width: 440px) {
+    #rebelo-design-options .page-content { padding: 18px; }
+    #rebelo-design-options .site-line { padding-left: 18px; padding-right: 90px; }
+    #rebelo-design-options .rp h1, #rebelo-design-options .lecture h1, #rebelo-design-options .guided .hero h1 { font-size: 30px; }
+    #rebelo-design-options .hero p { font-size: 14px; }
+    #rebelo-design-options .parameter-grid, #rebelo-design-options .desk .parameter-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    #rebelo-design-options .preset-row, #rebelo-design-options .desk .preset-row, #rebelo-design-options .level-grid { grid-template-columns: minmax(0,1fr); }
+    #rebelo-design-options .solution-summary { grid-template-columns: minmax(0,1fr); gap: 13px; }
+    #rebelo-design-options .solution-summary > div { display: grid; grid-template-columns: minmax(0,1fr) 85px; align-items: center; }
+    #rebelo-design-options .solution-summary strong { grid-column: 2; grid-row: 1 / 3; text-align: right; font-size: 25px; }
+    #rebelo-design-options .solution-summary small { grid-column: 1; }
+    #rebelo-design-options .desk .symbol-list { grid-template-columns: minmax(0,1fr); }
+    #rebelo-design-options .desk .controls-area, #rebelo-design-options .guided .controls-area { padding: 14px; }
+    #rebelo-design-options .guided .hero { margin: -18px -18px 26px; padding: 26px 18px; }
+    #rebelo-design-options .guided .rho-field { grid-template-columns: minmax(0,1fr) 65px; }
+    #rebelo-design-options .rp input, #rebelo-design-options .rp select { font-size: 16px; }
+    #rebelo-design-options .equation-item > [data-tex], #rebelo-design-options .desk .equation-item > [data-tex] { font-size: 16px; }
+    #rebelo-design-options .reference-grid { gap: 10px; }
+    #rebelo-design-options .reference-grid > section > [data-tex], #rebelo-design-options .reference-grid .branch-interior > [data-tex], #rebelo-design-options .reference-grid .branch-corner > [data-tex] { font-size: 12px; }
+  }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+<script data-rebelo-model>
+(() => {
+  "use strict";
+  const defaults = Object.freeze({ A: 0.12, delta: 0.03, rho: 0.04, sigma: 1, alpha: 0.6, B: 1, T: 1, Z0: 10, years: 60 });
+  const limits = Object.freeze({
+    A: [0.001, 0.3], delta: [0, 0.2], rho: [0.001, 0.3],
+    sigma: [0.1, 5], alpha: [0.05, 1], B: [0.01, 10],
+    T: [0.01, 100], Z0: [0.01, 1000], years: [1, 150]
+  });
+  const examples = Object.freeze({
+    growth: { ...defaults },
+    crra: { ...defaults, sigma: 2 },
+    shrink: { ...defaults, A: 0.06, delta: 0.04 },
+    corner: { ...defaults, A: 0.025 },
+    tree: { ...defaults, A: 0.025, delta: 0 },
+    ak: { ...defaults, alpha: 1, B: 0.12 }
+  });
+  function solve(params) {
+    const p = { ...params };
+    for (const [key, range] of Object.entries(limits)) {
+      if (!Number.isFinite(p[key]) || p[key] < range[0] - 1e-12 || p[key] > range[1] + 1e-12)
+        return { valid: false, reason: "input", key };
+    }
+    const r = p.A - p.delta;
+    const D = 1 - p.alpha * (1 - p.sigma);
+    const threshold = p.alpha * (1 - p.sigma) * r;
+    const numerator = p.rho - threshold;
+    const phiCandidate = numerator / (p.A * D);
+    if (!(numerator > 0)) return { valid: false, reason: "utility", threshold, phiCandidate };
+    const corner = phiCandidate >= 1;
+    const phi = corner ? 1 : phiCandidate;
+    const gz = corner ? -p.delta : (r - p.rho) / D;
+    const gc = p.alpha * gz;
+    const gp = (p.alpha - 1) * gz;
+    const rc = p.rho + p.sigma * gc;
+    const rz = rc - gp;
+    // At the investment boundary, pA = q is replaced by pA <= q.
+    // With q = alpha*C/Z, the asset price is q / [rho+alpha*(1-sigma)*delta].
+    const priceDivisor = corner ? p.rho + p.alpha * (1 - p.sigma) * p.delta : p.A;
+    const C0 = p.B * Math.pow(phi * p.Z0, p.alpha) * Math.pow(p.T, 1 - p.alpha);
+    const q0 = p.alpha * C0 / (phi * p.Z0);
+    const p0 = q0 / priceDivisor;
+    const kappa = p.rho - (1 - p.sigma) * gc;
+    return { valid: true, corner, phiCandidate, phi, gz, gc, gp, rc, rz, C0, p0, kappa, threshold, D };
+  }
+  function at(params, solution, t) {
+    if (!solution.valid || !Number.isFinite(t) || t < 0) return null;
+    const Z = params.Z0 * Math.exp(solution.gz * t);
+    const C = solution.C0 * Math.exp(solution.gc * t);
+    const I = solution.corner ? 0 : params.A * (1 - solution.phi) * Z;
+    const p = solution.p0 * Math.exp(solution.gp * t);
+    return { t, C, Z, I, p, phi: solution.phi, wealth: p * Z, grossOutput: C + p * I,
+      netOutput: C + p * solution.gz * Z, tvcNormalized: Math.exp(-solution.kappa * t) };
+  }
+  window.RebeloOptimalModel = Object.freeze({ defaults, limits, examples, solve, at });
+})();
+</script>
+<script>
+(() => {
+  "use strict";
+  const root = document.getElementById("rebelo-design-options");
+  const M = window.RebeloOptimalModel;
+  const rateFields = new Set(["A", "rho", "delta"]);
+  const specs = [
+    { key: "C", name: "Consumption", unit: "C goods / year" },
+    { key: "Z", name: "Capital", unit: "Capital goods" },
+    { key: "I", name: "Gross investment", unit: "Capital goods / year" },
+    { key: "p", name: "Relative price", unit: "C goods / capital good" }
+  ];
+  const pct = x => `${Number((100 * x).toFixed(2))}%`;
+  const num = x => Math.abs(x) >= 10000 || (x !== 0 && Math.abs(x) < .001) ? d3.format(".3~g")(x) : Number(x.toFixed(3)).toLocaleString("en-US");
+  const states = [];
+  for (const article of root.querySelectorAll(".rp")) {
+    for (const el of article.querySelectorAll("[data-tex]")) {
+      if (window.katex) katex.render(el.dataset.tex, el, { throwOnError: false, output: "htmlAndMathml" });
+    }
+    const state = {
+      article, params: { ...M.defaults }, solution: null, charts: new Map(), pinned: false, draws: 0,
+      fields: Object.fromEntries([...article.querySelectorAll("[data-param]")].map(el => [el.dataset.param, el])),
+      preset: article.querySelector("[data-preset]"), slider: article.querySelector("[data-rho-slider]"),
+      tip: article.querySelector(".rp-tooltip")
+    };
+    state.result = key => article.querySelector(`[data-result="${key}"]`);
+    states.push(state);
+  }
+  function setFields(st) {
+    for (const [key, el] of Object.entries(st.fields)) el.value = Number((st.params[key] * (rateFields.has(key) ? 100 : 1)).toPrecision(12));
+    st.slider.value = st.params.rho * 100;
+  }
+  function hideTip(st) {
+    st.tip.hidden = true;
+    for (const ch of st.charts.values()) ch.svg.selectAll("[data-chart-hover-guide],[data-chart-hover-marker]").attr("visibility", "hidden");
+  }
+  function showTip(st, t, event) {
+    const point = M.at(st.params, st.solution, Math.max(0, Math.min(st.params.years, t)));
+    if (!point) return;
+    for (const [key, ch] of st.charts) {
+      ch.svg.select("[data-chart-hover-guide]").attr("x1", ch.x(point.t)).attr("x2", ch.x(point.t)).attr("visibility", "visible");
+      ch.svg.select("[data-chart-hover-marker]").attr("cx", ch.x(point.t)).attr("cy", ch.y(point[key])).attr("visibility", "visible");
+    }
+    st.tip.replaceChildren();
+    const title = document.createElement("p"); title.textContent = `Year ${num(point.t)}`; st.tip.append(title);
+    for (const spec of specs) {
+      const row = document.createElement("div"), label = document.createElement("span"), value = document.createElement("span");
+      label.textContent = spec.name; value.textContent = num(point[spec.key]); row.append(label, value); st.tip.append(row);
+    }
+    st.tip.hidden = false;
+    const box = st.article.getBoundingClientRect();
+    st.tip.style.left = `${Math.max(4, Math.min(event.clientX - box.left + 12, box.width - st.tip.offsetWidth - 4))}px`;
+    st.tip.style.top = `${Math.max(4, event.clientY - box.top - st.tip.offsetHeight - 12)}px`;
+  }
+  function tidy(svg) {
+    const labels = [...svg.node().querySelectorAll(".x-axis .tick text")];
+    if (labels.length) { labels[0].setAttribute("text-anchor", "start"); labels.at(-1).setAttribute("text-anchor", "end"); }
+    let edge = -Infinity;
+    for (const el of labels) {
+      const box = el.getBoundingClientRect();
+      el.style.visibility = box.left < edge + 4 ? "hidden" : "visible";
+      if (el.style.visibility === "visible") edge = box.right;
+    }
+    const bounds = svg.node().getBoundingClientRect();
+    const overflow = [...svg.node().querySelectorAll("text")].some(el => {
+      if (getComputedStyle(el).visibility === "hidden") return false;
+      const b = el.getBoundingClientRect();
+      return b.left < bounds.left - 1 || b.right > bounds.right + 1 || b.top < bounds.top - 1 || b.bottom > bounds.bottom + 1;
+    });
+    svg.attr("data-label-overflow", String(overflow));
+  }
+  function draw(st) {
+    if (!st.solution?.valid || !st.article.getBoundingClientRect().width || !window.d3) return;
+    const samples = d3.range(151).map(i => M.at(st.params, st.solution, st.params.years * i / 150));
+    for (const spec of specs) {
+      const figure = st.article.querySelector(`[data-chart="${spec.key}"]`), width = Math.floor(figure.getBoundingClientRect().width);
+      if (width < 170) continue;
+      const height = 225, m = { left: 64, right: 12, top: 30, bottom: 38 };
+      const svg = d3.select(figure.querySelector("svg")).attr("viewBox", `0 0 ${width} ${height}`).attr("height", height);
+      const extent = d3.extent([...samples.map(p => p[spec.key]), 0]), span = extent[1] - extent[0];
+      const y = d3.scaleLinear().domain([Math.min(0, extent[0]), extent[1] + (span ? span * .08 : 1)]).range([height - m.bottom - 3, m.top + 3]);
+      const x = d3.scaleLinear().domain([0, st.params.years]).range([m.left + 3, width - m.right - 3]);
+      const clip = `rp-clip-${st.article.dataset.design}-${spec.key}`;
+      if (svg.select("title").empty()) {
+        svg.append("title"); svg.append("desc");
+        svg.append("rect").attr("data-chart-frame","").attr("fill","none").attr("stroke","var(--rp-rule)");
+        svg.append("defs").append("clipPath").attr("id",clip).append("rect");
+        svg.append("g").attr("class","x-axis"); svg.append("g").attr("class","y-axis");
+        svg.append("text").attr("data-axis","x").attr("class","axis-title").attr("text-anchor","middle");
+        svg.append("text").attr("data-axis","y").attr("class","axis-title");
+        svg.append("path").attr("data-series",spec.key).attr("fill","none").attr("stroke","var(--rp-accent)").attr("stroke-width",2.5).attr("clip-path",`url(#${clip})`);
+        svg.append("line").attr("data-chart-hover-guide","").attr("stroke","var(--rp-secondary)").attr("visibility","hidden");
+        svg.append("circle").attr("data-chart-hover-marker","").attr("r",4).attr("fill","var(--rp-accent)").attr("visibility","hidden");
+        svg.append("rect").attr("data-chart-hit","").attr("data-chart-hover-overlay","cross-series").attr("fill","transparent");
+      }
+      const start = samples[0][spec.key], end = samples.at(-1)[spec.key];
+      figure.querySelector("[data-value]").textContent = `${num(start)} → ${num(end)}`;
+      svg.select("title").text(`${spec.name} over time`);
+      svg.select("desc").text(`Optimal constant phi: ${pct(st.solution.phi)}. ${spec.name} changes from ${num(start)} to ${num(end)} over ${st.params.years} years. Units: ${spec.unit}.`);
+      for (const sel of ["[data-chart-frame]","clipPath rect","[data-chart-hit]"]) svg.select(sel).attr("x",m.left).attr("y",m.top).attr("width",width-m.left-m.right).attr("height",height-m.top-m.bottom);
+      svg.select(".x-axis").attr("transform",`translate(0,${height-m.bottom})`).call(d3.axisBottom(x).ticks(width < 420 ? 3 : 4).tickSize(4).tickPadding(6));
+      svg.select(".y-axis").attr("transform",`translate(${m.left},0)`).call(d3.axisLeft(y).ticks(3).tickFormat(d3.format(".3~g")).tickSize(4).tickPadding(6));
+      svg.select('[data-axis="x"]').attr("x",(m.left+width-m.right)/2).attr("y",height-3).text("Time · years");
+      svg.select('[data-axis="y"]').attr("x",m.left).attr("y",17).text(spec.unit);
+      const line = d3.line().x(p=>x(p.t)).y(p=>y(p[spec.key]))(samples), path = svg.select("[data-series]").interrupt();
+      if (st.draws && !matchMedia("(prefers-reduced-motion: reduce)").matches) path.transition().duration(150).attr("d",line);
+      else path.attr("d",line);
+      svg.select("[data-chart-hover-guide]").attr("y1",m.top).attr("y2",height-m.bottom);
+      svg.select("[data-chart-hit]").on("pointermove", event => { if (!st.pinned) showTip(st,x.invert(d3.pointer(event,svg.node())[0]),event); })
+        .on("pointerleave",()=>{ if (!st.pinned) hideTip(st); })
+        .on("pointerdown",event=>{ st.pinned=!st.pinned; if(st.pinned) showTip(st,x.invert(d3.pointer(event,svg.node())[0]),event); else hideTip(st); });
+      st.charts.set(spec.key,{svg,x,y}); tidy(svg);
+    }
+    st.draws++;
+  }
+  function render(st) {
+    const s = st.solution = M.solve(st.params);
+    st.pinned = false; hideTip(st);
+    st.article.querySelector(".chart-grid").hidden = !s.valid;
+    st.article.querySelector(".chart-note").hidden = !s.valid;
+    st.article.querySelector(".allocation-bar").hidden = !s.valid;
+    st.article.querySelector(".allocation-label").hidden = !s.valid;
+    st.article.querySelector(".solution-reference").hidden = !s.valid;
+    const error = st.result("error"); error.hidden = s.valid;
+    for (const key of ["phi","gc","gz"]) st.result(key).textContent = s.valid ? pct(s[key]) : "—";
+    const insight = st.article.querySelector(".live-insight");
+    if (!s.valid) {
+      st.result("status").textContent = "No optimal path plotted.";
+      error.textContent = s.reason === "utility" ? `The finite-utility condition fails. For these parameters, ρ must exceed ${pct(s.threshold)} per year. The formula would give an inadmissible φ* of ${pct(s.phiCandidate)}.` : `Check ${s.key}: enter a value within the field's allowed range.`;
+      if (insight) insight.textContent = "These parameters do not produce an admissible optimum in this demonstration.";
+      return;
+    }
+    st.article.querySelector('[data-allocation="consumption"]').style.width = `${100*s.phi}%`;
+    st.article.querySelector('[data-allocation="investment"]').style.display = s.phi === 1 ? "none" : "";
+    st.result("allocation-left").textContent = `Consumption production: ${pct(s.phi)}`;
+    st.result("allocation-right").textContent = `Investment production: ${pct(1-s.phi)}`;
+    st.article.querySelector(".allocation-bar").setAttribute("aria-label",`${pct(s.phi)} of capital produces consumption; ${pct(1-s.phi)} produces investment.`);
+    st.result("status").textContent = `${s.corner ? "Zero-investment corner" : "Both sectors active"} · φ is constant along this path · rC = ${pct(s.rc)} per year`;
+    for (const el of st.article.querySelectorAll(".branch-interior")) el.hidden = s.corner;
+    for (const el of st.article.querySelectorAll(".branch-corner")) el.hidden = !s.corner;
+    if (insight) insight.textContent = s.corner
+      ? "All capital is used to produce consumption. Gross investment is zero; depreciation determines how quickly the capital stock falls."
+      : `At these parameters, ${pct(s.phi)} of capital produces consumption. Holding the other parameters fixed, higher ρ raises this share and lowers capital growth until investment reaches zero.`;
+    draw(st);
+  }
+
+  function save() {
+    const settings = Object.fromEntries(states.map(st => [st.article.dataset.design, {
+      params: st.params, preset: st.preset.value,
+      referenceOpen: st.article.querySelector(".solution-reference").open
+    }]));
+    try { localStorage.setItem("rebelo-designs-parameters-v1", JSON.stringify({privateContent:{settings}})); }
+    catch { /* Local storage is optional. */ }
+  }
+  function restore(saved) {
+    const settings = saved?.privateContent?.settings ?? saved?.modelContent?.settings;
+    if (!settings) return;
+    for (const st of states) {
+      const entry = settings[st.article.dataset.design]; if(!entry?.params) continue;
+      const candidate = { ...M.defaults };
+      for(const key of Object.keys(M.defaults)) if(typeof entry.params[key]==="number") candidate[key]=entry.params[key];
+      if (M.solve(candidate).reason==="input") continue;
+      st.params=candidate; st.preset.value=Object.hasOwn(M.examples,entry.preset)?entry.preset:"custom";
+      st.article.querySelector(".solution-reference").open=entry.referenceOpen===true;
+      setFields(st); render(st);
+    }
+  }
+  for(const st of states) {
+    for(const [key,el] of Object.entries(st.fields)) {
+      el.addEventListener("input",()=>{ st.params[key]=el.valueAsNumber/(rateFields.has(key)?100:1); st.preset.value="custom"; st.slider.value=st.params.rho*100; render(st); });
+      el.addEventListener("change",save);
+    }
+    st.slider.addEventListener("input",()=>{ st.params.rho=st.slider.valueAsNumber/100; st.fields.rho.value=st.slider.value; st.preset.value="custom"; render(st); });
+    st.slider.addEventListener("change",save);
+    st.preset.addEventListener("change",()=>{ if(!Object.hasOwn(M.examples,st.preset.value)) return; st.params={...M.examples[st.preset.value]}; setFields(st); render(st); save(); });
+    st.article.querySelector(".solution-reference").addEventListener("toggle",()=>{ if(document.activeElement===st.article.querySelector(".solution-reference > summary")) save(); });
+    let lastWidth = 0;
+    new ResizeObserver(()=>{ const w=st.article.getBoundingClientRect().width; if(w && w!==lastWidth) { lastWidth=w; requestAnimationFrame(()=>draw(st)); } }).observe(st.article);
+    setFields(st); render(st);
+
+  }
+  try {
+    const saved = JSON.parse(localStorage.getItem("rebelo-designs-parameters-v1") || "null");
+    restore(saved);
+  } catch {
+    // The model works even if storage is unavailable or saved data is invalid.
+  }
+  const choices = [...document.querySelectorAll("[data-page-choice]")];
+  function chooseDesign(key) {
+    for (const st of states) {
+      const selected = st.article.dataset.design === key;
+      st.article.parentElement.hidden = !selected;
+      if (selected) requestAnimationFrame(() => draw(st));
+    }
+    for (const button of choices) button.setAttribute("aria-pressed", String(button.dataset.pageChoice === key));
+    root.dataset.activeVariant = states.find(st => st.article.dataset.design === key).article.parentElement.dataset.variant;
+  }
+  for (const button of choices) button.addEventListener("click", () => chooseDesign(button.dataset.pageChoice));
+  chooseDesign("lecture");
+
+})();
+</script>
+
+  </main>
+  <p class="browser-note">Design preview. Nothing is submitted to a server. An internet connection loads the chart and equation libraries.</p>
+</body>
+</html>
