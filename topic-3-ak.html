@@ -3,126 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Three interactive teaching-page designs for the Rebelo two-sector growth model.">
-  <title>Rebelo model — teaching page designs</title>
+  <meta name="description" content="Explore the Rebelo two-sector growth model: choose parameters and follow the optimal economy through time.">
+  <title>Topic 3 — Rebelo model explorer</title>
   <style>
     :root { color-scheme: light dark; }
     html { background: light-dark(#eef1f3, #11161b); }
     body { margin: 0; padding: 24px; font-family: system-ui, sans-serif; color: light-dark(#192b32,#e5edf1); }
-    .design-navigation, main { max-width: 1120px; margin: 0 auto; }
-    .design-navigation { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; padding-bottom: 20px; }
-    .design-navigation h1 { font-size: 15px; font-weight: 600; margin: 0; }
-    .design-navigation p { font-size: 12px; margin: 5px 0 0; color: light-dark(#52616a,#b0bdc5); }
-    .design-choices { display: flex; gap: 6px; flex-wrap: wrap; }
-    .design-choices button { border: 1px solid light-dark(#d1dade,#45515d); border-radius: 7px; padding: 10px 14px; font: inherit; font-size: 13px; min-height: 44px; background: light-dark(#fff,#202a32); color: inherit; cursor: pointer; }
-    .design-choices button[aria-pressed="true"] { background: light-dark(#253c47,#d9e8f1); color: light-dark(#fff,#17232b); border-color: transparent; }
+    main { max-width: 1120px; margin: 0 auto; }
     .cursor-interaction { cursor: pointer; }
     [hidden] { display: none !important; }
     .browser-note { max-width: 1120px; margin: 15px auto 0; color: light-dark(#52616a,#b0bdc5); font-size: 12px; }
-    @media (max-width: 600px) { body { padding: 12px; } .design-navigation { gap: 12px; } .design-choices { width: 100%; } .design-choices button { flex: 1; padding: 8px; } }
+    @media (max-width: 600px) { body { padding: 12px; } }
   </style>
 </head>
 <body>
-  <nav class="design-navigation" aria-label="Choose a teaching-page design">
-    <div><h1>Rebelo model · Teaching page designs</h1><p>The same model in three layouts. All controls are live.</p></div>
-    <div class="design-choices">
-      <button type="button" data-page-choice="lecture" aria-pressed="true">Lecture notes</button>
-      <button type="button" data-page-choice="desk" aria-pressed="false">Experiment desk</button>
-      <button type="button" data-page-choice="guided" aria-pressed="false">Guided lesson</button>
-    </div>
-  </nav>
   <main>
-<div id="rebelo-design-options" class="design-pages" aria-label="Rebelo teaching page designs">
-  <section data-variant="Lecture notes" aria-label="Lecture notes design">
-    <article class="rp lecture" data-design="lecture" aria-label="Lecture notes design">
-      <header class="site-line"><span>Kwok Ping (Byron) Tsang</span><span>ECON 3204 · Teaching</span></header>
-      <div class="page-content">
-        <div class="hero"><span class="eyebrow">TOPIC 3 / ENDOGENOUS GROWTH</span><h1>The Rebelo model</h1><p>How should an economy divide its capital between producing consumption and producing more capital?</p></div>
-        <div class="notes-theory">
-          <section class="technology" aria-label="Production equations"><h2>The economy in three equations</h2><div data-mount="technology">
-  <p class="time-convention">Time is continuous. We assume one unit of <i>t</i> represents one year, so rates are measured per year.</p>
-  <div class="equation-list">
-    <div class="equation-item"><span class="equation-name">Consumption</span><span data-tex="C_t=B(\phi Z_t)^\alpha T^{1-\alpha}">Cₜ = B(φZₜ)ᵅ T¹⁻ᵅ</span><p>Capital and a fixed factor produce consumption goods.</p></div>
-    <div class="equation-item"><span class="equation-name">Investment</span><span data-tex="I_t=A(1-\phi)Z_t">Iₜ = A(1 − φ)Zₜ</span><p>The remaining capital produces new capital goods.</p></div>
-    <div class="equation-item"><span class="equation-name">Accumulation</span><span data-tex="\dot Z_t=I_t-\delta Z_t">Żₜ = Iₜ − δZₜ</span><p>New investment adds to capital; depreciation subtracts from it.</p></div>
-  </div>
-</div></section>
-          <aside class="notation" aria-label="Symbols"><h2>Read the symbols</h2><div data-mount="symbols">
-  <p class="phi-definition"><span data-tex="\phi">φ</span> is the <strong>fraction of capital used to produce consumption</strong>. The fraction 1 − φ produces new capital.</p>
-  <dl class="symbol-list">
-    <div><dt>Cₜ</dt><dd>Consumption output per year</dd></div>
-    <div><dt>Zₜ</dt><dd>Capital stock at time t</dd></div>
-    <div><dt>Iₜ</dt><dd>Gross investment per year</dd></div>
-    <div><dt>pₜ</dt><dd>Price of a capital good in consumption goods</dd></div>
-    <div><dt>B</dt><dd>Consumption-sector productivity</dd></div>
-    <div><dt>T</dt><dd>Fixed factor used in consumption production</dd></div>
-    <div><dt>t, Żₜ</dt><dd>Time in years; change in Z per year</dd></div>
-  </dl>
-</div></aside>
-        </div>
-        <section class="controls-area" aria-label="Parameters"><div class="section-heading"><h2>Choose the economy</h2><span>Rates are % per year</span></div><div data-mount="controls">
-  <div class="preset-row"><label>Example<select data-preset class="cursor-interaction"><option value="growth">Growing economy · log utility</option><option value="crra">Growing economy · CRRA</option><option value="shrink">Declining capital · positive investment</option><option value="corner">Zero-investment corner</option><option value="tree">No investment or depreciation</option><option value="ak">AK special case</option><option value="custom">Custom parameters</option></select></label><label>Horizon · years<input data-param="years" type="number" min="1" max="150" step="1" value="60"></label></div>
-  <div class="parameter-grid">
-    <label class="parameter"><span><b>A</b> · Investment productivity</span><input data-param="A" type="number" min="0.1" max="30" step="0.5" value="12"><small>% per year</small></label>
-    <label class="parameter"><span><b>δ</b> · Depreciation</span><input data-param="delta" type="number" min="0" max="20" step="0.5" value="3"><small>% per year</small></label>
-    <label class="parameter rho-field"><span><b>ρ</b> · Impatience</span><input data-param="rho" type="number" min="0.1" max="30" step="0.5" value="4"><small>% per year</small><input data-rho-slider type="range" min="0.1" max="30" step="0.1" value="4" aria-label="Impatience, percent per year" class="cursor-interaction"></label>
-    <label class="parameter"><span><b>σ</b> · Utility curvature</span><input data-param="sigma" type="number" min="0.1" max="5" step="0.1" value="1"><small>σ = 1: log utility</small></label>
-    <label class="parameter"><span><b>α</b> · Capital elasticity</span><input data-param="alpha" type="number" min="0.05" max="1" step="0.05" value="0.6"><small>In consumption production</small></label>
-  </div>
-  <details class="levels"><summary class="cursor-interaction">Initial capital and other inputs</summary><div class="level-grid">
-    <label><span><b>Z₀</b> · Initial capital</span><input data-param="Z0" type="number" min="0.01" max="1000" step="1" value="10"></label>
-    <label><span><b>B</b> · Consumption productivity</span><input data-param="B" type="number" min="0.01" max="10" step="0.1" value="1"></label>
-    <label><span><b>T</b> · Fixed factor</span><input data-param="T" type="number" min="0.01" max="100" step="1" value="1"></label>
-  </div><p class="small-note">These inputs change levels, but not the optimal share or growth rates.</p></details>
-</div></section>
-        <section class="results-area" aria-label="Optimal allocation and paths"><div data-mount="results">
-  <div class="solution-summary" aria-live="polite">
-    <div><span>Optimal allocation · φ</span><strong data-result="phi">33.33%</strong><small>Of capital in consumption production</small></div>
-    <div><span>Consumption growth · g<sub>C</sub></span><strong data-result="gc">3%</strong><small>Per year</small></div>
-    <div><span>Capital growth · g<sub>Z</sub></span><strong data-result="gz">5%</strong><small>Per year</small></div>
-  </div>
-  <div class="allocation-label"><span data-result="allocation-left">Consumption production: 33.33%</span><span data-result="allocation-right">Investment production: 66.67%</span></div>
-  <div class="allocation-bar" role="img" aria-label="Allocation of capital"><span data-allocation="consumption"></span><span data-allocation="investment"></span></div>
-  <p class="regime" data-result="status"></p>
-  <p class="error" data-result="error" role="alert" hidden></p>
-</div><div data-mount="charts">
-  <div class="chart-grid">
-    <figure data-chart="C"><figcaption><span>Consumption <i>C</i></span><small data-value="C"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-    <figure data-chart="Z"><figcaption><span>Capital <i>Z</i></span><small data-value="Z"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-    <figure data-chart="I"><figcaption><span>Gross investment <i>I</i></span><small data-value="I"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-    <figure data-chart="p"><figcaption><span>Relative price <i>p</i></span><small data-value="p"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-  </div>
-  <p class="chart-note">Hover over a curve to read all four quantities at the same date. Tap to pin the values.</p>
-</div></section>
-        <div data-mount="reference">
-  <details class="solution-reference"><summary class="cursor-interaction">Household choice, optimal allocation, and prices</summary>
-    <div class="reference-grid">
-      <section><h3>Household choice</h3>
-        <div data-tex="g_C=\frac{r_C-\rho}{\sigma}">gC = (rC − ρ) / σ</div>
-        <p>r<sub>C</sub> is the net return measured in consumption goods. ρ discounts future utility; σ measures utility curvature. With log utility, σ = 1.</p>
-        <p>For any positive variable X, g<sub>X</sub> = Ẋ/X is its instantaneous proportional growth rate.</p>
-        <div class="branch-interior"><h3>When both sectors operate</h3><div data-tex="r_C=A-\delta+g_p">rC = A − δ + gp</div><div data-tex="p_t=\frac{\alpha B(\phi Z_t)^{\alpha-1}T^{1-\alpha}}{A}">pₜ = αB(φZₜ)ᵅ⁻¹T¹⁻ᵅ / A</div></div>
-        <div class="branch-corner" hidden><h3>At zero investment</h3><div data-tex="r_C=\rho-\sigma\alpha\delta">rC = ρ − σαδ</div><div data-tex="p_t=\frac{\alpha C_t/Z_t}{\rho+\alpha(1-\sigma)\delta}">pₜ = (αCₜ/Zₜ) / [ρ + α(1−σ)δ]</div><p>The active-sector price equality is replaced by an inequality when the investment sector shuts down.</p></div>
-      </section>
-      <section><h3>The constant optimal share</h3>
-        <div data-tex="D=1-\alpha(1-\sigma)">D = 1 − α(1 − σ)</div>
-        <div data-tex="\phi^*=\frac{\rho-\alpha(1-\sigma)(A-\delta)}{AD}">φ* = [ρ − α(1−σ)(A−δ)] / AD</div>
-        <p>D is a positive abbreviation. A finite-utility interior solution requires <span data-tex="0&lt;\phi^*&lt;1">0 &lt; φ* &lt; 1</span>.</p>
-        <div class="branch-interior"><div data-tex="g_Z=\frac{A-\delta-\rho}{D},\quad g_C=\alpha g_Z">gZ = (A − δ − ρ)/D; gC = αgZ</div><p>φ = φ*. The share stays constant along each path.</p></div>
-        <div class="branch-corner" hidden><div data-tex="\phi=1,\quad I_t=0">φ = 1; Iₜ = 0</div><div data-tex="g_Z=-\delta,\quad g_C=-\alpha\delta">gZ = −δ; gC = −αδ</div><p>The formula gives φ* ≥ 1, so the feasible optimum is the zero-investment corner.</p></div>
-        <p>With constant φ, <span data-tex="g_p=(\alpha-1)g_Z">gp = (α−1)gZ</span>. A positive numerator requires <span data-tex="\rho&gt;\alpha(1-\sigma)(A-\delta)">ρ &gt; α(1−σ)(A−δ)</span>.</p>
-      </section>
-    </div>
-    <div class="tvc-note"><strong>Why this allocation?</strong> Feasibility and the transversality condition select the optimal path. The discounted marginal value of capital left in the distant future must vanish: <span data-tex="\lim_{t\to\infty}e^{-\rho t}C_t^{-\sigma}p_tZ_t=0">lim e⁻ρᵗCₜ⁻σpₜZₜ = 0</span>.</div>
-  </details>
-</div>
-        <footer class="page-foot">Rebelo (1991) · Two-sector benchmark · Constant optimal allocation</footer>
-      </div>
-      <div class="rp-tooltip" role="tooltip" hidden></div>
-    </article>
-  </section>
-  <section data-variant="Experiment desk" aria-label="Experiment desk design" hidden>
-    <article class="rp desk" data-design="desk" aria-label="Experiment desk design">
+<div id="rebelo-design-options" aria-label="Rebelo model explorer">
+  <section aria-label="Rebelo model explorer">
+    <article class="rp desk" data-design="desk" aria-label="Rebelo model explorer">
       <header class="site-line"><span>kptsang.com / Teaching</span><span>ECON 3204 · Topic 3</span></header>
       <div class="page-content">
         <div class="hero"><span class="eyebrow">INTERACTIVE ECONOMICS</span><h1>Rebelo model explorer</h1><p>Change the parameters. Follow the optimal economy through time.</p></div>
@@ -184,101 +82,6 @@
     <div><dt>t, Żₜ</dt><dd>Time in years; change in Z per year</dd></div>
   </dl>
 </div></aside>
-        <div data-mount="reference">
-  <details class="solution-reference"><summary class="cursor-interaction">Household choice, optimal allocation, and prices</summary>
-    <div class="reference-grid">
-      <section><h3>Household choice</h3>
-        <div data-tex="g_C=\frac{r_C-\rho}{\sigma}">gC = (rC − ρ) / σ</div>
-        <p>r<sub>C</sub> is the net return measured in consumption goods. ρ discounts future utility; σ measures utility curvature. With log utility, σ = 1.</p>
-        <p>For any positive variable X, g<sub>X</sub> = Ẋ/X is its instantaneous proportional growth rate.</p>
-        <div class="branch-interior"><h3>When both sectors operate</h3><div data-tex="r_C=A-\delta+g_p">rC = A − δ + gp</div><div data-tex="p_t=\frac{\alpha B(\phi Z_t)^{\alpha-1}T^{1-\alpha}}{A}">pₜ = αB(φZₜ)ᵅ⁻¹T¹⁻ᵅ / A</div></div>
-        <div class="branch-corner" hidden><h3>At zero investment</h3><div data-tex="r_C=\rho-\sigma\alpha\delta">rC = ρ − σαδ</div><div data-tex="p_t=\frac{\alpha C_t/Z_t}{\rho+\alpha(1-\sigma)\delta}">pₜ = (αCₜ/Zₜ) / [ρ + α(1−σ)δ]</div><p>The active-sector price equality is replaced by an inequality when the investment sector shuts down.</p></div>
-      </section>
-      <section><h3>The constant optimal share</h3>
-        <div data-tex="D=1-\alpha(1-\sigma)">D = 1 − α(1 − σ)</div>
-        <div data-tex="\phi^*=\frac{\rho-\alpha(1-\sigma)(A-\delta)}{AD}">φ* = [ρ − α(1−σ)(A−δ)] / AD</div>
-        <p>D is a positive abbreviation. A finite-utility interior solution requires <span data-tex="0&lt;\phi^*&lt;1">0 &lt; φ* &lt; 1</span>.</p>
-        <div class="branch-interior"><div data-tex="g_Z=\frac{A-\delta-\rho}{D},\quad g_C=\alpha g_Z">gZ = (A − δ − ρ)/D; gC = αgZ</div><p>φ = φ*. The share stays constant along each path.</p></div>
-        <div class="branch-corner" hidden><div data-tex="\phi=1,\quad I_t=0">φ = 1; Iₜ = 0</div><div data-tex="g_Z=-\delta,\quad g_C=-\alpha\delta">gZ = −δ; gC = −αδ</div><p>The formula gives φ* ≥ 1, so the feasible optimum is the zero-investment corner.</p></div>
-        <p>With constant φ, <span data-tex="g_p=(\alpha-1)g_Z">gp = (α−1)gZ</span>. A positive numerator requires <span data-tex="\rho&gt;\alpha(1-\sigma)(A-\delta)">ρ &gt; α(1−σ)(A−δ)</span>.</p>
-      </section>
-    </div>
-    <div class="tvc-note"><strong>Why this allocation?</strong> Feasibility and the transversality condition select the optimal path. The discounted marginal value of capital left in the distant future must vanish: <span data-tex="\lim_{t\to\infty}e^{-\rho t}C_t^{-\sigma}p_tZ_t=0">lim e⁻ρᵗCₜ⁻σpₜZₜ = 0</span>.</div>
-  </details>
-</div>
-        <footer class="page-foot">Rebelo (1991) · Two-sector benchmark · Constant optimal allocation</footer>
-      </div>
-      <div class="rp-tooltip" role="tooltip" hidden></div>
-    </article>
-  </section>
-  <section data-variant="Guided lesson" aria-label="Guided lesson design" hidden>
-    <article class="rp guided" data-design="guided" aria-label="Guided lesson design">
-      <header class="site-line"><span>Kwok Ping (Byron) Tsang</span><span>ECON 3204 · Topic 3</span></header>
-      <div class="page-content">
-        <div class="hero"><span class="eyebrow">EXPLORE A QUESTION</span><h1>More consumption today.<br>What happens tomorrow?</h1><p>Start with the model. Then change impatience, ρ, and trace the consequences.</p></div>
-        <section class="lesson-model">
-          <div class="lesson-heading"><span class="step-label">1</span><h2>One capital stock, two uses</h2></div>
-          <div class="guided-theory"><div class="technology" data-mount="technology">
-  <p class="time-convention">Time is continuous. We assume one unit of <i>t</i> represents one year, so rates are measured per year.</p>
-  <div class="equation-list">
-    <div class="equation-item"><span class="equation-name">Consumption</span><span data-tex="C_t=B(\phi Z_t)^\alpha T^{1-\alpha}">Cₜ = B(φZₜ)ᵅ T¹⁻ᵅ</span><p>Capital and a fixed factor produce consumption goods.</p></div>
-    <div class="equation-item"><span class="equation-name">Investment</span><span data-tex="I_t=A(1-\phi)Z_t">Iₜ = A(1 − φ)Zₜ</span><p>The remaining capital produces new capital goods.</p></div>
-    <div class="equation-item"><span class="equation-name">Accumulation</span><span data-tex="\dot Z_t=I_t-\delta Z_t">Żₜ = Iₜ − δZₜ</span><p>New investment adds to capital; depreciation subtracts from it.</p></div>
-  </div>
-</div><aside class="notation" aria-label="Symbols"><div data-mount="symbols">
-  <p class="phi-definition"><span data-tex="\phi">φ</span> is the <strong>fraction of capital used to produce consumption</strong>. The fraction 1 − φ produces new capital.</p>
-  <dl class="symbol-list">
-    <div><dt>Cₜ</dt><dd>Consumption output per year</dd></div>
-    <div><dt>Zₜ</dt><dd>Capital stock at time t</dd></div>
-    <div><dt>Iₜ</dt><dd>Gross investment per year</dd></div>
-    <div><dt>pₜ</dt><dd>Price of a capital good in consumption goods</dd></div>
-    <div><dt>B</dt><dd>Consumption-sector productivity</dd></div>
-    <div><dt>T</dt><dd>Fixed factor used in consumption production</dd></div>
-    <div><dt>t, Żₜ</dt><dd>Time in years; change in Z per year</dd></div>
-  </dl>
-</div></aside></div>
-        </section>
-        <section class="controls-area" aria-label="Experiment with parameters">
-          <div class="lesson-heading"><span class="step-label">2</span><h2>Make households more impatient</h2></div>
-          <p class="lesson-prompt">Before changing ρ, predict: will more capital go to consumption production? Will capital grow faster or slower?</p>
-          <div data-mount="controls">
-  <div class="preset-row"><label>Example<select data-preset class="cursor-interaction"><option value="growth">Growing economy · log utility</option><option value="crra">Growing economy · CRRA</option><option value="shrink">Declining capital · positive investment</option><option value="corner">Zero-investment corner</option><option value="tree">No investment or depreciation</option><option value="ak">AK special case</option><option value="custom">Custom parameters</option></select></label><label>Horizon · years<input data-param="years" type="number" min="1" max="150" step="1" value="60"></label></div>
-  <div class="parameter-grid">
-    <label class="parameter"><span><b>A</b> · Investment productivity</span><input data-param="A" type="number" min="0.1" max="30" step="0.5" value="12"><small>% per year</small></label>
-    <label class="parameter"><span><b>δ</b> · Depreciation</span><input data-param="delta" type="number" min="0" max="20" step="0.5" value="3"><small>% per year</small></label>
-    <label class="parameter rho-field"><span><b>ρ</b> · Impatience</span><input data-param="rho" type="number" min="0.1" max="30" step="0.5" value="4"><small>% per year</small><input data-rho-slider type="range" min="0.1" max="30" step="0.1" value="4" aria-label="Impatience, percent per year" class="cursor-interaction"></label>
-    <label class="parameter"><span><b>σ</b> · Utility curvature</span><input data-param="sigma" type="number" min="0.1" max="5" step="0.1" value="1"><small>σ = 1: log utility</small></label>
-    <label class="parameter"><span><b>α</b> · Capital elasticity</span><input data-param="alpha" type="number" min="0.05" max="1" step="0.05" value="0.6"><small>In consumption production</small></label>
-  </div>
-  <details class="levels"><summary class="cursor-interaction">Initial capital and other inputs</summary><div class="level-grid">
-    <label><span><b>Z₀</b> · Initial capital</span><input data-param="Z0" type="number" min="0.01" max="1000" step="1" value="10"></label>
-    <label><span><b>B</b> · Consumption productivity</span><input data-param="B" type="number" min="0.01" max="10" step="0.1" value="1"></label>
-    <label><span><b>T</b> · Fixed factor</span><input data-param="T" type="number" min="0.01" max="100" step="1" value="1"></label>
-  </div><p class="small-note">These inputs change levels, but not the optimal share or growth rates.</p></details>
-</div>
-        </section>
-        <section class="results-area" aria-label="Optimal allocation and paths">
-          <div class="lesson-heading"><span class="step-label">3</span><h2>Follow the optimal path</h2></div>
-          <div data-mount="results">
-  <div class="solution-summary" aria-live="polite">
-    <div><span>Optimal allocation · φ</span><strong data-result="phi">33.33%</strong><small>Of capital in consumption production</small></div>
-    <div><span>Consumption growth · g<sub>C</sub></span><strong data-result="gc">3%</strong><small>Per year</small></div>
-    <div><span>Capital growth · g<sub>Z</sub></span><strong data-result="gz">5%</strong><small>Per year</small></div>
-  </div>
-  <div class="allocation-label"><span data-result="allocation-left">Consumption production: 33.33%</span><span data-result="allocation-right">Investment production: 66.67%</span></div>
-  <div class="allocation-bar" role="img" aria-label="Allocation of capital"><span data-allocation="consumption"></span><span data-allocation="investment"></span></div>
-  <p class="regime" data-result="status"></p>
-  <p class="error" data-result="error" role="alert" hidden></p>
-</div><div class="live-insight" aria-live="polite"></div><div data-mount="charts">
-  <div class="chart-grid">
-    <figure data-chart="C"><figcaption><span>Consumption <i>C</i></span><small data-value="C"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-    <figure data-chart="Z"><figcaption><span>Capital <i>Z</i></span><small data-value="Z"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-    <figure data-chart="I"><figcaption><span>Gross investment <i>I</i></span><small data-value="I"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-    <figure data-chart="p"><figcaption><span>Relative price <i>p</i></span><small data-value="p"></small></figcaption><svg class="model-chart" role="img"></svg></figure>
-  </div>
-  <p class="chart-note">Hover over a curve to read all four quantities at the same date. Tap to pin the values.</p>
-</div>
-        </section>
         <div data-mount="reference">
   <details class="solution-reference"><summary class="cursor-interaction">Household choice, optimal allocation, and prices</summary>
     <div class="reference-grid">
@@ -731,23 +534,12 @@
   } catch {
     // The model works even if storage is unavailable or saved data is invalid.
   }
-  const choices = [...document.querySelectorAll("[data-page-choice]")];
-  function chooseDesign(key) {
-    for (const st of states) {
-      const selected = st.article.dataset.design === key;
-      st.article.parentElement.hidden = !selected;
-      if (selected) requestAnimationFrame(() => draw(st));
-    }
-    for (const button of choices) button.setAttribute("aria-pressed", String(button.dataset.pageChoice === key));
-    root.dataset.activeVariant = states.find(st => st.article.dataset.design === key).article.parentElement.dataset.variant;
-  }
-  for (const button of choices) button.addEventListener("click", () => chooseDesign(button.dataset.pageChoice));
-  chooseDesign("lecture");
+  for (const st of states) requestAnimationFrame(() => draw(st));
 
 })();
 </script>
 
   </main>
-  <p class="browser-note">Design preview. Nothing is submitted to a server. An internet connection loads the chart and equation libraries.</p>
+  <p class="browser-note">Nothing is submitted to a server. An internet connection loads the chart and equation libraries.</p>
 </body>
 </html>
