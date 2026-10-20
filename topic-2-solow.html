@@ -10,81 +10,77 @@
 
 <meta name="description" content="Interactive Solow growth model: fixed proportions, Cobb–Douglas, and CES. Explore saving, labor-force growth, capital, output, and utilization.">
 <style>:root {
-  color-scheme: light dark;
-  --page-bg: light-dark(#ffffff, #181818);
-  --page-fg: light-dark(#17202b, #eeeeee);
-  --page-muted: light-dark(#4b5563, #b9bec6);
-  --page-line: light-dark(#e0e4e8, #3d4249);
+  color-scheme:light dark;
+  --page-bg:light-dark(#eef1f3,#11161b);
+  --paper:light-dark(#fff,#171c22);
+  --page-fg:light-dark(#192b32,#e5edf1);
+  --page-muted:light-dark(#52616a,#b0bdc5);
+  --page-line:light-dark(#dce3e5,#3a454e);
+  --page-accent:light-dark(#136e70,#79cdca);
 }
 * {box-sizing:border-box}
 html,body {margin:0;background:var(--page-bg);color:var(--page-fg)}
-body {font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;padding:0 24px 32px}
-.site-header,main {max-width:1080px;margin:0 auto}
-.site-header {display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 0;border-bottom:1px solid var(--page-line)}
-.site-header span,.page-footer {color:var(--page-muted)}
+body {font:14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;padding:24px}
+.page-shell {max-width:1120px;margin:0 auto;background:var(--paper);border:1px solid var(--page-line);border-radius:14px;overflow:clip}
+.site-header {display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 30px;border-bottom:1px solid var(--page-line);font-size:12px;color:var(--page-muted)}
 a {color:inherit;text-underline-offset:3px}
-h1 {font-size:clamp(1.7rem,4vw,2.3rem);font-weight:600;line-height:1.2;margin:30px 0 12px}
-h2 {font-size:1.2rem;font-weight:600;margin:22px 0 10px}
-h3 {font-size:1.02rem;font-weight:600;margin:16px 0 8px}
+.site-header a {text-decoration:none}
+a:hover {color:var(--page-accent);text-decoration:underline}
+a:focus-visible,summary:focus-visible {outline:2px solid var(--page-accent);outline-offset:4px}
+main {padding:30px;min-width:0}
+.hero {margin-bottom:26px}
+.eyebrow {font-size:11px;letter-spacing:1.8px;font-weight:600;text-transform:uppercase}
+h1 {font-size:34px;font-weight:600;line-height:1.16;letter-spacing:-1px;margin:10px 0 12px}
+.intro {font-size:15px;color:var(--page-muted);max-width:690px;margin:0}
+h2 {font-size:17px;font-weight:600;letter-spacing:-.3px;margin:0 0 14px}
+h3 {font-size:14px;font-weight:600;margin:0 0 10px}
 p {margin:10px 0}
-.intro {max-width:80ch}
-.model-notes {padding-bottom:20px;border-bottom:1px solid var(--page-line)}
-.core-equations {display:flex;align-items:center;flex-wrap:wrap;gap:16px 32px;padding:10px 0}
-math {font-size:1.2em}
-summary {cursor:pointer;padding:10px 0;font-weight:500}
-.technology-notes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+iframe#codex-visualization {display:block;width:100%;height:1200px;border:0;margin:0}
+.notation {border-top:1px solid var(--page-line);margin-top:26px;padding-top:22px}
+.notation > p {margin-bottom:20px}
+.symbol-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 22px;margin:0}
+.symbol-list > div {display:grid;grid-template-columns:48px minmax(0,1fr);gap:12px;align-items:start}
+.symbol-list dt {font:italic 17px/1.5 Georgia,serif}
+.symbol-list dd {font-size:12px;color:var(--page-muted);margin:0}
+.solution-reference {border-block:1px solid var(--page-line);padding:8px 0;margin-top:24px}
+summary {cursor:pointer;font-size:13px;font-weight:600;padding:9px 0}
+.technology-notes {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;padding-top:16px}
 .technology-notes section {min-width:0}
-.technology-notes p {font-size:.94rem}
-.instructions {margin:20px 0;color:var(--page-muted)}
-iframe#codex-visualization {display:block;width:100%;height:1100px;border:0;margin:0}
-.page-footer {font-size:.9rem;border-top:1px solid var(--page-line);margin-top:24px;padding-top:16px}
-@media (max-width:760px) {.technology-notes {grid-template-columns:1fr;gap:0}}
-@media (max-width:420px) {body {padding:0 16px 24px}.core-equations {gap:16px 24px}.site-header {gap:4px}}
+.technology-notes p,.solution-reference > p {font-size:12px;line-height:1.7;color:var(--page-muted)}
+math {font-size:17px}
+.page-footer {font-size:11px;line-height:1.7;color:var(--page-muted);padding-top:18px}
+.page-footer p {margin:7px 0}
+.page-footer a {display:inline-block;margin-top:5px}
+@media (max-width:860px) {
+  .technology-notes {grid-template-columns:minmax(0,1fr);gap:16px}
+  .symbol-list {grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:680px) {
+  main {padding:22px}
+  .site-header {padding:16px 22px}
+}
+@media (max-width:600px) {body {padding:12px}}
+@media (max-width:440px) {
+  main {padding:18px}
+  .site-header {padding:14px 18px}
+  h1 {font-size:30px}
+  .symbol-list {grid-template-columns:minmax(0,1fr)}
+}
 </style>
 <script type="application/json" id="third-party-licenses">{"D3 7.9.0": "Copyright 2010-2023 Mike Bostock\n\nPermission to use, copy, modify, and/or distribute this software for any purpose\nwith or without fee is hereby granted, provided that the above copyright notice\nand this permission notice appear in all copies.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH\nREGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND\nFITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,\nINDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS\nOF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER\nTORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF\nTHIS SOFTWARE.\n", "Floating UI core 1.7.3 and DOM 1.7.4": "MIT License\n\nCopyright (c) 2021-present Floating UI contributors\n\nPermission is hereby granted, free of charge, to any person obtaining a copy of\nthis software and associated documentation files (the \"Software\"), to deal in\nthe Software without restriction, including without limitation the rights to\nuse, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of\nthe Software, and to permit persons to whom the Software is furnished to do so,\nsubject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS\nFOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR\nCOPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER\nIN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN\nCONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n"}</script>
 </head>
 <body>
+<article class="page-shell">
 <header class="site-header">
-  <a href="https://kptsang.com/">Kwok Ping (Byron) Tsang</a>
-  <span>ECON3204 · Topic 2</span>
+  <a href="https://kptsang.com/">kptsang.com / Teaching</a>
+  <span>ECON 3204 · Topic 2</span>
 </header>
 <main id="main">
-  <h1>Solow: three production technologies</h1>
-  <p class="intro">Change saving, labor-force growth, and technology to see how capital and output evolve. Compare fixed proportions, Cobb–Douglas, and the CES family used in Topic 2.</p>
-  <section class="model-notes" aria-labelledby="model-heading">
-    <h2 id="model-heading">The model</h2>
-    <div class="core-equations" aria-label="Common model equations">
-      <math aria-label="r equals K divided by L"><mi>r</mi><mo>=</mo><mfrac><mi>K</mi><mi>L</mi></mfrac></math>
-      <math aria-label="y equals Y divided by L equals F of r comma 1"><mi>y</mi><mo>=</mo><mfrac><mi>Y</mi><mi>L</mi></mfrac><mo>=</mo><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo></math>
-      <math aria-label="r dot equals s F of r comma 1 minus n r"><mover><mi>r</mi><mo>˙</mo></mover><mo>=</mo><mi>s</mi><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>−</mo><mi>n</mi><mi>r</mi></math>
-      <math aria-label="c equals 1 minus s times y"><mi>c</mi><mo>=</mo><mo>(</mo><mn>1</mn><mo>−</mo><mi>s</mi><mo>)</mo><mi>y</mi></math>
-    </div>
-    <p><i>K</i> is installed capital; <i>L</i> is the available labor force; <i>Y</i> is net output; and <i>c</i> is consumption per available worker. The saving share is <i>s</i>, and labor grows at the constant rate <i>n</i>.</p>
-    <p>Output is already net of capital replacement, so there is no additional depreciation term. Technology is constant over time. All time paths start at the selected <i>r</i><sub>0</sub>.</p>
-    <details>
-      <summary>Production functions, symbols, and the three cases</summary>
-      <div class="technology-notes">
-        <section>
-          <h3>Fixed proportions</h3>
-          <math aria-label="F of r comma 1 equals the minimum of r over a and 1 over b"><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi mathvariant="normal">min</mi><mo>{</mo><mfrac><mi>r</mi><mi>a</mi></mfrac><mo>,</mo><mfrac><mn>1</mn><mi>b</mi></mfrac><mo>}</mo></math>
-          <p>Producing one unit of output requires <i>a</i> units of capital and <i>b</i> units of labor. Both are fully used at <i>r</i> = <i>a</i>/<i>b</i>. If <i>n</i> &gt; <i>s</i>/<i>a</i>, the employment share tends to zero. If <i>n</i> &lt; <i>s</i>/<i>a</i>, some capital is idle in the limit. At equality, every positive ratio at or below <i>a</i>/<i>b</i> is steady.</p>
-        </section>
-        <section>
-          <h3>Cobb–Douglas</h3>
-          <math aria-label="F of r comma 1 equals r to the power alpha"><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>=</mo><msup><mi>r</mi><mi>α</mi></msup></math>
-          <p>The capital exponent satisfies 0 &lt; <i>α</i> &lt; 1. With positive saving and labor growth, capital per worker converges to the unique stable ratio <i>r</i>* = (<i>s</i>/<i>n</i>)<sup>1/(1−α)</sup>. The growth rate of output per worker tends to zero.</p>
-        </section>
-        <section>
-          <h3>CES</h3>
-          <math aria-label="F of r comma 1 equals a r to the power rho plus 1, all to the power 1 over rho"><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>=</mo><msup><mrow><mo>(</mo><mi>a</mi><msup><mi>r</mi><mi>ρ</mi></msup><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mi>ρ</mi></mfrac></msup></math>
-          <p>Here <i>a</i> is a capital coefficient, distinct from the fixed-proportions requirement. The exponent satisfies 0 &lt; <i>ρ</i> &lt; 1, and the substitution elasticity is <i>σ</i> = 1/(1−<i>ρ</i>). The default <i>ρ</i> = ½ gives <i>σ</i> = 2.</p>
-          <p>A finite steady ratio exists when <i>s</i><i>a</i><sup>1/ρ</sup> &lt; <i>n</i>. When <i>s</i><i>a</i><sup>1/ρ</sup> &gt; <i>n</i>, output per worker has positive limiting growth. At equality, its level grows without bound while its growth rate tends to zero.</p>
-        </section>
-      </div>
-      <p>The three technologies keep their separate normalizations from the notes. A difference in output levels across cases therefore does not isolate the effect of substitution.</p>
-    </details>
-  </section>
-  <p class="instructions">Change a parameter to redraw the paths. Hover over a graph for values, or tap to pin them. Select a legend label to hide or show a line. For fixed proportions and CES, “Set n to the boundary” selects the knife-edge case.</p>
+  <div class="hero">
+    <div class="eyebrow">Interactive economics</div>
+    <h1>Solow model explorer</h1>
+    <p class="intro">Change the parameters. Follow capital and output through time.<br>Compare fixed proportions, Cobb–Douglas, and CES.</p>
+  </div>
 
 <iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="Solow explorer | ECON3204 | Kwok Ping Tsang" data-srcdoc="&lt;!doctype html&gt;
 &lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
@@ -1863,64 +1859,104 @@ html&gt;body{padding:0}&lt;/style&gt;
 })();
 &lt;/script&gt;
 &lt;div id=&quot;solow-three-technologies&quot;&gt;
-  &lt;h2&gt;Explore the model&lt;/h2&gt;
-  &lt;div class=&quot;viz-controls&quot;&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Production technology
+  &lt;div class=&quot;desk-layout&quot;&gt;
+    &lt;aside class=&quot;controls-area&quot; aria-labelledby=&quot;controls-heading&quot;&gt;
+      &lt;h2 id=&quot;controls-heading&quot;&gt;Your economy&lt;/h2&gt;
+      &lt;p class=&quot;controls-note&quot;&gt;Choose a technology. Change the parameters to trace its path.&lt;/p&gt;
+      &lt;div class=&quot;viz-controls&quot;&gt;&lt;label class=&quot;form-label technology-field&quot;&gt;Production technology
       &lt;select class=&quot;form-select&quot; data-field=&quot;model&quot;&gt;
         &lt;option value=&quot;cd&quot;&gt;Cobb–Douglas&lt;/option&gt;
         &lt;option value=&quot;fixed&quot;&gt;Fixed proportions&lt;/option&gt;
         &lt;option value=&quot;ces&quot;&gt;CES&lt;/option&gt;
       &lt;/select&gt;
     &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;Time horizon · years
+&lt;label class=&quot;form-label&quot;&gt;Horizon · years
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;years&quot; type=&quot;number&quot; min=&quot;1&quot; max=&quot;150&quot; step=&quot;10&quot; value=&quot;80&quot;&gt;
     &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;s · saving · % of net output
+&lt;label class=&quot;form-label&quot;&gt;s · Saving share
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;s&quot; type=&quot;number&quot; min=&quot;0.1&quot; max=&quot;60&quot; step=&quot;1&quot; value=&quot;20&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;n · labor-force growth · % per year
+    &lt;small&gt;% of net output&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot;&gt;n · Labor-force growth
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;n&quot; type=&quot;number&quot; min=&quot;0.1&quot; max=&quot;10&quot; step=&quot;0.1&quot; value=&quot;2&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot;&gt;r₀ · initial capital per available worker
+    &lt;small&gt;% per year&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot;&gt;r₀ · Initial capital
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;r0&quot; type=&quot;number&quot; min=&quot;0.01&quot; max=&quot;100&quot; step=&quot;0.5&quot; value=&quot;2&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot; data-for=&quot;cd&quot;&gt;α · capital exponent
+    &lt;small&gt;Capital per available worker&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot; data-for=&quot;cd&quot;&gt;α · Capital exponent
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;alpha&quot; type=&quot;number&quot; min=&quot;0.05&quot; max=&quot;0.9&quot; step=&quot;0.05&quot; value=&quot;0.33&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot; data-for=&quot;fixed&quot; hidden&gt;a · required capital per unit of output
+    &lt;small&gt;Cobb–Douglas&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot; data-for=&quot;fixed&quot; hidden&gt;a · Capital requirement
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;af&quot; type=&quot;number&quot; min=&quot;0.5&quot; max=&quot;20&quot; step=&quot;0.5&quot; value=&quot;4&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot; data-for=&quot;fixed&quot; hidden&gt;b · required labor per unit of output
+    &lt;small&gt;Capital per unit of output&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot; data-for=&quot;fixed&quot; hidden&gt;b · Labor requirement
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;b&quot; type=&quot;number&quot; min=&quot;0.1&quot; max=&quot;5&quot; step=&quot;0.1&quot; value=&quot;1&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot; data-for=&quot;ces&quot; hidden&gt;a · CES capital coefficient
+    &lt;small&gt;Labor per unit of output&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot; data-for=&quot;ces&quot; hidden&gt;a · Capital coefficient
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;ac&quot; type=&quot;number&quot; min=&quot;0.01&quot; max=&quot;1&quot; step=&quot;0.01&quot; value=&quot;0.15&quot;&gt;
-    &lt;/label&gt;
-    &lt;label class=&quot;form-label&quot; data-for=&quot;ces&quot; hidden&gt;ρ · CES exponent
+    &lt;small&gt;CES&lt;/small&gt;&lt;/label&gt;
+&lt;label class=&quot;form-label&quot; data-for=&quot;ces&quot; hidden&gt;ρ · CES exponent
       &lt;input class=&quot;form-control tabular-nums&quot; data-field=&quot;rho&quot; type=&quot;number&quot; min=&quot;0.1&quot; max=&quot;0.9&quot; step=&quot;0.05&quot; value=&quot;0.5&quot;&gt;
-    &lt;/label&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;solow-boundary&quot; data-control=&quot;boundary&quot; hidden&gt;
+    &lt;small&gt;Substitution elasticity σ = 1/(1 − ρ)&lt;/small&gt;&lt;/label&gt;&lt;/div&gt;
+      &lt;div class=&quot;solow-boundary&quot; data-control=&quot;boundary&quot; hidden&gt;
     &lt;span data-result=&quot;boundary&quot;&gt;&lt;/span&gt;
     &lt;button class=&quot;btn&quot; type=&quot;button&quot; data-action=&quot;boundary&quot;&gt;Set n to the boundary&lt;/button&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;solow-results&quot; aria-live=&quot;polite&quot;&gt;
+  
+    &lt;/aside&gt;
+    &lt;div class=&quot;workbench&quot;&gt;
+      &lt;section class=&quot;technology&quot; aria-labelledby=&quot;model-heading&quot;&gt;
+        &lt;h2 id=&quot;model-heading&quot;&gt;The model&lt;/h2&gt;
+        &lt;p class=&quot;model-context&quot;&gt;Time is continuous and measured in years. Output is net of capital replacement; technology is constant.&lt;/p&gt;
+        &lt;div class=&quot;equation-list&quot;&gt;
+          &lt;div&gt;
+            &lt;span class=&quot;equation-name&quot;&gt;Production per worker&lt;/span&gt;
+            &lt;div data-for=&quot;cd&quot;&gt;
+              &lt;math aria-label=&quot;y equals F of r comma 1 equals r to the power alpha&quot;&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;α&lt;/mi&gt;&lt;/msup&gt;&lt;/math&gt;
+              &lt;small&gt;Cobb–Douglas · 0 &amp;lt; α &amp;lt; 1&lt;/small&gt;
+            &lt;/div&gt;
+            &lt;div data-for=&quot;fixed&quot; hidden&gt;
+              &lt;math aria-label=&quot;y equals the minimum of r over a and 1 over b&quot;&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;min&lt;/mi&gt;&lt;mo&gt;{&lt;/mo&gt;&lt;mfrac&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;/mfrac&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;/mfrac&gt;&lt;mo&gt;}&lt;/mo&gt;&lt;/math&gt;
+              &lt;small&gt;Fixed proportions · a, b &amp;gt; 0&lt;/small&gt;
+            &lt;/div&gt;
+            &lt;div data-for=&quot;ces&quot; hidden&gt;
+              &lt;math aria-label=&quot;y equals a r to the power rho plus 1, all to the power 1 over rho&quot;&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;msup&gt;&lt;mrow&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;ρ&lt;/mi&gt;&lt;/msup&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;mfrac&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mi&gt;ρ&lt;/mi&gt;&lt;/mfrac&gt;&lt;/msup&gt;&lt;/math&gt;
+              &lt;small&gt;CES · a &amp;gt; 0, 0 &amp;lt; ρ &amp;lt; 1&lt;/small&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;span class=&quot;equation-name&quot;&gt;Capital accumulation&lt;/span&gt;
+            &lt;math aria-label=&quot;r dot equals s F of r comma 1 minus n r&quot;&gt;&lt;mover&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;˙&lt;/mo&gt;&lt;/mover&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mo&gt;,&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/math&gt;
+            &lt;small&gt;Saving adds capital; labor growth dilutes capital per worker.&lt;/small&gt;
+          &lt;/div&gt;
+          &lt;div&gt;
+            &lt;span class=&quot;equation-name&quot;&gt;Consumption per worker&lt;/span&gt;
+            &lt;math aria-label=&quot;c equals 1 minus s times y&quot;&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo&gt;(&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mo&gt;)&lt;/mo&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;/math&gt;
+            &lt;small&gt;The share of net output that is not saved.&lt;/small&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+      &lt;div class=&quot;solow-results&quot; aria-live=&quot;polite&quot;&gt;
     &lt;div&gt;&lt;span data-result=&quot;limit-label&quot;&gt;Long-run capital per worker&lt;/span&gt;&lt;strong class=&quot;tabular-nums&quot; data-result=&quot;limit&quot;&gt;—&lt;/strong&gt;&lt;/div&gt;
     &lt;div&gt;&lt;span&gt;Long-run output growth per worker&lt;/span&gt;&lt;strong class=&quot;tabular-nums&quot; data-result=&quot;growth&quot;&gt;—&lt;/strong&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div data-result=&quot;regime&quot; aria-live=&quot;polite&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;text-destructive&quot; data-result=&quot;error&quot; role=&quot;alert&quot; hidden&gt;&lt;/div&gt;
-  &lt;div class=&quot;solow-plots&quot; data-control=&quot;plots&quot;&gt;
+  
+      &lt;div class=&quot;solow-plots&quot; data-control=&quot;plots&quot;&gt;
     &lt;figure data-chart=&quot;phase&quot;&gt;&lt;h3&gt;The Solow diagram&lt;/h3&gt;&lt;div class=&quot;solow-legend&quot;&gt;&lt;/div&gt;&lt;svg class=&quot;solow-chart&quot; role=&quot;img&quot;&gt;&lt;/svg&gt;&lt;figcaption class=&quot;text-small&quot; data-result=&quot;phase-marks&quot;&gt;&lt;/figcaption&gt;&lt;/figure&gt;
     &lt;figure data-chart=&quot;r&quot;&gt;&lt;h3&gt;Capital per available worker&lt;/h3&gt;&lt;div class=&quot;solow-legend&quot;&gt;&lt;/div&gt;&lt;svg class=&quot;solow-chart&quot; role=&quot;img&quot;&gt;&lt;/svg&gt;&lt;/figure&gt;
     &lt;figure data-chart=&quot;output&quot;&gt;&lt;h3&gt;Net output and consumption per worker&lt;/h3&gt;&lt;div class=&quot;solow-legend&quot;&gt;&lt;/div&gt;&lt;svg class=&quot;solow-chart&quot; role=&quot;img&quot;&gt;&lt;/svg&gt;&lt;/figure&gt;
     &lt;figure data-chart=&quot;rates&quot;&gt;&lt;h3&gt;Aggregate growth rates&lt;/h3&gt;&lt;div class=&quot;solow-legend&quot;&gt;&lt;/div&gt;&lt;svg class=&quot;solow-chart&quot; role=&quot;img&quot;&gt;&lt;/svg&gt;&lt;/figure&gt;
   &lt;/div&gt;
+  
+      &lt;p class=&quot;chart-help&quot;&gt;Hover over a graph for values, or tap to pin them. Select a legend label to hide or show a line.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
   &lt;div class=&quot;tooltip solow-tooltip&quot; role=&quot;tooltip&quot; hidden&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;style&gt;
   #solow-three-technologies {position:relative;color:var(--foreground)}
-  #solow-three-technologies h2 {padding-right:0}
+  #solow-three-technologies h2 {padding-right:94px}
   #solow-three-technologies .solow-boundary {display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:12px}
   #solow-three-technologies .solow-results {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0 10px}
   #solow-three-technologies .solow-results span, #solow-three-technologies .solow-results strong {display:block}
@@ -1944,6 +1980,90 @@ html&gt;body{padding:0}&lt;/style&gt;
     #solow-three-technologies .solow-results {grid-template-columns:minmax(0,1fr);gap:10px}
   }
   @media (pointer:coarse) {#solow-three-technologies .solow-legend button {min-height:44px}}
+&lt;/style&gt;
+&lt;style&gt;/* Website presentation only. The model and interaction scripts are unchanged. */
+:root {
+  color-scheme: light dark;
+  --foreground: light-dark(#192b32,#e5edf1);
+  --muted-foreground: light-dark(#52616a,#b0bdc5);
+  --border: light-dark(#dce3e5,#3a454e);
+  --background: light-dark(#fff,#171c22);
+  --soft: light-dark(#f3f6f7,#232d35);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+  --primary: light-dark(#136e70,#79cdca);
+  --destructive: light-dark(#9b2525,#ffb9b9);
+  --viz-series-1: light-dark(#136e70,#79cdca);
+  --viz-series-2: light-dark(#96601d,#e3b36f);
+  --viz-series-3: light-dark(#6c6594,#c2b6ee);
+  --font-sans: system-ui,-apple-system,&quot;Segoe UI&quot;,sans-serif;
+  --font-size-base: 14px;
+}
+html {background:var(--background)}
+html &gt; body {margin:0;padding:0;font-size:14px;line-height:1.55}
+#solow-three-technologies .desk-layout {display:grid;grid-template-columns:228px minmax(0,1fr);gap:26px}
+#solow-three-technologies .controls-area {background:var(--soft);border-radius:10px;padding:18px;min-width:0}
+#solow-three-technologies h2 {font-size:17px;line-height:1.4;font-weight:600;padding:0;margin:0 0 12px;letter-spacing:-.3px}
+#solow-three-technologies .controls-note,
+#solow-three-technologies .model-context {font-size:12px;line-height:1.6;color:var(--muted-foreground);margin:0 0 18px}
+#solow-three-technologies .viz-controls {display:grid;grid-template-columns:minmax(0,1fr);gap:16px;margin:0;padding:0;align-items:start}
+#solow-three-technologies .form-label {display:grid;grid-template-rows:none;grid-template-columns:minmax(0,1fr);gap:6px;align-self:start;min-width:0;margin:0;font-size:12px;font-weight:400;line-height:1.5}
+#solow-three-technologies :is(.form-control,.form-select) {box-sizing:border-box;display:block;grid-row:auto;min-width:0;width:100%;height:auto;min-height:40px;padding:9px 10px;border:1px solid var(--border);border-radius:7px;background:var(--background);color:var(--foreground);font:inherit;font-size:14px;line-height:1.5;box-shadow:none}
+#solow-three-technologies .form-select {padding-right:26px;appearance:auto}
+#solow-three-technologies :is(input,select,button):focus-visible {outline:2px solid var(--primary);outline-offset:3px}
+#solow-three-technologies .form-label small {color:var(--muted-foreground);font-size:11px;font-weight:400;line-height:1.5}
+#solow-three-technologies .solow-boundary {border-top:1px solid var(--border);padding-top:16px;margin-top:20px;gap:10px;font-size:12px;line-height:1.6;color:var(--muted-foreground)}
+#solow-three-technologies .solow-boundary button {white-space:normal;text-align:left;width:100%;border:1px solid var(--primary);border-radius:7px;background:var(--background);color:var(--primary);padding:9px 10px;font:inherit;font-weight:500;cursor:pointer}
+#solow-three-technologies .solow-boundary button:disabled {opacity:.55;cursor:default}
+#solow-three-technologies .workbench {min-width:0}
+#solow-three-technologies .technology {border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:22px}
+#solow-three-technologies .equation-list {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+#solow-three-technologies .equation-list &gt; div {min-width:0}
+#solow-three-technologies .equation-name {display:block;font-size:12px;color:var(--muted-foreground);margin-bottom:7px}
+#solow-three-technologies math {font-size:17px;line-height:1.6;white-space:nowrap}
+#solow-three-technologies .equation-list small {display:block;font-size:11px;line-height:1.6;color:var(--muted-foreground);margin-top:7px}
+#solow-three-technologies .solow-results {gap:22px;margin:0 0 16px}
+#solow-three-technologies .solow-results span {font-size:12px;line-height:1.5}
+#solow-three-technologies .solow-results strong {font-size:26px;font-weight:600;line-height:1.25;margin-top:5px;letter-spacing:-.4px}
+#solow-three-technologies [data-result=&quot;regime&quot;] {font-size:12px;line-height:1.6;color:var(--muted-foreground)}
+#solow-three-technologies [data-result=&quot;error&quot;] {font-size:13px;line-height:1.6;margin-top:12px}
+#solow-three-technologies .solow-plots {gap:22px;margin-top:24px}
+#solow-three-technologies figure h3 {font-size:14px;line-height:1.5;font-weight:600;margin:0 0 5px}
+#solow-three-technologies .solow-chart text {fill:var(--muted-foreground);font-family:var(--font-sans);font-size:12px}
+#solow-three-technologies .solow-legend {min-height:30px;align-content:start;gap:2px 14px}
+#solow-three-technologies .solow-legend button {font-size:11px;line-height:1.5;min-height:22px;color:var(--muted-foreground);cursor:pointer}
+#solow-three-technologies figcaption,
+#solow-three-technologies .chart-help {font-size:11px;line-height:1.7;color:var(--muted-foreground)}
+#solow-three-technologies figcaption {padding-left:2px;margin:0}
+#solow-three-technologies .chart-help {margin:24px 0 0}
+#solow-three-technologies .solow-tooltip {border:1px solid var(--border);border-radius:7px;box-shadow:0 4px 16px #0002;padding:10px 12px;font-size:12px;line-height:1.7}
+@media (max-width:860px) {
+  #solow-three-technologies .desk-layout {grid-template-columns:200px minmax(0,1fr);gap:20px}
+  #solow-three-technologies .equation-list {grid-template-columns:minmax(0,1fr);gap:16px}
+  #solow-three-technologies .solow-plots {grid-template-columns:minmax(0,1fr)}
+  #solow-three-technologies figure h3 {min-height:0}
+  #solow-three-technologies .solow-legend {min-height:30px}
+}
+@media (max-width:680px) {
+  #solow-three-technologies .desk-layout {grid-template-columns:minmax(0,1fr);gap:26px}
+  #solow-three-technologies .viz-controls {grid-template-columns:repeat(3,minmax(0,1fr));gap:16px 14px}
+  #solow-three-technologies .technology-field {grid-column:span 2}
+  #solow-three-technologies .solow-results {grid-template-columns:repeat(2,minmax(0,1fr))}
+  #solow-three-technologies :is(.form-control,.form-select) {font-size:16px}
+  #solow-three-technologies .solow-boundary button {width:auto}
+  #solow-three-technologies .equation-list {grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:540px) {
+  #solow-three-technologies .viz-controls {grid-template-columns:repeat(2,minmax(0,1fr))}
+  #solow-three-technologies .technology-field {grid-column:1/-1}
+  #solow-three-technologies .equation-list {grid-template-columns:minmax(0,1fr);gap:18px}
+  #solow-three-technologies .solow-results {grid-template-columns:minmax(0,1fr);gap:18px}
+  #solow-three-technologies .solow-results strong {font-size:25px}
+  #solow-three-technologies .controls-area {padding:14px}
+}
+@media (pointer:coarse) {
+  #solow-three-technologies .solow-legend button {min-height:44px}
+}
 &lt;/style&gt;
 &lt;script data-solow-model&gt;
 (() =&gt; {
@@ -3210,12 +3330,50 @@ html&gt;body{padding:0}&lt;/style&gt;
   delete frame.dataset.srcdoc;
 })();
 </script>
+  <aside class="notation" aria-labelledby="symbols-heading">
+    <h2 id="symbols-heading">Read the symbols</h2>
+    <p><i>r</i> = <i>K</i>/<i>L</i> is <strong>capital per available worker</strong>. The labor force includes unemployed workers.</p>
+    <dl class="symbol-list">
+      <div><dt>K</dt><dd>Installed capital stock</dd></div>
+      <div><dt>L</dt><dd>Available labor force</dd></div>
+      <div><dt>Y</dt><dd>Net output per year</dd></div>
+      <div><dt>y</dt><dd>Y/L · net output per available worker</dd></div>
+      <div><dt>c</dt><dd>(1 − s)y · consumption per available worker</dd></div>
+      <div><dt>s</dt><dd>Share of net output saved</dd></div>
+      <div><dt>n</dt><dd>Constant labor-force growth rate per year</dd></div>
+      <div><dt>r₀, r*</dt><dd>Initial and steady capital-to-labor ratios</dd></div>
+      <div><dt>t, ṙ</dt><dd>Time in years; change in r per year</dd></div>
+    </dl>
+  </aside>
+  <details class="solution-reference">
+    <summary>Production functions and the three long-run cases</summary>
+      <div class="technology-notes">
+        <section>
+          <h3>Fixed proportions</h3>
+          <math aria-label="F of r comma 1 equals the minimum of r over a and 1 over b"><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>=</mo><mi mathvariant="normal">min</mi><mo>{</mo><mfrac><mi>r</mi><mi>a</mi></mfrac><mo>,</mo><mfrac><mn>1</mn><mi>b</mi></mfrac><mo>}</mo></math>
+          <p>Producing one unit of output requires <i>a</i> units of capital and <i>b</i> units of labor. Both are fully used at <i>r</i> = <i>a</i>/<i>b</i>. If <i>n</i> &gt; <i>s</i>/<i>a</i>, the employment share tends to zero. If <i>n</i> &lt; <i>s</i>/<i>a</i>, some capital is idle in the limit. At equality, every positive ratio at or below <i>a</i>/<i>b</i> is steady.</p>
+        </section>
+        <section>
+          <h3>Cobb–Douglas</h3>
+          <math aria-label="F of r comma 1 equals r to the power alpha"><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>=</mo><msup><mi>r</mi><mi>α</mi></msup></math>
+          <p>The capital exponent satisfies 0 &lt; <i>α</i> &lt; 1. With positive saving and labor growth, capital per worker converges to the unique stable ratio <i>r</i>* = (<i>s</i>/<i>n</i>)<sup>1/(1−α)</sup>. The growth rate of output per worker tends to zero.</p>
+        </section>
+        <section>
+          <h3>CES</h3>
+          <math aria-label="F of r comma 1 equals a r to the power rho plus 1, all to the power 1 over rho"><mi>F</mi><mo>(</mo><mi>r</mi><mo>,</mo><mn>1</mn><mo>)</mo><mo>=</mo><msup><mrow><mo>(</mo><mi>a</mi><msup><mi>r</mi><mi>ρ</mi></msup><mo>+</mo><mn>1</mn><mo>)</mo></mrow><mfrac><mn>1</mn><mi>ρ</mi></mfrac></msup></math>
+          <p>Here <i>a</i> is a capital coefficient, distinct from the fixed-proportions requirement. The exponent satisfies 0 &lt; <i>ρ</i> &lt; 1, and the substitution elasticity is <i>σ</i> = 1/(1−<i>ρ</i>). The default <i>ρ</i> = ½ gives <i>σ</i> = 2.</p>
+          <p>A finite steady ratio exists when <i>s</i><i>a</i><sup>1/ρ</sup> &lt; <i>n</i>. When <i>s</i><i>a</i><sup>1/ρ</sup> &gt; <i>n</i>, output per worker has positive limiting growth. At equality, its level grows without bound while its growth rate tends to zero.</p>
+        </section>
+      </div>
+      <p>The three technologies keep their separate normalizations from the notes. A difference in output levels across cases therefore does not isolate the effect of substitution.</p>
+  </details>
   <footer class="page-footer">
     <p>Teaching model for ECON3204. Growth rates are instantaneous annual rates; saving is a share of net output. The fixed-proportions graphs use available labor as the denominator, including unemployed workers.</p>
     <p>Fixed-proportions and Cobb–Douglas paths use exact solutions. CES paths use numerical integration; the long-run classifications are analytical. The displayed horizon is finite and need not be long enough to approach the limiting path.</p>
     <a href="https://kptsang.com/">Return to kptsang.com</a>
   </footer>
 </main>
+</article>
 
 </body>
 </html>
