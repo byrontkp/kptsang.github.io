@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="description" content="Explore the corrected two-period production-network model: equilibrium, consumption risk and sector risk premia.">
   <title>Production networks and risk premia</title>
   <style>
 :root{color-scheme:light;--ink:#172c35;--muted:#526772;--paper:#f4f5f0;--white:#fff;--line:#d8e0dc;--teal:#126b65;--teal-soft:#e7f2ee;--gold:#b15b26;--own:#a2afb4;--s1:#126b65;--s2:#b15b26;--error:#8a2524}
-*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button,summary,select,input[type=range]{cursor:pointer}a{color:var(--teal);text-underline-offset:3px}button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b15b2680;outline-offset:3px}.wrap{width:min(1400px,calc(100% - 64px));margin:auto}.masthead{background:var(--ink);color:#eaf1ef;font-size:11px;letter-spacing:.13em;padding:16px 0}.masthead .wrap{display:flex;justify-content:space-between;gap:20px}.intro{padding:48px 0 28px;max-width:950px}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:700;color:var(--teal);margin:0 0 9px}h1{font:normal clamp(34px,4.2vw,58px)/1.12 Georgia,"Times New Roman",serif;letter-spacing:-.025em;margin:0 0 19px}h2{font:normal 25px/1.25 Georgia,"Times New Roman",serif;margin:0 0 12px}p{margin:0 0 15px}.lead{font-size:18px;line-height:1.6;max-width:780px}.scope{font-size:12px;color:var(--muted);margin:21px 0 0}.scenario-row{border-block:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}.scenario-row label{font-size:12px;color:var(--muted);display:block;max-width:100%;flex:0 1 520px}select{display:block;background:var(--white);color:var(--ink);border:1px solid #adbcb6;border-radius:5px;padding:11px 35px 11px 12px;width:100%;margin-top:5px;font-size:14px}.actions{display:flex;gap:9px;flex-shrink:0}button{border:1px solid #9aaca4;background:transparent;color:var(--ink);padding:10px 16px;border-radius:5px;font-size:14px}button.primary{background:var(--teal);color:white;border-color:var(--teal)}button:hover{filter:brightness(.94)}button:disabled{opacity:.45;cursor:not-allowed}.workspace{display:grid;grid-template-columns:310px minmax(0,1fr);gap:30px;align-items:start}.control-group{padding:21px 0;border-bottom:1px solid var(--line)}.control-group:first-child{padding-top:0}.control-group h2,.control-group summary{font:600 16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-bottom:12px}.control-group p{font-size:13px;color:var(--muted)}.control{margin:21px 0}.control-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}.control label{font-size:13px;font-weight:500;max-width:220px}.number-wrap{display:flex;align-items:center;gap:3px;flex-shrink:0}.number-wrap input{width:74px;min-width:0;text-align:right;padding:5px 7px;color:var(--ink);border:1px solid #c4cfca;border-radius:4px;background:var(--white);font-size:14px;font-variant-numeric:tabular-nums}.number-wrap span{font-size:12px;color:var(--muted);min-width:12px}input[type=range]{width:100%;accent-color:var(--teal);height:20px;margin:0;display:block}.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:1px}.help{font-size:12px!important;color:var(--muted);line-height:1.6;margin-top:12px}.small-result{background:var(--teal-soft);padding:12px;font-size:12px;line-height:1.8;border-radius:4px}.panel{padding:28px;background:var(--white);border:1px solid var(--line);border-radius:7px;margin-bottom:24px;min-width:0}.section-top{display:flex;align-items:start;justify-content:space-between;gap:16px}.section-top h2{max-width:600px}.status{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);white-space:nowrap;margin-top:3px}.explainer{font-size:14px;color:var(--muted);max-width:800px}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;margin:18px 0 4px}.legend span{display:inline-flex;align-items:center;gap:7px}.swatch{display:inline-block;width:19px;height:8px;background:var(--teal)}.swatch.own{background:var(--own)}.swatch.s1{background:var(--s1)}.swatch.s2{background:var(--s2)}.swatch.baseline{background:transparent;border-top:2px dashed var(--own);height:0}.chart-shell{width:100%;min-width:0}.chart-shell svg{display:block;width:100%;height:auto;overflow:visible}.chart-shell svg text{font-family:inherit;font-size:12px;fill:var(--ink);font-variant-numeric:tabular-nums}.chart-shell svg .axis-title{font-size:12px;fill:var(--muted)}.chart-shell svg .grid{stroke:#e4e9e6;stroke-width:1}.chart-shell svg .axis{stroke:#aab7b2;stroke-width:1}.chart-shell svg .bar-label{font-weight:600;font-size:13px}.result-sentence{font-size:16px;color:var(--teal);background:var(--teal-soft);padding:15px 17px;border-radius:4px;line-height:1.6;margin:14px 0 23px}.table-wrap{width:100%;overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5;font-variant-numeric:tabular-nums}caption{text-align:left;font-size:15px;font-weight:600;color:var(--ink);padding:8px 0 12px}th,td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}th:first-child,td:first-child{text-align:left;padding-left:0}th:last-child,td:last-child{padding-right:0}thead th{font-size:11px;color:var(--muted);font-weight:500}tbody th{font-weight:400}tr.total th,tr.total td{font-weight:650;border-top:2px solid #a7bab0;border-bottom:0}tr.emphasis{background:#f0f6f3}.network-layout{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(250px,1.1fr);gap:18px;align-items:center;margin:12px 0 20px}.network-layout svg{display:block;max-width:100%;margin:auto}.small-label{font-size:12px;font-weight:600;margin-bottom:4px}.formula{font-family:Georgia,"Times New Roman",serif;font-size:16px;padding-top:20px}.two-controls{display:grid;grid-template-columns:1fr 1fr;gap:26px}.methods{padding:38px 0;border-top:1px solid var(--line);max-width:1000px;margin-top:20px}.methods>p{font-size:15px}.methods details{border-bottom:1px solid var(--line);padding:17px 0}.methods summary{font-size:15px;font-weight:500}.method-content{font-size:14px;padding:20px 0 0;line-height:1.75}.method-content p{margin-bottom:18px}.source-links{display:flex;gap:25px;flex-wrap:wrap;margin:27px 0 0;font-size:13px!important}footer{padding:22px 0 32px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}#error{padding:16px;background:#fbeceb;color:var(--error);border:1px solid #e4c0bd;border-radius:5px;margin-bottom:24px}#results.invalid{opacity:.35;pointer-events:none}#equation-values{overflow-wrap:anywhere;font-size:12px}.negative{color:#9b3828}.positive{color:var(--teal)}[hidden]{display:none!important}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button,summary,select,input[type=range]{cursor:pointer}a{color:var(--teal);text-underline-offset:3px}button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b15b2680;outline-offset:3px}.wrap{width:min(1400px,calc(100% - 64px));margin:auto}.masthead{background:var(--ink);color:#eaf1ef;font-size:11px;letter-spacing:.13em;padding:16px 0}.masthead .wrap{display:flex;justify-content:space-between;gap:20px}.intro{padding:48px 0 28px;max-width:950px}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:700;color:var(--teal);margin:0 0 9px}h1{font:normal clamp(34px,4.2vw,58px)/1.12 Georgia,"Times New Roman",serif;letter-spacing:-.025em;margin:0 0 19px}h2{font:normal 25px/1.25 Georgia,"Times New Roman",serif;margin:0 0 12px}p{margin:0 0 15px}.lead{font-size:18px;line-height:1.6;max-width:780px}.scope{font-size:12px;color:var(--muted);margin:21px 0 0}.scenario-row{flex-wrap:wrap;border-block:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}.scenario-row label{font-size:12px;color:var(--muted);display:block;max-width:100%;flex:1 1 300px}select{display:block;background:var(--white);color:var(--ink);border:1px solid #adbcb6;border-radius:5px;padding:11px 35px 11px 12px;width:100%;margin-top:5px;font-size:14px}.actions{display:flex;gap:9px;flex-shrink:0}button{border:1px solid #9aaca4;background:transparent;color:var(--ink);padding:10px 16px;border-radius:5px;font-size:14px}button.primary{background:var(--teal);color:white;border-color:var(--teal)}button:hover{filter:brightness(.94)}button:disabled{opacity:.45;cursor:not-allowed}.workspace{display:grid;grid-template-columns:310px minmax(0,1fr);gap:30px;align-items:start}.control-group{padding:21px 0;border-bottom:1px solid var(--line)}.control-group:first-child{padding-top:0}.control-group h2,.control-group summary{font:600 16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-bottom:12px}.control-group p{font-size:13px;color:var(--muted)}.control{margin:21px 0}.control-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}.control label{font-size:13px;font-weight:500;max-width:220px}.number-wrap{display:flex;align-items:center;gap:3px;flex-shrink:0}.number-wrap input{width:74px;min-width:0;text-align:right;padding:5px 7px;color:var(--ink);border:1px solid #c4cfca;border-radius:4px;background:var(--white);font-size:14px;font-variant-numeric:tabular-nums}.number-wrap span{font-size:12px;color:var(--muted);min-width:12px}input[type=range]{width:100%;accent-color:var(--teal);height:20px;margin:0;display:block}.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:1px}.help{font-size:12px!important;color:var(--muted);line-height:1.6;margin-top:12px}.small-result{background:var(--teal-soft);padding:12px;font-size:12px;line-height:1.8;border-radius:4px}.panel{padding:28px;background:var(--white);border:1px solid var(--line);border-radius:7px;margin-bottom:24px;min-width:0}.section-top{display:flex;align-items:start;justify-content:space-between;gap:16px}.section-top h2{max-width:600px}.status{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);white-space:nowrap;margin-top:3px}.explainer{font-size:14px;color:var(--muted);max-width:800px}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;margin:18px 0 4px}.legend span{display:inline-flex;align-items:center;gap:7px}.swatch{display:inline-block;width:19px;height:8px;background:var(--teal)}.swatch.own{background:var(--own)}.swatch.s1{background:var(--s1)}.swatch.s2{background:var(--s2)}.swatch.baseline{background:transparent;border-top:2px dashed var(--own);height:0}.chart-shell{width:100%;min-width:0}.chart-shell svg{display:block;width:100%;height:auto;overflow:visible}.chart-shell svg text{font-family:inherit;font-size:12px;fill:var(--ink);font-variant-numeric:tabular-nums}.chart-shell svg .axis-title{font-size:12px;fill:var(--muted)}.chart-shell svg .grid{stroke:#e4e9e6;stroke-width:1}.chart-shell svg .axis{stroke:#aab7b2;stroke-width:1}.chart-shell svg .bar-label{font-weight:600;font-size:13px}.result-sentence{font-size:16px;color:var(--teal);background:var(--teal-soft);padding:15px 17px;border-radius:4px;line-height:1.6;margin:14px 0 23px}.table-wrap{width:100%;overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5;font-variant-numeric:tabular-nums}caption{text-align:left;font-size:15px;font-weight:600;color:var(--ink);padding:8px 0 12px}th,td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}th:first-child,td:first-child{text-align:left;padding-left:0}th:last-child,td:last-child{padding-right:0}thead th{font-size:11px;color:var(--muted);font-weight:500}tbody th{font-weight:400}tr.total th,tr.total td{font-weight:650;border-top:2px solid #a7bab0;border-bottom:0}tr.emphasis{background:#f0f6f3}.network-layout{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(250px,1.1fr);gap:18px;align-items:center;margin:12px 0 20px}.network-layout svg{display:block;max-width:100%;margin:auto}.small-label{font-size:12px;font-weight:600;margin-bottom:4px}.formula{font-family:Georgia,"Times New Roman",serif;font-size:16px;padding-top:20px}.two-controls{display:grid;grid-template-columns:1fr 1fr;gap:26px}.methods{padding:38px 0;border-top:1px solid var(--line);max-width:1000px;margin-top:20px}.methods>p{font-size:15px}.methods details{border-bottom:1px solid var(--line);padding:17px 0}.methods summary{font-size:15px;font-weight:500}.method-content{font-size:14px;padding:20px 0 0;line-height:1.75}.method-content p{margin-bottom:18px}.source-links{display:flex;gap:25px;flex-wrap:wrap;margin:27px 0 0;font-size:13px!important}footer{padding:22px 0 32px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}#error{padding:16px;background:#fbeceb;color:var(--error);border:1px solid #e4c0bd;border-radius:5px;margin-bottom:24px}#results.invalid{opacity:.35;pointer-events:none}#equation-values{overflow-wrap:anywhere;font-size:12px}.negative{color:#9b3828}.positive{color:var(--teal)}[hidden]{display:none!important}
 #results.invalid{opacity:1}#results.invalid .panel{display:none}#results.invalid:before{content:"Choose valid parameters to show the equilibrium comparison.";display:block;padding:25px;border:1px solid var(--line);background:var(--white);color:var(--muted)}
 .mobile-controls{display:none}
 @media(min-width:1600px){.wrap{width:min(1500px,calc(100% - 100px))}.workspace{grid-template-columns:340px minmax(0,1fr)}}
@@ -25,9 +25,10 @@
     <p class="eyebrow">THE TWO-PERIOD MODEL</p>
     <h1>How do production links <br>change risk premia?</h1>
     <p class="lead">Change the economy’s sourcing arrangements and uncertainty. Follow the consequences for consumption risk, sector profits and the compensation households require.</p>
-    <p class="scope">Terminal equilibrium conditional on capital · Local covariance premia · One period, without annualization</p>
+    <p id="scope-label" class="scope">Saving and investment adjust · Second-order expectations · One period, without annualization</p>
   </section>
   <div class="scenario-row">
+    <label for="capital-mode">Capital treatment <select id="capital-mode"><option value="endogenous">Saving and investment adjust</option><option value="fixed">Capital fixed: original demonstration</option></select></label>
     <label for="preset">Starting example <select id="preset"><option value="baseline">Links lower premia and create a spread</option><option value="cobb">Cobb–Douglas inputs: equal sector premia</option><option value="risky2">Sector 2 is riskier: links raise premia</option><option value="common">Only a common productivity shock</option><option value="symmetric">Symmetric sectors and shocks</option><option value="custom" disabled>Custom scenario</option></select></label>
     <div class="actions"><button id="reset" type="button">Reset</button><button id="export" type="button" class="primary">Save scenario</button></div>
   </div>
@@ -38,18 +39,20 @@
       <section class="control-group"><h2>1. Production links</h2><p>Move from own-sector inputs to your chosen sourcing arrangement.</p><div id="network-controls"></div><p class="help">Sourcing weights describe the technology. Actual expenditure shares also depend on equilibrium goods prices.</p></section>
       <section class="control-group"><h2>2. Uncertainty</h2><p>Standard deviations of log productivity, in percent per period.</p><div id="shock-controls"></div><p class="help">The common shock affects both sectors equally and is independent of the two sector-specific shocks. Correlation applies to the sector-specific shocks.</p><div id="total-shock-risk" class="small-result"></div></section>
       <section class="control-group"><h2>3. Demand and technology</h2><div id="technology-controls"></div><p id="technology-constraint" class="help">Terminal technology requires α + η &lt; 1.</p></section>
-      <details class="control-group" open><summary>4. Preferences, capital and productivity</summary><div id="other-controls"></div><p class="help">Capital is predetermined. These controls change the allocation at which the terminal equilibrium is evaluated.</p></details>
+      <details class="control-group" open><summary>4. Preferences, capital and productivity</summary><div id="other-controls"></div><p id="capital-help" class="help">Capital controls are inherited stocks at the start of date 0. The economy chooses the stocks carried into date 1.</p></details>
+      <section id="investment-parameter-group" class="control-group"><h2>5. Saving and investment</h2><div id="investment-controls"></div><p class="help">The slides assign utility weights 1 − β and β to the two dates. Their implied relative weight is β / (1 − β): at β = 0.99, this is 99, not 0.99. Date-0 labor supply is one; date-0 productivity is normalized to one.</p></section>
     </aside>
     <div id="results" class="results">
       <section class="panel" aria-labelledby="premium-title">
         <div class="section-top"><div><p class="eyebrow">THE PRICING RESULT</p><h2 id="premium-title">Own-sector inputs versus your network</h2></div><span id="status" class="status" aria-live="polite">Solving…</span></div>
-        <p class="explainer">Both economies use your chosen preferences, capital, demand and shock distribution. Only the sourcing arrangement differs.</p>
+        <p id="comparison-scope" class="explainer">Both economies start with the same inherited capital, preferences, demand and shock distribution. Changing sourcing also changes saving and the capital stocks chosen for tomorrow.</p>
         <div class="legend"><span><i class="swatch own"></i>Own-sector sourcing</span><span><i class="swatch linked"></i>Your network</span></div>
         <div class="chart-shell" id="premium-chart"></div>
         <p id="result-sentence" class="result-sentence" aria-live="polite"></p>
         <div class="table-wrap"><table id="decomposition"><caption>Where the change comes from</caption><thead><tr><th scope="col">Component</th><th scope="col">Sector 1</th><th scope="col">Sector 2</th></tr></thead><tbody></tbody></table></div>
         <p class="help">A positive relative correction means a premium above the linked economy’s common component. It need not mean a premium above the own-sector benchmark.</p>
       </section>
+      <section id="investment-panel" class="panel" aria-labelledby="investment-title"><p class="eyebrow">CHOICES BEFORE THE SHOCKS</p><h2 id="investment-title">How do saving and investment respond?</h2><p class="explainer">Initial goods prices, consumption, investment and sector asset prices solve goods clearing, labor clearing and household Euler equations together. Expectations are approximated to second order using the chosen shock covariance.</p><div class="table-wrap"><table id="investment-table"><caption>Initial-period equilibrium</caption><thead><tr><th>Quantity</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><div class="table-wrap"><table id="capital-channel"><caption>Isolating the additional effect of capital reallocation</caption><thead><tr><th>Linked economy’s premium (%)</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div><p id="investment-checks" class="help"></p><p id="approximation-note" class="help"></p><details><summary>What does “second order” mean here?</summary><p class="help">The household’s expected discounted payoffs are expanded through shock variances and covariances. We solve those approximated Euler equations jointly with the exact resource accounts. No Gaussian distribution is imposed. This is a local approximation, not an exact solution for arbitrarily large shocks.</p><p class="help">The main charts evaluate the local covariance premium at the risk-adjusted capital solution. A strictly leading-order premium instead evaluates it at the zero-risk investment equilibrium. Their difference consists of higher-order terms, so it should not be interpreted as additional second-order precision.</p><div class="table-wrap"><table id="leading-table"><caption>Approximation-order comparison</caption><thead><tr><th>Your network’s premium (%)</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div></details></section>
       <section class="panel" aria-labelledby="transmission-title">
         <p class="eyebrow">LINKS AND AGGREGATE RISK</p><h2 id="transmission-title">Who buys from whom?</h2>
         <div class="network-layout"><div id="network-diagram"></div><div><p class="small-label">Actual intermediate expenditure shares</p><div class="table-wrap"><table id="shares"><thead><tr><th>Buyer ↓ / supplier →</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div><p class="help">Arrows run from supplier to buyer. Own-sector purchases are included in the table.</p></div></div>
@@ -57,14 +60,14 @@
         <p class="formula">Sector premium ≈ consumption beta × risk aversion × variance of log consumption</p>
         <p class="help">Consumption beta is a projection coefficient. It summarizes how the sector’s return covaries with consumption across the shock distribution.</p>
       </section>
-      <section class="panel" aria-labelledby="path-title"><p class="eyebrow">THE WHOLE SOURCING TRANSITION</p><h2 id="path-title">From own-sector inputs to the target network</h2><p class="explainer">Each point solves a different sourcing arrangement. All other chosen parameters stay fixed.</p><div class="legend"><span><i class="swatch s1"></i>Sector 1</span><span><i class="swatch s2"></i>Sector 2</span><span><i class="swatch baseline"></i>Own-sector premium</span></div><div class="chart-shell" id="path-chart"></div><p class="help">The vertical marker shows your current transition setting. The target weights are the two sourcing controls at the left.</p></section>
+      <section class="panel" aria-labelledby="path-title"><p class="eyebrow">THE WHOLE SOURCING TRANSITION</p><h2 id="path-title">From own-sector inputs to the target network</h2><p id="path-scope" class="explainer">Each point solves a different sourcing arrangement, including its initial saving and investment. The underlying preferences, endowments, technology exponents and shocks remain fixed.</p><div class="legend"><span><i class="swatch s1"></i>Sector 1</span><span><i class="swatch s2"></i>Sector 2</span><span><i class="swatch baseline"></i>Own-sector premium</span></div><div class="chart-shell" id="path-chart"></div><p class="help">The vertical marker shows your current transition setting. The target weights are the two sourcing controls at the left.</p></section>
       <section class="panel" aria-labelledby="shock-title"><p class="eyebrow">FOLLOW A PARTICULAR SHOCK</p><h2 id="shock-title">What happens when productivity changes?</h2><p class="explainer">Choose a small realization of the two productivity shocks. These controls illustrate transmission; they do not change the distribution used to calculate premia.</p><div id="realization-controls" class="two-controls"></div><p id="shock-support-note" class="help" hidden></p><div class="table-wrap"><table id="shock-table"><caption>First-order percentage responses</caption><thead><tr><th>Outcome</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><p class="help">Goods prices are measured relative to the consumption basket. With predetermined initial claim values, terminal-profit log changes equal return log innovations. Output changes equal profit changes minus goods-price changes here.</p></section>
     </div>
   </div>
   <section class="methods">
-    <h2>What this demonstration establishes</h2><p>Production links can change the amount of consumption risk and each sector’s exposure to it. The sign and the sector ranking depend on technology, final demand and the distribution of productivity shocks. The examples illustrate a mechanism within the specified model; they are not estimates of US premia.</p>
-    <details><summary>Equations and assumptions</summary><div class="method-content"><p>There are two sectors. Terminal production is y<sub>j</sub> = z<sub>j</sub>k<sub>j</sub><sup>α</sup>M<sub>j</sub><sup>η</sup>, with α + η &lt; 1. The intermediate composite is CES with elasticity σ. Household consumption is Cobb–Douglas with expenditure shares θ and 1 − θ. Capital is predetermined, there is no terminal labor or investment, and the terminal residual payoff is (1 − η)p<sub>j</sub>y<sub>j</sub>.</p><p>The primitive sourcing matrix is Ω(τ) = (1 − τ)I + τΩ*. The target off-diagonal weights are ω<sub>12</sub> and ω<sub>21</sub>. Actual shares satisfy W<sub>jk</sub> = ω<sub>jk</sub>p<sub>k</sub><sup>1−σ</sup> / Σ<sub>l</sub>ω<sub>jl</sub>p<sub>l</sub><sup>1−σ</sup>. Each comparison recomputes goods prices, expenditure shares and the terminal allocation.</p><p>Write L = I − ηW, A = L<sup>−1</sup>, ℓ = A′θ, δ = (1 − η)ℓ and S = diag(δ). The corrected response uses D = diag(W′δ) − W′SW, H = η(1 − σ)S<sup>−1</sup>A′D and B = L − (1 − η)H. Consumption responds with ℓ′, log returns with F = 1ℓ′ − HB<sup>−1</sup>, and log goods prices with G = −B<sup>−1</sup> + 1ℓ′. Revenue-share feedback is retained.</p><p>The covariance premium is RP = γFΣℓ. In percentage units, the page reports 100 × RP. It is the local approximation to E[log R] − log R<sub>f</sub> + ½Var(log R), rather than an exact finite-risk arithmetic excess return. There is no annualization. Large shock scales can make a local approximation less informative.</p><p>Productivity innovations are log z<sub>j</sub> = a + ε<sub>j</sub>. The common component a is independent of ε; Corr(ε<sub>1</sub>, ε<sub>2</sub>) is adjustable. Thus Σ<sub>11</sub> = σ<sub>a</sub>² + σ<sub>1</sub>², Σ<sub>22</sub> = σ<sub>a</sub>² + σ<sub>2</sub>² and Σ<sub>12</sub> = σ<sub>a</sub>² + ρσ<sub>1</sub>σ<sub>2</sub>. All covariances refer to the same period.</p><p>Demand shares remain strictly positive so both sectors are active in the own-sector benchmark. The common capital exponent, intermediate exponent and substitution elasticity follow the existing analytical model. Their sector-specific generalization would require a new derivation.</p><div id="equation-values"></div></div></details>
-    <details><summary>Why are patience, the EIS and shock persistence absent?</summary><div class="method-content"><p>Under the slides’ terminal Epstein–Zin specification, the state-dependent part of log M is −γ log C. Patience and the elasticity of intertemporal substitution affect date-0 saving, investment and the level of the discount factor. Conditional on capital, they do not enter the leading terminal covariance premium directly. This page therefore does not attach arbitrary effects to those parameters.</p><p>There is one uncertain terminal date. The page specifies the conditional distribution of terminal productivity directly. Persistence and future adjustment costs require an initial investment or dynamic model. Capital and reference productivity can be changed here, but their optimal initial choices are not solved.</p></div></details>
+    <h2>What this demonstration establishes</h2><p>Production links can change the amount of consumption risk and each sector’s exposure to it. With endogenous investment, they also change the capital allocation before the shocks occur. The sign and the sector ranking depend on technology, final demand and the distribution of productivity shocks. These are local, illustrative model calculations, not estimates of US premia.</p>
+    <details><summary>Equations and assumptions</summary><div class="method-content"><p>There are two sectors. Terminal production is y<sub>j</sub> = z<sub>j</sub>k<sub>j</sub><sup>α</sup>M<sub>j</sub><sup>η</sup>, with α + η &lt; 1. The intermediate composite is CES with elasticity σ. Household consumption is Cobb–Douglas with expenditure shares θ and 1 − θ. Capital is predetermined when the terminal shocks arrive; there is no terminal labor or investment, and the terminal residual payoff is (1 − η)p<sub>j</sub>y<sub>j</sub>.</p><p>The primitive sourcing matrix is Ω(τ) = (1 − τ)I + τΩ*. The target off-diagonal weights are ω<sub>12</sub> and ω<sub>21</sub>. Actual shares satisfy W<sub>jk</sub> = ω<sub>jk</sub>p<sub>k</sub><sup>1−σ</sup> / Σ<sub>l</sub>ω<sub>jl</sub>p<sub>l</sub><sup>1−σ</sup>. Each comparison recomputes goods prices, expenditure shares and the terminal allocation.</p><p>Write L = I − ηW, A = L<sup>−1</sup>, ℓ = A′θ, δ = (1 − η)ℓ and S = diag(δ). The corrected response uses D = diag(W′δ) − W′SW, H = η(1 − σ)S<sup>−1</sup>A′D and B = L − (1 − η)H. Consumption responds with ℓ′, log returns with F = 1ℓ′ − HB<sup>−1</sup>, and log goods prices with G = −B<sup>−1</sup> + 1ℓ′. Revenue-share feedback is retained.</p><p>The covariance premium is RP = γFΣℓ. In percentage units, the page reports 100 × RP. It is the local approximation to E[log R] − log R<sub>f</sub> + ½Var(log R), rather than an exact finite-risk arithmetic excess return. There is no annualization. Large shock scales can make a local approximation less informative.</p><p>Productivity is log z<sub>j</sub> = log z̄<sub>j</sub> + a + ε<sub>j</sub>, where z̄ is the reference productivity setting. The common component a is independent of ε; Corr(ε<sub>1</sub>, ε<sub>2</sub>) is adjustable. Thus Σ<sub>11</sub> = σ<sub>a</sub>² + σ<sub>1</sub>², Σ<sub>22</sub> = σ<sub>a</sub>² + σ<sub>2</sub>² and Σ<sub>12</sub> = σ<sub>a</sub>² + ρσ<sub>1</sub>σ<sub>2</sub>. All covariances refer to the same period.</p><p>Demand shares remain strictly positive so both sectors are active in the own-sector benchmark. The common capital exponent, intermediate exponent and substitution elasticity follow the existing analytical model. Their sector-specific generalization would require a new derivation.</p><div id="equation-values"></div></div></details>
+    <details><summary>Initial-period equations and the approximation</summary><div class="method-content"><p>Date-0 production uses inherited capital, labor and intermediates, with labor exponent ξ = 1 − α − η and aggregate labor fixed at one. The date-0 productivity level is one. Investment is I<sub>j</sub> = K<sub>j</sub> − (1 − δ)K<sub>j,old</sub>. Under the retained Kekre–Lenel external-cost convention, q<sub>j</sub> = p<sub>j0</sub>(K<sub>j</sub>/K<sub>j,old</sub>)<sup>χ</sup> and investment absorbs (K<sub>j</sub>/K<sub>j,old</sub>)<sup>χ</sup>I<sub>j</sub> units of good j. Capital producers take sector-wide growth as given. Disinvestment is permitted, as in the maintained convention.</p><p>The terminal claim pays π<sub>j</sub> = (1 − η)p<sub>j1</sub>y<sub>j1</sub>/K<sub>j</sub>, preserving the slides’ residual-profit payoff. The SDF is M = [β/(1 − β)]C<sub>0</sub><sup>1/ψ</sup>μ<sup>γ−1/ψ</sup>C<sub>1</sub><sup>−γ</sup>, where μ is the Epstein–Zin certainty equivalent. The system imposes q<sub>j</sub> ≈ E[Mπ<sub>j</sub>] using a second-order expansion of log expectations. This is a decentralized equilibrium calculation, not a planner problem that internalizes the investment externality.</p><p>Let c = log C<sub>1</sub> and d<sub>j</sub> = log π<sub>j</sub>. At the reference terminal equilibrium, their gradients are ℓ and f<sub>j</sub>, and their Hessians are Q<sub>c</sub> and Q<sub>j</sub>. The certainty-equivalent correction is u = ½ tr(Q<sub>c</sub>Σ) + ½(1 − γ)ℓ′Σℓ. The log-pricing correction is a<sub>j</sub> = (γ − 1/ψ)u + ½ tr[(Q<sub>j</sub> − γQ<sub>c</sub>)Σ] + ½(f<sub>j</sub> − γℓ)′Σ(f<sub>j</sub> − γℓ). The solver uses log q<sub>j</sub> = log[β/(1 − β)] + (log C<sub>0</sub> − c̄)/ψ + d̄<sub>j</sub> + a<sub>j</sub>.</p><p>Patience and the EIS now affect saving and investment. They can change network premia through the resulting capital allocation and terminal expenditure shares. The fixed-capital mode intentionally has no such channel. Shock persistence remains absent because there is only one uncertain terminal date; the controls specify its conditional covariance directly.</p><p>The deterministic and stochastic reference equilibria are numerical solutions, not a general uniqueness theorem. Small residuals establish the equations of the local approximation, not its accuracy for arbitrarily large shocks or unspecified higher moments.</p></div></details>
   </section>
   <footer>Research illustration · All calculations run locally · A saved scenario includes parameters and results</footer>
 </main>
@@ -180,16 +183,124 @@
     common:{...defaults,sd1:0,sd2:0,sdCommon:5,shock1:-1,shock2:-1},
     symmetric:{...defaults,theta:.5}
   };
-  const api={defaults,presets,validate,terminal,responses,covariance,economy,target,compare,path,shock};
+  const api={defaults,presets,validate,terminal,responses,covariance,economy,target,compare,path,shock,inputPrice,algebra:{eye,tr,add,scale,mul,mv,dot,diag,inv}};
   root.NetworkModel=api;
   if(typeof module!=='undefined' && module.exports) module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 
 </script>
 <script>
+/* Complete date-0 market clearing and private Euler equations, with expectations
+   expanded to second order in log-productivity uncertainty. No normality assumed.
+   Independent reference: Byron_files/two_period_investment_2026-10-30/model.py. */
+(function(root){
+  'use strict';
+  const M=root.NetworkModel||(typeof require!=='undefined'?require('./model.js'):null);
+  const {eye,tr,add,scale,mul,mv,dot,diag,inv}=M.algebra;
+  const defaults={beta:.99,psi:1.5,depreciation:.025,chi:3.5};
+  const outer=(a,b)=>a.map(v=>b.map(w=>v*w));
+  const contraction=(a,b)=>a.flat().reduce((s,v,i)=>s+v*b.flat()[i],0);
+  const sumM=(...a)=>a.reduce((s,v)=>add(s,v),[[0,0],[0,0]]);
+  function curvature(p,e){
+    const W=e.W,A=e.A,delta=e.delta,S=diag(delta),Si=diag(delta.map(v=>1/v)),Bi=inv(e.B),eta=p.eta;
+    const D=add(diag(mv(tr(W),delta)),scale(mul(mul(tr(W),S),W),-1));
+    const Wd=W.map(r=>{const d=(1-p.sigma)*r[0]*r[1];return [d,-d];});
+    const Ad=scale(mul(mul(A,Wd),A),eta),ld=mv(tr(Ad),[p.theta,1-p.theta]),dd=ld.map(v=>(1-eta)*v),Sd=diag(dd),Sid=diag(dd.map((v,j)=>-v/delta[j]**2));
+    const v1=mv(tr(Wd),delta),v2=mv(tr(W),dd);
+    const Dd=sumM(diag(v1.map((v,j)=>v+v2[j])),scale(mul(mul(tr(Wd),S),W),-1),scale(mul(mul(tr(W),Sd),W),-1),scale(mul(mul(tr(W),S),Wd),-1));
+    const Hd=scale(sumM(mul(mul(Sid,tr(A)),D),mul(mul(Si,tr(Ad)),D),mul(mul(Si,tr(A)),Dd)),eta*(1-p.sigma));
+    const Bd=add(scale(Wd,-eta),scale(Hd,-(1-eta))),Bid=scale(mul(mul(Bi,Bd),Bi),-1);
+    const Fd=sumM([ld.slice(),ld.slice()],scale(mul(Hd,Bi),-1),scale(mul(e.H,Bid),-1));
+    const gd=e.G[0].map((v,j)=>v-e.G[1][j]);
+    return {qc:outer(ld,gd),qf:Fd.map(f=>outer(f,gd))};
+  }
+  function moments(p,omega,k,riskScale=1){
+    const e=M.economy({...p,k1:k[0],k2:k[1]},omega),{qc,qf}=curvature(p,e),cov=scale(e.cov,riskScale);
+    const v=dot(e.ell,mv(cov,e.ell)),cm=.5*contraction(qc,cov),mu=cm+.5*(1-p.gamma)*v;
+    const adj=e.F.map((f,j)=>{const d=f.map((v,k)=>v-p.gamma*e.ell[k]);return (p.gamma-1/p.psi)*mu+.5*contraction(add(qf[j],scale(qc,-p.gamma)),cov)+.5*dot(d,mv(cov,d));});
+    const logpi=e.ell.map((v,j)=>Math.log(1-p.eta)+Math.log(v)+e.logc-Math.log(k[j]));
+    return {...e,qc,qf,eulerCorrection:adj,meanLogCorrection:cm,muLogCorrection:mu,logpi};
+  }
+  function date0(p,omega,u){
+    const k=u.slice(0,2).map(Math.exp),C=Math.exp(u[2]),theta=[p.theta,1-p.theta],eta=p.eta,alpha=p.alpha,xi=1-alpha-eta,old=[p.k1,p.k2];
+    const lp=[theta[1]*u[3],-theta[0]*u[3]],price=lp.map(Math.exp),inputs=omega.map(r=>M.inputPrice(r,lp,p.sigma)),W=inputs.map(x=>x.w),pm=inputs.map(x=>x.pm);
+    const growth=k.map((v,j)=>v/old[j]),conversion=growth.map(v=>v**p.chi),investment=k.map((v,j)=>v-(1-p.depreciation)*old[j]),goods=investment.map((v,j)=>v*conversion[j]);
+    const revenue=mv(inv(add(eye(),scale(tr(W),-eta))),theta.map((v,j)=>C*v+price[j]*goods[j]));
+    const wage=xi*(revenue[0]+revenue[1]);
+    if(revenue.some(v=>!Number.isFinite(v)||v<=0)||!Number.isFinite(wage)||wage<=0)throw Error('Nonpositive initial-period production.');
+    const supply=lp.map((v,j)=>v-alpha*Math.log(revenue[j])-xi*Math.log(wage)-eta*pm[j]+xi*Math.log(xi)+eta*Math.log(eta)+alpha*Math.log(old[j]));
+    const logq=lp.map((v,j)=>v+p.chi*Math.log(growth[j]));
+    return {k,C,logc:u[2],lp,W,revenue,wage,labor:revenue.map(v=>xi*v/wage),investment,goods,conversion,logq,supply};
+  }
+  function conditions(p,omega,u,riskScale){
+    const d=date0(p,omega,u),t=moments(p,omega,d.k,riskScale),pref=Math.log(p.beta/(1-p.beta));
+    const euler=d.logq.map((q,j)=>pref+(d.logc-t.logc)/p.psi+t.logpi[j]+t.eulerCorrection[j]-q);
+    return {residual:[...d.supply,...euler],date0:d,terminal:t};
+  }
+  function linear(a,b){
+    const m=a.map((r,j)=>[...r,b[j]]),n=b.length;
+    for(let j=0;j<n;j++){
+      let pivot=j;for(let i=j+1;i<n;i++)if(Math.abs(m[i][j])>Math.abs(m[pivot][j]))pivot=i;
+      if(Math.abs(m[pivot][j])<1e-12)throw Error('Investment equilibrium is numerically ill-conditioned.');
+      [m[j],m[pivot]]=[m[pivot],m[j]];const d=m[j][j];for(let k=j;k<=n;k++)m[j][k]/=d;
+      for(let i=0;i<n;i++)if(i!==j){const f=m[i][j];for(let k=j;k<=n;k++)m[i][k]-=f*m[j][k];}
+    }
+    return m.map(r=>r[n]);
+  }
+  const norm=v=>Math.max(...v.map(Math.abs));
+  function newton(fun,start){
+    let x=start.slice(),fx=fun(x);
+    for(let iteration=0;iteration<65;iteration++){
+      if(norm(fx)<2e-10)return x;
+      const J=Array.from({length:4},()=>Array(4).fill(0));
+      for(let j=0;j<4;j++){
+        const h=1e-5,plus=x.slice(),minus=x.slice();plus[j]+=h;minus[j]-=h;
+        let fp,fm;try{fp=fun(plus);fm=fun(minus);}catch(e){fp=fun(plus);fm=fx;minus[j]=x[j];}
+        for(let i=0;i<4;i++)J[i][j]=(fp[i]-fm[i])/(plus[j]-minus[j]);
+      }
+      let step=linear(J,fx.map(v=>-v));const size=norm(step);if(size>3)step=step.map(v=>v*3/size);
+      let accepted=false;
+      for(let line=0;line<20;line++){
+        const s=2**(-line),trial=x.map((v,j)=>v+s*step[j]);
+        try{const ft=fun(trial);if(norm(ft)<norm(fx)){x=trial;fx=ft;accepted=true;break;}}catch(e){}
+      }
+      if(!accepted)break;
+    }
+    if(norm(fx)<2e-8)return x;
+    throw Error('No converged investment equilibrium at these settings. Try a nearby parameter combination; no result is being reported for this case.');
+  }
+  function solve(p0,omega,guess=null){
+    const p={...defaults,...p0};M.validate(p);
+    if(!(p.beta>0&&p.beta<1&&p.psi>0&&p.chi>=0&&p.depreciation>=0&&p.depreciation<=1))throw Error('Invalid saving or investment parameter.');
+    const initial=guess?.deterministicState||[Math.log(p.k1*1.05),Math.log(p.k2*1.05),Math.log(.05)-p.psi*Math.log(p.beta/(1-p.beta)),0];
+    const det=newton(u=>conditions(p,omega,u,0).residual,initial);
+    let state;
+    try{state=newton(u=>conditions(p,omega,u,1).residual,guess?.state||det);}catch(error){state=det;for(const s of [.25,.5,.75,1])state=newton(u=>conditions(p,omega,u,s).residual,state);}
+    const c=conditions(p,omega,state,1),d=c.date0,t=c.terminal;
+    const det0=date0(p,omega,det),leading=M.economy({...p,k1:det0.k[0],k2:det0.k[1]},omega);
+    const q=d.logq.map(Math.exp),wealth=dot(q,d.k),income=d.wage+p.alpha*(d.revenue[0]+d.revenue[1])+(1-p.depreciation)*dot(q,[p.k1,p.k2]);
+    const savingsRhs=Math.log(p.beta/(1-p.beta))+d.logc/p.psi+(1-1/p.psi)*(t.logc+t.muLogCorrection);
+    const diagnostic={equilibriumResidual:norm(c.residual),budgetResidual:(d.C+wealth-income)/income,savingLogResidual:Math.log(wealth)-savingsRhs,largestCorrection:norm(t.eulerCorrection)};
+    return {...t,state,deterministicState:det,date0:d,deterministicDate0:det0,leadingPremium:leading.premium,leadingCommon:leading.common,diagnostic,wealth};
+  }
+  function compare(p){
+    const own=solve(p,eye()),linked=p.tau===0?own:solve(p,M.target(p),own);
+    const frozen=M.economy({...p,k1:own.date0.k[0],k2:own.date0.k[1]},M.target(p));
+    return {parameters:{...defaults,...p},mode:'endogenous',own,linked,frozenCapitalPremium:frozen.premium,capitalReallocationEffect:linked.premium.map((v,j)=>v-frozen.premium[j]),change:linked.premium.map((v,j)=>v-own.premium[j]),commonChange:linked.common-own.common};
+  }
+  function path(p,steps=24){
+    let previous=null;
+    return Array.from({length:steps+1},(_,i)=>{const tau=i/steps;previous=solve(p,M.target(p,tau),previous);return {tau,premium:previous.premium,common:previous.common,consumptionSd:previous.consumptionSd,capital:previous.date0.k};});
+  }
+  const api={defaults,curvature,moments,date0,conditions,solve,compare,path};root.NetworkInvestment=api;
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+
+</script>
+<script>
 (function () {
   'use strict';
-  const M=window.NetworkModel;
+  const M=window.NetworkModel,I=window.NetworkInvestment,defaults={...M.defaults,...I.defaults};
   const controls=[
     ['tau','network-controls','Transition toward target, τ',0,1,.01,'','Own-sector','Target'],
     ['cross12','network-controls','Sector 1: target weight on sector 2',0,1,.01,'','0','1'],
@@ -207,11 +318,16 @@
     ['k2','other-controls','Sector 2 capital',.1,5,.05,'','0.10','5.00'],
     ['z1','other-controls','Sector 1 reference productivity',.25,4,.05,'','0.25','4.00'],
     ['z2','other-controls','Sector 2 reference productivity',.25,4,.05,'','0.25','4.00'],
+    ['beta','investment-controls','Future utility weight, β',.1,.999,.001,'','0.10','0.999'],
+    ['psi','investment-controls','Intertemporal elasticity, ψ',.25,3,.05,'','0.25','3.00'],
+    ['depreciation','investment-controls','Initial depreciation, δ',0,1,.005,'','0','1'],
+    ['chi','investment-controls','Adjustment-cost exponent, χ',0,6,.1,'','0','6'],
     ['shock1','realization-controls','Realized sector 1 productivity change',-5,5,.1,'%','−5%','+5%'],
     ['shock2','realization-controls','Realized sector 2 productivity change',-5,5,.1,'%','−5%','+5%']
   ];
   const $=id=>document.getElementById(id);
-  let current={...M.defaults},last=null,pathData=null,scheduled=false;
+  let current={...defaults},last=null,pathData=null,scheduled=false,pathKey='';
+  const endogenous=()=>$('capital-mode').value==='endogenous';
   const fmt=(v,n=3)=>v===null?'Undefined':(Math.abs(v)<.5*10**(-n)?0:v).toLocaleString('en-US',{minimumFractionDigits:n,maximumFractionDigits:n});
   const signed=(v,n=3)=>(v> .5*10**(-n)?'+':'')+fmt(v,n);
   const pct=v=>fmt(v)+'%';
@@ -223,7 +339,7 @@
     el.innerHTML='<div class="control-top"><label for="'+key+'">'+label+'</label><div class="number-wrap"><input id="'+key+'" data-key="'+key+'" type="number" min="'+min+'" max="'+max+'" step="'+step+'" aria-label="'+label+'"><span>'+unit+'</span></div></div><input id="'+key+'-range" data-key="'+key+'" type="range" min="'+min+'" max="'+max+'" step="'+step+'" aria-label="'+label+' slider"><div class="range-labels" aria-hidden="true"><span>'+lo+'</span><span>'+hi+'</span></div>';
     $(parent).appendChild(el);
   }
-  function setInputs(p){for(const [key] of controls){$(key).value=p[key];$(key+'-range').value=p[key];}}
+  function setInputs(p){p={...defaults,...p};for(const [key] of controls){$(key).value=p[key];$(key+'-range').value=p[key];}}
   function readInputs(){const p={};for(const [key] of controls){p[key]=$(key).value===''?NaN:Number($(key).value);}return p;}
   function bounds(p){for(const [key,,label,min,max] of controls){if(!Number.isFinite(p[key])||p[key]<min||p[key]>max)throw Error(label+' must be between '+min+' and '+max+'.');}}
   function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;update();});}}
@@ -234,7 +350,17 @@
     schedule();
   }));
   $('preset').addEventListener('change',()=>{if(M.presets[$('preset').value]){setInputs(M.presets[$('preset').value]);update();}});
-  $('reset').addEventListener('click',()=>{$('preset').value='baseline';setInputs(M.defaults);update();});
+  $('reset').addEventListener('click',()=>{$('preset').value='baseline';setInputs(defaults);update();});
+  function setMode(){
+    const e=endogenous();
+    $('investment-parameter-group').hidden=!e;$('investment-panel').hidden=!e;
+    $('scope-label').textContent=e?'Saving and investment adjust · Second-order expectations · One period, without annualization':'Capital fixed · Local covariance premia · One period, without annualization';
+    $('comparison-scope').textContent=e?'Both economies start with the same inherited capital, preferences, demand and shock moments. Changing sourcing also changes saving and the capital stocks chosen for tomorrow.':'Both economies have the same terminal capital stocks, demand, technology exponents and shock moments. Only the sourcing arrangement changes.';
+    $('capital-help').textContent=e?'Capital controls are inherited stocks at the start of date 0. The economy chooses the stocks carried into date 1.':'Capital controls set the stocks used in terminal production. Saving and investment are not solved in this mode.';
+    $('path-scope').textContent=e?'Each point solves a different sourcing arrangement, including its initial saving and investment. The underlying preferences, endowments, technology exponents and shocks remain fixed.':'Each point solves a different sourcing arrangement at the same terminal capital stocks and shock moments.';
+    for(const key of ['k1','k2']){const label='Sector '+key[1]+(e?' inherited capital':' terminal capital');document.querySelector('label[for="'+key+'"]').textContent=label;$(key).setAttribute('aria-label',label);$(key+'-range').setAttribute('aria-label',label+' slider');}
+  }
+  $('capital-mode').addEventListener('change',()=>{setMode();update();});
   $('toggle-parameters').addEventListener('click',()=>{
     const open=$('toggle-parameters').getAttribute('aria-expanded')!=='true';
     $('toggle-parameters').setAttribute('aria-expanded',String(open));
@@ -243,10 +369,32 @@
   });
   $('export').addEventListener('click',()=>{
     if(!last)return;
-    const content={model:'Corrected two-period terminal production network',scope:'Conditional on predetermined capital; local covariance premia in percent per period; no annualization; no date-0 investment solution.',savedAt:new Date().toISOString(),...last,transmission:{own:M.shock(last.own,current),linked:M.shock(last.linked,current)},sourcingPath:pathData};
+    const content={model:'Corrected two-period production network',scope:endogenous()?'Initial goods accounts and private Euler equations solved using second-order log expectations. Main premia evaluated at risk-adjusted capital; leadingPremium uses zero-risk capital. No full shock law assumed. Percent per period, no annualization.':'Conditional on predetermined capital; local covariance premia in percent per period; no annualization; no date-0 investment solution.',savedAt:new Date().toISOString(),...last,transmission:{own:M.shock(last.own,current),linked:M.shock(last.linked,current)},sourcingPath:pathData};
     const url=URL.createObjectURL(new Blob([JSON.stringify(content,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='network-premium-scenario.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   });
   function renderTables(c,p){
+    if(endogenous()){
+      const economies=[c.own,c.linked];
+      table('investment-table',[
+        row('Initial consumption',economies.map(e=>fmt(e.date0.C,5))),
+        ...[0,1].map(j=>row('Sector '+(j+1)+' capital for tomorrow',economies.map(e=>fmt(e.date0.k[j],4)))),
+        ...[0,1].map(j=>row('Sector '+(j+1)+' net investment',economies.map(e=>fmt(e.date0.investment[j],4)))),
+        ...[0,1].map(j=>row('Sector '+(j+1)+' asset price',economies.map(e=>fmt(Math.exp(e.date0.logq[j]),4))))
+      ]);
+      table('capital-channel',[
+        row('At own-sector equilibrium capital',c.frozenCapitalPremium.map(pct)),
+        row('At the linked economy’s chosen capital',c.linked.premium.map(pct)),
+        row('Additional capital effect (pp)',c.capitalReallocationEffect.map(v=>signed(v)))
+      ]);
+      table('leading-table',[
+        row('Leading order: zero-risk capital',c.linked.leadingPremium.map(v=>pct(v))),
+        row('Main chart: risk-adjusted capital',c.linked.premium.map(v=>pct(v))),
+        row('Difference (higher order, pp)',c.linked.premium.map((v,j)=>signed(v-c.linked.leadingPremium[j],6)))
+      ]);
+      const residual=Math.max(...economies.map(e=>e.diagnostic.equilibriumResidual)),budget=Math.max(...economies.map(e=>Math.abs(e.diagnostic.budgetResidual))),saving=Math.max(...economies.map(e=>Math.abs(e.diagnostic.savingLogResidual))),correction=Math.max(...economies.map(e=>e.diagnostic.largestCorrection));
+      $('investment-checks').textContent='Maximum residual in the approximated equilibrium: '+residual.toExponential(1)+'. Household budget discrepancy: '+budget.toExponential(1)+'. The aggregate saving identity differs by '+saving.toExponential(1)+' in logs because the truncated log expectations are exponentiated separately.';
+      $('approximation-note').textContent=(correction>.15||saving>.005?'The expectation corrections are large at these settings; interpret the numbers cautiously. ':'')+'Largest second-order log pricing correction: '+fmt(correction,4)+'. This is an approximation diagnostic, not a bound on the error. Future utility has relative weight β / (1 − β) = '+fmt(p.beta/(1-p.beta),2)+'.';
+    }
     table('decomposition',[
       row('Own-sector premium (%)',c.own.premium.map(pct)),
       row('Change in common risk component (pp)',[signed(c.commonChange),signed(c.commonChange)]),
@@ -323,6 +471,7 @@
   }
   function renderPath(c,p,data){
     const el=$('path-chart'),w=Math.max(240,el.clientWidth),h=280;
+    if(!data){el.textContent='The current comparison is solved, but at least one other point along this path did not converge.';return;}
     const a=axes(w,h,data.flatMap(d=>d.premium),'Transition toward target, τ');let s=svgStart(w,h,'Sector premia along the transition from own-sector sourcing to the target network')+a.s;
     for(let i=0;i<=4;i++){const t=i/4,x=a.x(t);s+='<text x="'+x+'" y="'+(h-24)+'" text-anchor="'+(i===0?'start':i===4?'end':'middle')+'">'+fmt(t,2)+'</text>';}
     s+='<line x1="'+a.x(0)+'" x2="'+a.x(1)+'" y1="'+a.y(c.own.premium[0])+'" y2="'+a.y(c.own.premium[0])+'" stroke="var(--own)" stroke-width="2" stroke-dasharray="5 5"/>';
@@ -340,9 +489,12 @@
   }
   function update(){
     try{
-      const p=readInputs();bounds(p);const c=M.compare(p);const data=M.path(p);
+      const p=readInputs();bounds(p);const solver=endogenous()?I:M,c=solver.compare(p);
+      const key=JSON.stringify([endogenous(),Object.fromEntries(Object.entries(p).filter(([k])=>!['tau','shock1','shock2'].includes(k)))]);
+      let data=pathData;
+      if(key!==pathKey){try{data=solver.path(p);}catch(e){data=null;}pathKey=key;}
       current=p;last=c;pathData=data;
-      $('error').hidden=true;$('results').classList.remove('invalid');$('export').disabled=false;$('status').textContent='Equilibrium solved';
+      $('error').hidden=true;$('results').classList.remove('invalid');$('export').disabled=false;$('status').textContent=endogenous()?'Approximate equilibrium solved':'Terminal equilibrium solved';
       $('mobile-premia').textContent='Network premia: '+fmt(c.linked.premium[0],2)+'% / '+fmt(c.linked.premium[1],2)+'%';
       renderTables(c,p);renderPremium(c);renderPath(c,p,data);renderNetwork(c);
     }catch(e){$('error').textContent=e.message+' Results are withheld until the parameters are valid.';$('error').hidden=false;$('results').classList.add('invalid');$('export').disabled=true;$('status').textContent='Invalid parameters';$('mobile-premia').textContent='Invalid parameters';}
@@ -350,7 +502,7 @@
   let resizePending=false;
   const observer=new ResizeObserver(()=>{if(!resizePending){resizePending=true;requestAnimationFrame(()=>{resizePending=false;if(last){renderPremium(last);renderPath(last,current,pathData);}});}});
   observer.observe($('premium-chart'));observer.observe($('path-chart'));
-  setInputs(M.defaults);update();
+  setInputs(defaults);setMode();update();
 })();
 
 </script>
