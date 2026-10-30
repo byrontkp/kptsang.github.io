@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Explore the corrected two-period production-network model: equilibrium, consumption risk and sector risk premia.">
+  <title>Production networks and risk premia</title>
+  <style>
+:root{color-scheme:light;--ink:#172c35;--muted:#526772;--paper:#f4f5f0;--white:#fff;--line:#d8e0dc;--teal:#126b65;--teal-soft:#e7f2ee;--gold:#b15b26;--own:#a2afb4;--s1:#126b65;--s2:#b15b26;--error:#8a2524}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button,summary,select,input[type=range]{cursor:pointer}a{color:var(--teal);text-underline-offset:3px}button:focus-visible,summary:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #b15b2680;outline-offset:3px}.wrap{width:min(1400px,calc(100% - 64px));margin:auto}.masthead{background:var(--ink);color:#eaf1ef;font-size:11px;letter-spacing:.13em;padding:16px 0}.masthead .wrap{display:flex;justify-content:space-between;gap:20px}.intro{padding:48px 0 28px;max-width:950px}.eyebrow{font-size:11px;letter-spacing:.15em;font-weight:700;color:var(--teal);margin:0 0 9px}h1{font:normal clamp(34px,4.2vw,58px)/1.12 Georgia,"Times New Roman",serif;letter-spacing:-.025em;margin:0 0 19px}h2{font:normal 25px/1.25 Georgia,"Times New Roman",serif;margin:0 0 12px}p{margin:0 0 15px}.lead{font-size:18px;line-height:1.6;max-width:780px}.scope{font-size:12px;color:var(--muted);margin:21px 0 0}.scenario-row{border-block:1px solid var(--line);padding:20px 0;display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:28px}.scenario-row label{font-size:12px;color:var(--muted);display:block;max-width:100%;flex:0 1 520px}select{display:block;background:var(--white);color:var(--ink);border:1px solid #adbcb6;border-radius:5px;padding:11px 35px 11px 12px;width:100%;margin-top:5px;font-size:14px}.actions{display:flex;gap:9px;flex-shrink:0}button{border:1px solid #9aaca4;background:transparent;color:var(--ink);padding:10px 16px;border-radius:5px;font-size:14px}button.primary{background:var(--teal);color:white;border-color:var(--teal)}button:hover{filter:brightness(.94)}button:disabled{opacity:.45;cursor:not-allowed}.workspace{display:grid;grid-template-columns:310px minmax(0,1fr);gap:30px;align-items:start}.control-group{padding:21px 0;border-bottom:1px solid var(--line)}.control-group:first-child{padding-top:0}.control-group h2,.control-group summary{font:600 16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;margin-bottom:12px}.control-group p{font-size:13px;color:var(--muted)}.control{margin:21px 0}.control-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}.control label{font-size:13px;font-weight:500;max-width:220px}.number-wrap{display:flex;align-items:center;gap:3px;flex-shrink:0}.number-wrap input{width:74px;min-width:0;text-align:right;padding:5px 7px;color:var(--ink);border:1px solid #c4cfca;border-radius:4px;background:var(--white);font-size:14px;font-variant-numeric:tabular-nums}.number-wrap span{font-size:12px;color:var(--muted);min-width:12px}input[type=range]{width:100%;accent-color:var(--teal);height:20px;margin:0;display:block}.range-labels{display:flex;justify-content:space-between;color:var(--muted);font-size:10px;margin-top:1px}.help{font-size:12px!important;color:var(--muted);line-height:1.6;margin-top:12px}.small-result{background:var(--teal-soft);padding:12px;font-size:12px;line-height:1.8;border-radius:4px}.panel{padding:28px;background:var(--white);border:1px solid var(--line);border-radius:7px;margin-bottom:24px;min-width:0}.section-top{display:flex;align-items:start;justify-content:space-between;gap:16px}.section-top h2{max-width:600px}.status{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--teal);white-space:nowrap;margin-top:3px}.explainer{font-size:14px;color:var(--muted);max-width:800px}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;margin:18px 0 4px}.legend span{display:inline-flex;align-items:center;gap:7px}.swatch{display:inline-block;width:19px;height:8px;background:var(--teal)}.swatch.own{background:var(--own)}.swatch.s1{background:var(--s1)}.swatch.s2{background:var(--s2)}.swatch.baseline{background:transparent;border-top:2px dashed var(--own);height:0}.chart-shell{width:100%;min-width:0}.chart-shell svg{display:block;width:100%;height:auto;overflow:visible}.chart-shell svg text{font-family:inherit;font-size:12px;fill:var(--ink);font-variant-numeric:tabular-nums}.chart-shell svg .axis-title{font-size:12px;fill:var(--muted)}.chart-shell svg .grid{stroke:#e4e9e6;stroke-width:1}.chart-shell svg .axis{stroke:#aab7b2;stroke-width:1}.chart-shell svg .bar-label{font-weight:600;font-size:13px}.result-sentence{font-size:16px;color:var(--teal);background:var(--teal-soft);padding:15px 17px;border-radius:4px;line-height:1.6;margin:14px 0 23px}.table-wrap{width:100%;overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.5;font-variant-numeric:tabular-nums}caption{text-align:left;font-size:15px;font-weight:600;color:var(--ink);padding:8px 0 12px}th,td{padding:11px 9px;border-bottom:1px solid var(--line);text-align:right;vertical-align:middle}th:first-child,td:first-child{text-align:left;padding-left:0}th:last-child,td:last-child{padding-right:0}thead th{font-size:11px;color:var(--muted);font-weight:500}tbody th{font-weight:400}tr.total th,tr.total td{font-weight:650;border-top:2px solid #a7bab0;border-bottom:0}tr.emphasis{background:#f0f6f3}.network-layout{display:grid;grid-template-columns:minmax(220px,.9fr) minmax(250px,1.1fr);gap:18px;align-items:center;margin:12px 0 20px}.network-layout svg{display:block;max-width:100%;margin:auto}.small-label{font-size:12px;font-weight:600;margin-bottom:4px}.formula{font-family:Georgia,"Times New Roman",serif;font-size:16px;padding-top:20px}.two-controls{display:grid;grid-template-columns:1fr 1fr;gap:26px}.methods{padding:38px 0;border-top:1px solid var(--line);max-width:1000px;margin-top:20px}.methods>p{font-size:15px}.methods details{border-bottom:1px solid var(--line);padding:17px 0}.methods summary{font-size:15px;font-weight:500}.method-content{font-size:14px;padding:20px 0 0;line-height:1.75}.method-content p{margin-bottom:18px}.source-links{display:flex;gap:25px;flex-wrap:wrap;margin:27px 0 0;font-size:13px!important}footer{padding:22px 0 32px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}#error{padding:16px;background:#fbeceb;color:var(--error);border:1px solid #e4c0bd;border-radius:5px;margin-bottom:24px}#results.invalid{opacity:.35;pointer-events:none}#equation-values{overflow-wrap:anywhere;font-size:12px}.negative{color:#9b3828}.positive{color:var(--teal)}[hidden]{display:none!important}
+#results.invalid{opacity:1}#results.invalid .panel{display:none}#results.invalid:before{content:"Choose valid parameters to show the equilibrium comparison.";display:block;padding:25px;border:1px solid var(--line);background:var(--white);color:var(--muted)}
+.mobile-controls{display:none}
+@media(min-width:1600px){.wrap{width:min(1500px,calc(100% - 100px))}.workspace{grid-template-columns:340px minmax(0,1fr)}}
+@media(max-width:1050px){.wrap{width:calc(100% - 36px)}.workspace{grid-template-columns:270px minmax(0,1fr);gap:20px}.panel{padding:20px}.network-layout{grid-template-columns:1fr}.section-top{display:block}.status{display:block;margin:0 0 12px}.number-wrap input{width:68px}.control label{max-width:160px}}
+@media(max-width:760px){.wrap{width:calc(100% - 28px)}.masthead .wrap span:last-child{display:none}.intro{padding:32px 0 23px}.intro h1 br{display:none}.lead{font-size:16px}.scenario-row{flex-wrap:wrap;gap:14px}.scenario-row label{flex-basis:100%}.workspace{display:block}.parameters{display:grid;grid-template-columns:1fr 1fr;gap:0 24px;margin-bottom:28px}.control-group:nth-child(2){padding-top:0}.control-group h2,.control-group summary{font-size:14px}.control label{max-width:190px}.panel{padding:20px 16px}.two-controls{gap:16px}.network-layout{grid-template-columns:1fr 1fr}.network-layout table{font-size:11px}.methods{padding-top:28px}.help{font-size:12px!important}}
+@media(max-width:520px){.parameters{display:block}.control-group:nth-child(2){padding-top:21px}.control label{max-width:240px}h2{font-size:23px}.network-layout,.two-controls{grid-template-columns:1fr}.two-controls{gap:0}.network-layout table{font-size:13px}.number-wrap input{font-size:16px}.scope{line-height:1.7}.legend{gap:14px}table{font-size:12px}th,td{padding:10px 7px}.result-sentence{font-size:14px}.section-top h2{font-size:25px}.source-links{gap:14px}.range-labels{font-size:11px}.chart-shell svg text{font-size:11px}.chart-shell svg .bar-label{font-size:12px}}
+@media(max-width:760px){.mobile-controls{display:flex;position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 0;gap:14px;align-items:center;justify-content:space-between;margin-bottom:20px}.mobile-controls button{padding:9px 11px;font-size:12px;white-space:nowrap}.mobile-controls span{font-size:12px;color:var(--teal);text-align:right}.parameters:not(.parameters-open){display:none}}
+
+</style>
+</head>
+<body>
+<header class="masthead"><div class="wrap"><span>PRODUCTION NETWORKS</span><span>Research demonstration · 30 October 2026</span></div></header>
+<main class="wrap">
+  <section class="intro">
+    <p class="eyebrow">THE TWO-PERIOD MODEL</p>
+    <h1>How do production links <br>change risk premia?</h1>
+    <p class="lead">Change the economy’s sourcing arrangements and uncertainty. Follow the consequences for consumption risk, sector profits and the compensation households require.</p>
+    <p class="scope">Terminal equilibrium conditional on capital · Local covariance premia · One period, without annualization</p>
+  </section>
+  <div class="scenario-row">
+    <label for="preset">Starting example <select id="preset"><option value="baseline">Links lower premia and create a spread</option><option value="cobb">Cobb–Douglas inputs: equal sector premia</option><option value="risky2">Sector 2 is riskier: links raise premia</option><option value="common">Only a common productivity shock</option><option value="symmetric">Symmetric sectors and shocks</option><option value="custom" disabled>Custom scenario</option></select></label>
+    <div class="actions"><button id="reset" type="button">Reset</button><button id="export" type="button" class="primary">Save scenario</button></div>
+  </div>
+  <div class="mobile-controls"><button id="toggle-parameters" type="button" aria-expanded="false" aria-controls="parameter-panel">Show parameters</button><span id="mobile-premia" aria-live="polite"></span></div>
+  <div id="error" role="alert" hidden></div>
+  <div class="workspace">
+    <aside id="parameter-panel" class="parameters" aria-label="Model parameters">
+      <section class="control-group"><h2>1. Production links</h2><p>Move from own-sector inputs to your chosen sourcing arrangement.</p><div id="network-controls"></div><p class="help">Sourcing weights describe the technology. Actual expenditure shares also depend on equilibrium goods prices.</p></section>
+      <section class="control-group"><h2>2. Uncertainty</h2><p>Standard deviations of log productivity, in percent per period.</p><div id="shock-controls"></div><p class="help">The common shock affects both sectors equally and is independent of the two sector-specific shocks. Correlation applies to the sector-specific shocks.</p><div id="total-shock-risk" class="small-result"></div></section>
+      <section class="control-group"><h2>3. Demand and technology</h2><div id="technology-controls"></div><p id="technology-constraint" class="help">Terminal technology requires α + η &lt; 1.</p></section>
+      <details class="control-group" open><summary>4. Preferences, capital and productivity</summary><div id="other-controls"></div><p class="help">Capital is predetermined. These controls change the allocation at which the terminal equilibrium is evaluated.</p></details>
+    </aside>
+    <div id="results" class="results">
+      <section class="panel" aria-labelledby="premium-title">
+        <div class="section-top"><div><p class="eyebrow">THE PRICING RESULT</p><h2 id="premium-title">Own-sector inputs versus your network</h2></div><span id="status" class="status" aria-live="polite">Solving…</span></div>
+        <p class="explainer">Both economies use your chosen preferences, capital, demand and shock distribution. Only the sourcing arrangement differs.</p>
+        <div class="legend"><span><i class="swatch own"></i>Own-sector sourcing</span><span><i class="swatch linked"></i>Your network</span></div>
+        <div class="chart-shell" id="premium-chart"></div>
+        <p id="result-sentence" class="result-sentence" aria-live="polite"></p>
+        <div class="table-wrap"><table id="decomposition"><caption>Where the change comes from</caption><thead><tr><th scope="col">Component</th><th scope="col">Sector 1</th><th scope="col">Sector 2</th></tr></thead><tbody></tbody></table></div>
+        <p class="help">A positive relative correction means a premium above the linked economy’s common component. It need not mean a premium above the own-sector benchmark.</p>
+      </section>
+      <section class="panel" aria-labelledby="transmission-title">
+        <p class="eyebrow">LINKS AND AGGREGATE RISK</p><h2 id="transmission-title">Who buys from whom?</h2>
+        <div class="network-layout"><div id="network-diagram"></div><div><p class="small-label">Actual intermediate expenditure shares</p><div class="table-wrap"><table id="shares"><thead><tr><th>Buyer ↓ / supplier →</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div><p class="help">Arrows run from supplier to buyer. Own-sector purchases are included in the table.</p></div></div>
+        <div class="table-wrap"><table id="risk-table"><caption>Consumption risk and sector exposure</caption><thead><tr><th>Quantity</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div>
+        <p class="formula">Sector premium ≈ consumption beta × risk aversion × variance of log consumption</p>
+        <p class="help">Consumption beta is a projection coefficient. It summarizes how the sector’s return covaries with consumption across the shock distribution.</p>
+      </section>
+      <section class="panel" aria-labelledby="path-title"><p class="eyebrow">THE WHOLE SOURCING TRANSITION</p><h2 id="path-title">From own-sector inputs to the target network</h2><p class="explainer">Each point solves a different sourcing arrangement. All other chosen parameters stay fixed.</p><div class="legend"><span><i class="swatch s1"></i>Sector 1</span><span><i class="swatch s2"></i>Sector 2</span><span><i class="swatch baseline"></i>Own-sector premium</span></div><div class="chart-shell" id="path-chart"></div><p class="help">The vertical marker shows your current transition setting. The target weights are the two sourcing controls at the left.</p></section>
+      <section class="panel" aria-labelledby="shock-title"><p class="eyebrow">FOLLOW A PARTICULAR SHOCK</p><h2 id="shock-title">What happens when productivity changes?</h2><p class="explainer">Choose a small realization of the two productivity shocks. These controls illustrate transmission; they do not change the distribution used to calculate premia.</p><div id="realization-controls" class="two-controls"></div><p id="shock-support-note" class="help" hidden></p><div class="table-wrap"><table id="shock-table"><caption>First-order percentage responses</caption><thead><tr><th>Outcome</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><p class="help">Goods prices are measured relative to the consumption basket. With predetermined initial claim values, terminal-profit log changes equal return log innovations. Output changes equal profit changes minus goods-price changes here.</p></section>
+    </div>
+  </div>
+  <section class="methods">
+    <h2>What this demonstration establishes</h2><p>Production links can change the amount of consumption risk and each sector’s exposure to it. The sign and the sector ranking depend on technology, final demand and the distribution of productivity shocks. The examples illustrate a mechanism within the specified model; they are not estimates of US premia.</p>
+    <details><summary>Equations and assumptions</summary><div class="method-content"><p>There are two sectors. Terminal production is y<sub>j</sub> = z<sub>j</sub>k<sub>j</sub><sup>α</sup>M<sub>j</sub><sup>η</sup>, with α + η &lt; 1. The intermediate composite is CES with elasticity σ. Household consumption is Cobb–Douglas with expenditure shares θ and 1 − θ. Capital is predetermined, there is no terminal labor or investment, and the terminal residual payoff is (1 − η)p<sub>j</sub>y<sub>j</sub>.</p><p>The primitive sourcing matrix is Ω(τ) = (1 − τ)I + τΩ*. The target off-diagonal weights are ω<sub>12</sub> and ω<sub>21</sub>. Actual shares satisfy W<sub>jk</sub> = ω<sub>jk</sub>p<sub>k</sub><sup>1−σ</sup> / Σ<sub>l</sub>ω<sub>jl</sub>p<sub>l</sub><sup>1−σ</sup>. Each comparison recomputes goods prices, expenditure shares and the terminal allocation.</p><p>Write L = I − ηW, A = L<sup>−1</sup>, ℓ = A′θ, δ = (1 − η)ℓ and S = diag(δ). The corrected response uses D = diag(W′δ) − W′SW, H = η(1 − σ)S<sup>−1</sup>A′D and B = L − (1 − η)H. Consumption responds with ℓ′, log returns with F = 1ℓ′ − HB<sup>−1</sup>, and log goods prices with G = −B<sup>−1</sup> + 1ℓ′. Revenue-share feedback is retained.</p><p>The covariance premium is RP = γFΣℓ. In percentage units, the page reports 100 × RP. It is the local approximation to E[log R] − log R<sub>f</sub> + ½Var(log R), rather than an exact finite-risk arithmetic excess return. There is no annualization. Large shock scales can make a local approximation less informative.</p><p>Productivity innovations are log z<sub>j</sub> = a + ε<sub>j</sub>. The common component a is independent of ε; Corr(ε<sub>1</sub>, ε<sub>2</sub>) is adjustable. Thus Σ<sub>11</sub> = σ<sub>a</sub>² + σ<sub>1</sub>², Σ<sub>22</sub> = σ<sub>a</sub>² + σ<sub>2</sub>² and Σ<sub>12</sub> = σ<sub>a</sub>² + ρσ<sub>1</sub>σ<sub>2</sub>. All covariances refer to the same period.</p><p>Demand shares remain strictly positive so both sectors are active in the own-sector benchmark. The common capital exponent, intermediate exponent and substitution elasticity follow the existing analytical model. Their sector-specific generalization would require a new derivation.</p><div id="equation-values"></div></div></details>
+    <details><summary>Why are patience, the EIS and shock persistence absent?</summary><div class="method-content"><p>Under the slides’ terminal Epstein–Zin specification, the state-dependent part of log M is −γ log C. Patience and the elasticity of intertemporal substitution affect date-0 saving, investment and the level of the discount factor. Conditional on capital, they do not enter the leading terminal covariance premium directly. This page therefore does not attach arbitrary effects to those parameters.</p><p>There is one uncertain terminal date. The page specifies the conditional distribution of terminal productivity directly. Persistence and future adjustment costs require an initial investment or dynamic model. Capital and reference productivity can be changed here, but their optimal initial choices are not solved.</p></div></details>
+  </section>
+  <footer>Research illustration · All calculations run locally · A saved scenario includes parameters and results</footer>
+</main>
+<script>
+/* Corrected local terminal model. All matrices use buyer rows, supplier columns.
+   Source: ../../two_period_derivation_corrected_2026-10-28/corrected_two_period.py.
+   This solves terminal equilibrium conditional on capital, not date-0 investment. */
+(function (root) {
+  'use strict';
+  const defaults = Object.freeze({
+    tau: 1, cross12: .5, cross21: .5, eta: .5, sigma: .5, alpha: .33,
+    theta: .8, gamma: 10, sd1: 5, sd2: 5, rho: 0, sdCommon: 0,
+    k1: 1, k2: 1, z1: 1, z2: 1, shock1: -1, shock2: 0
+  });
+  const eye = () => [[1, 0], [0, 1]];
+  const tr = a => [[a[0][0], a[1][0]], [a[0][1], a[1][1]]];
+  const add = (a, b) => a.map((r, i) => r.map((v, j) => v + b[i][j]));
+  const scale = (a, s) => a.map(r => r.map(v => v * s));
+  const mul = (a, b) => a.map(r => [r[0]*b[0][0]+r[1]*b[1][0], r[0]*b[0][1]+r[1]*b[1][1]]);
+  const mv = (a, b) => a.map(r => r[0]*b[0]+r[1]*b[1]);
+  const dot = (a, b) => a[0]*b[0]+a[1]*b[1];
+  const diag = a => [[a[0], 0], [0, a[1]]];
+  function inv(a) {
+    const d = a[0][0]*a[1][1]-a[0][1]*a[1][0];
+    if (!Number.isFinite(d) || Math.abs(d) < 1e-14) throw Error('The equilibrium matrix is numerically singular.');
+    return [[a[1][1]/d, -a[0][1]/d], [-a[1][0]/d, a[0][0]/d]];
+  }
+  function validate(p) {
+    for (const key of Object.keys(defaults)) if (!Number.isFinite(p[key])) throw Error('Enter a finite number for every parameter.');
+    for (const key of ['tau', 'cross12', 'cross21']) if (p[key] < 0 || p[key] > 1) throw Error('Sourcing weights and the transition must lie between 0 and 1.');
+    if (!(p.theta > 0 && p.theta < 1)) throw Error('Both sectors need positive final demand in this comparison.');
+    if (!(p.eta > 0 && p.eta < 1 && p.alpha > 0 && p.alpha+p.eta < 1)) throw Error('The terminal technology requires α > 0, η > 0 and α + η < 1. Reduce the capital exponent or intermediate-input exponent.');
+    if (!(p.sigma > 0 && p.gamma > 0)) throw Error('Substitution elasticity and risk aversion must be positive.');
+    if (p.sd1 < 0 || p.sd2 < 0 || p.sdCommon < 0 || Math.abs(p.rho) > 1) throw Error('Shock standard deviations must be nonnegative and correlation must lie between −1 and 1.');
+    if ([p.k1,p.k2,p.z1,p.z2].some(v=>v<=0)) throw Error('Capital and reference productivity must be positive.');
+  }
+  function inputPrice(row, lp, sigma) {
+    if (row[0] === 0) return {pm:lp[1], w:[0,1]};
+    if (row[1] === 0) return {pm:lp[0], w:[1,0]};
+    const t=1-sigma;
+    if (Math.abs(t)<1e-8) return {pm:dot(row,lp), w:row.slice()};
+    const a=Math.log(row[0])+t*lp[0], b=Math.log(row[1])+t*lp[1], m=Math.max(a,b);
+    const den=m+Math.log(Math.exp(a-m)+Math.exp(b-m));
+    return {pm:den/t,w:[Math.exp(a-den),Math.exp(b-den)]};
+  }
+  function terminal(p, omega) {
+    const theta=[p.theta,1-p.theta], lk=[Math.log(p.k1),Math.log(p.k2)], lz=[Math.log(p.z1),Math.log(p.z2)];
+    function evaluate(d) {
+      const lp=[theta[1]*d,-theta[0]*d];
+      const inputs=omega.map(row=>inputPrice(row,lp,p.sigma));
+      const W=inputs.map(x=>x.w), pm=inputs.map(x=>x.pm);
+      const A=inv(add(eye(),scale(W,-p.eta))), ell=mv(tr(A),theta);
+      if (ell.some(x=>x<=0)) throw Error('A sector has zero revenue; its log return is undefined.');
+      const h=lp.map((v,j)=>v-(1-p.eta)*Math.log(ell[j])+lz[j]+p.alpha*lk[j]+p.eta*Math.log(p.eta)-p.eta*pm[j]);
+      return {f:h[0]-h[1],logc:dot(theta,h)/(1-p.eta),lp,W,ell,A,h};
+    }
+    let lo=-1,hi=1,a=evaluate(lo),b=evaluate(hi);
+    for(let n=0;a.f*b.f>0 && n<15;n++){lo*=2;hi*=2;a=evaluate(lo);b=evaluate(hi);}
+    if(a.f*b.f>0) throw Error('Could not bracket the equilibrium goods-price ratio.');
+    let e;
+    for(let n=0;n<100;n++){
+      const mid=(lo+hi)/2;e=evaluate(mid);
+      if(Math.abs(e.f)<2e-13 || hi-lo<2e-13) break;
+      if(a.f*e.f<=0){hi=mid;b=e;}else{lo=mid;a=e;}
+    }
+    const residual=Math.max(...e.h.map(h=>Math.abs(h-(1-p.eta)*e.logc)));
+    if(!Number.isFinite(e.logc) || residual>1e-8) throw Error('The terminal equilibrium did not satisfy the goods and supply equations.');
+    return {...e,residual,omega};
+  }
+  function responses(p, eq) {
+    const W=eq.W,A=eq.A,ell=eq.ell,L=add(eye(),scale(W,-p.eta));
+    const delta=ell.map(v=>(1-p.eta)*v), S=diag(delta);
+    const D=add(diag(mv(tr(W),delta)),scale(mul(mul(tr(W),S),W),-1));
+    const H=scale(mul(mul(diag(delta.map(v=>1/v)),tr(A)),D),p.eta*(1-p.sigma));
+    const B=add(L,scale(H,-(1-p.eta))), Bi=inv(B), E=[ell.slice(),ell.slice()];
+    const F=add(E,scale(mul(H,Bi),-1)), G=add(E,scale(Bi,-1));
+    return {ell,delta,F,G,H,B};
+  }
+  function covariance(p) {
+    const a=(p.sdCommon/100)**2, s1=p.sd1/100,s2=p.sd2/100;
+    return [[a+s1*s1,a+p.rho*s1*s2],[a+p.rho*s1*s2,a+s2*s2]];
+  }
+  function economy(p, omega) {
+    const eq=terminal(p,omega),r=responses(p,eq),cov=covariance(p),weighted=mv(cov,r.ell);
+    let variance=dot(r.ell,weighted);
+    if(variance < -1e-10) throw Error('The implied consumption variance is negative.');
+    variance=Math.max(0,variance);
+    const premium=mv(r.F,weighted).map(x=>100*p.gamma*x),common=100*p.gamma*variance;
+    const beta=variance>1e-16?mv(r.F,weighted).map(v=>v/variance):[null,null];
+    return {...eq,...r,cov,variance,consumptionSd:100*Math.sqrt(variance),premium,common,beta,relative:premium.map(v=>v-common)};
+  }
+  function target(p,tau=p.tau) {
+    return [[1-tau*p.cross12,tau*p.cross12],[tau*p.cross21,1-tau*p.cross21]];
+  }
+  function compare(p) {
+    validate(p);
+    const own=economy(p,eye()),linked=economy(p,target(p));
+    return {parameters:{...p},own,linked,change:linked.premium.map((v,j)=>v-own.premium[j]),commonChange:linked.common-own.common};
+  }
+  function path(p,steps=40) {
+    validate(p);
+    return Array.from({length:steps+1},(_,i)=>{const tau=i/steps;const e=economy(p,target(p,tau));return {tau,premium:e.premium,common:e.common,consumptionSd:e.consumptionSd};});
+  }
+  function shock(e,p) {
+    // Inputs are percentage log-productivity changes; outputs are first-order percentages.
+    const z=[p.shock1,p.shock2],profit=mv(e.F,z),price=mv(e.G,z);
+    return {consumption:dot(e.ell,z),profit,price,output:profit.map((v,j)=>v-price[j])};
+  }
+  const presets={
+    baseline:{...defaults},
+    cobb:{...defaults,sigma:1},
+    risky2:{...defaults,sd1:2,sd2:8},
+    common:{...defaults,sd1:0,sd2:0,sdCommon:5,shock1:-1,shock2:-1},
+    symmetric:{...defaults,theta:.5}
+  };
+  const api={defaults,presets,validate,terminal,responses,covariance,economy,target,compare,path,shock};
+  root.NetworkModel=api;
+  if(typeof module!=='undefined' && module.exports) module.exports=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+
+</script>
+<script>
+(function () {
+  'use strict';
+  const M=window.NetworkModel;
+  const controls=[
+    ['tau','network-controls','Transition toward target, τ',0,1,.01,'','Own-sector','Target'],
+    ['cross12','network-controls','Sector 1: target weight on sector 2',0,1,.01,'','0','1'],
+    ['cross21','network-controls','Sector 2: target weight on sector 1',0,1,.01,'','0','1'],
+    ['sd1','shock-controls','Sector 1 shock standard deviation',0,15,.1,'%','0%','15%'],
+    ['sd2','shock-controls','Sector 2 shock standard deviation',0,15,.1,'%','0%','15%'],
+    ['sdCommon','shock-controls','Common shock standard deviation',0,15,.1,'%','0%','15%'],
+    ['rho','shock-controls','Correlation of sector-specific shocks',-1,1,.01,'','−1','+1'],
+    ['theta','technology-controls','Sector 1 consumption share, θ',.05,.95,.01,'','0.05','0.95'],
+    ['eta','technology-controls','Intermediate-input exponent, η',.05,.9,.01,'','0.05','0.90'],
+    ['sigma','technology-controls','Input substitution elasticity, σ',.1,3,.05,'','0.10','3.00'],
+    ['alpha','technology-controls','Capital exponent, α',.01,.9,.01,'','0.01','0.90'],
+    ['gamma','other-controls','Risk aversion, γ',.1,30,.1,'','0.1','30'],
+    ['k1','other-controls','Sector 1 capital',.1,5,.05,'','0.10','5.00'],
+    ['k2','other-controls','Sector 2 capital',.1,5,.05,'','0.10','5.00'],
+    ['z1','other-controls','Sector 1 reference productivity',.25,4,.05,'','0.25','4.00'],
+    ['z2','other-controls','Sector 2 reference productivity',.25,4,.05,'','0.25','4.00'],
+    ['shock1','realization-controls','Realized sector 1 productivity change',-5,5,.1,'%','−5%','+5%'],
+    ['shock2','realization-controls','Realized sector 2 productivity change',-5,5,.1,'%','−5%','+5%']
+  ];
+  const $=id=>document.getElementById(id);
+  let current={...M.defaults},last=null,pathData=null,scheduled=false;
+  const fmt=(v,n=3)=>v===null?'Undefined':(Math.abs(v)<.5*10**(-n)?0:v).toLocaleString('en-US',{minimumFractionDigits:n,maximumFractionDigits:n});
+  const signed=(v,n=3)=>(v> .5*10**(-n)?'+':'')+fmt(v,n);
+  const pct=v=>fmt(v)+'%';
+  const plotNum=v=>Math.abs(v)>=1000?fmt(v/1000,1)+'k':fmt(v,Math.abs(v)>=100?0:Math.abs(v)>=10?1:2);
+  const row=(label,values,cls='')=>'<tr class="'+cls+'"><th scope="row">'+label+'</th>'+values.map(v=>'<td>'+v+'</td>').join('')+'</tr>';
+  const table=(id,rows)=>{$(id).querySelector('tbody').innerHTML=rows.join('');};
+  for(const [key,parent,label,min,max,step,unit,lo,hi] of controls){
+    const el=document.createElement('div');el.className='control';
+    el.innerHTML='<div class="control-top"><label for="'+key+'">'+label+'</label><div class="number-wrap"><input id="'+key+'" data-key="'+key+'" type="number" min="'+min+'" max="'+max+'" step="'+step+'" aria-label="'+label+'"><span>'+unit+'</span></div></div><input id="'+key+'-range" data-key="'+key+'" type="range" min="'+min+'" max="'+max+'" step="'+step+'" aria-label="'+label+' slider"><div class="range-labels" aria-hidden="true"><span>'+lo+'</span><span>'+hi+'</span></div>';
+    $(parent).appendChild(el);
+  }
+  function setInputs(p){for(const [key] of controls){$(key).value=p[key];$(key+'-range').value=p[key];}}
+  function readInputs(){const p={};for(const [key] of controls){p[key]=$(key).value===''?NaN:Number($(key).value);}return p;}
+  function bounds(p){for(const [key,,label,min,max] of controls){if(!Number.isFinite(p[key])||p[key]<min||p[key]>max)throw Error(label+' must be between '+min+' and '+max+'.');}}
+  function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(()=>{scheduled=false;update();});}}
+  document.querySelectorAll('input[data-key]').forEach(el=>el.addEventListener('input',()=>{
+    const key=el.dataset.key;
+    if(el.type==='range')$(key).value=el.value;else if(el.value!=='')$(key+'-range').value=el.value;
+    if(!key.startsWith('shock'))$('preset').value='custom';
+    schedule();
+  }));
+  $('preset').addEventListener('change',()=>{if(M.presets[$('preset').value]){setInputs(M.presets[$('preset').value]);update();}});
+  $('reset').addEventListener('click',()=>{$('preset').value='baseline';setInputs(M.defaults);update();});
+  $('toggle-parameters').addEventListener('click',()=>{
+    const open=$('toggle-parameters').getAttribute('aria-expanded')!=='true';
+    $('toggle-parameters').setAttribute('aria-expanded',String(open));
+    $('toggle-parameters').textContent=open?'Hide parameters':'Show parameters';
+    $('parameter-panel').classList.toggle('parameters-open',open);
+  });
+  $('export').addEventListener('click',()=>{
+    if(!last)return;
+    const content={model:'Corrected two-period terminal production network',scope:'Conditional on predetermined capital; local covariance premia in percent per period; no annualization; no date-0 investment solution.',savedAt:new Date().toISOString(),...last,transmission:{own:M.shock(last.own,current),linked:M.shock(last.linked,current)},sourcingPath:pathData};
+    const url=URL.createObjectURL(new Blob([JSON.stringify(content,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='network-premium-scenario.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  });
+  function renderTables(c,p){
+    table('decomposition',[
+      row('Own-sector premium (%)',c.own.premium.map(pct)),
+      row('Change in common risk component (pp)',[signed(c.commonChange),signed(c.commonChange)]),
+      row('Relative exposure in your network (pp)',c.linked.relative.map(v=>signed(v))),
+      row('Your network’s premium (%)',c.linked.premium.map(pct),'total'),
+      row('Total change from own-sector sourcing (pp)',c.change.map(v=>signed(v)))
+    ]);
+    table('shares',[row('Sector 1',c.linked.W[0].map(v=>fmt(100*v,1)+'%')),row('Sector 2',c.linked.W[1].map(v=>fmt(100*v,1)+'%'))]);
+    table('risk-table',[
+      row('Consumption standard deviation (%)',[pct(c.own.consumptionSd),pct(c.linked.consumptionSd)]),
+      row('Common premium component (%)',[pct(c.own.common),pct(c.linked.common)]),
+      row('Sector 1 consumption beta',[fmt(c.own.beta[0]),fmt(c.linked.beta[0])]),
+      row('Sector 2 consumption beta',[fmt(c.own.beta[1]),fmt(c.linked.beta[1])]),
+      row('Consumption change per 1% sector 1 productivity rise (%)',[fmt(c.own.ell[0]),fmt(c.linked.ell[0])]),
+      row('Consumption change per 1% sector 2 productivity rise (%)',[fmt(c.own.ell[1]),fmt(c.linked.ell[1])])
+    ]);
+    const o=M.shock(c.own,p),n=M.shock(c.linked,p);
+    table('shock-table',[
+      row('Aggregate consumption',[signed(o.consumption)+'%',signed(n.consumption)+'%'],'emphasis'),
+      row('Sector 1 profit / return innovation',[signed(o.profit[0])+'%',signed(n.profit[0])+'%'],'emphasis'),
+      row('Sector 2 profit / return innovation',[signed(o.profit[1])+'%',signed(n.profit[1])+'%'],'emphasis'),
+      row('Sector 1 goods price',[signed(o.price[0])+'%',signed(n.price[0])+'%']),
+      row('Sector 2 goods price',[signed(o.price[1])+'%',signed(n.price[1])+'%']),
+      row('Sector 1 output',[signed(o.output[0])+'%',signed(n.output[0])+'%']),
+      row('Sector 2 output',[signed(o.output[1])+'%',signed(n.output[1])+'%'])
+    ]);
+    const cov=c.linked.cov,s1=Math.sqrt(cov[0][0]),s2=Math.sqrt(cov[1][1]),corr=s1*s2>0?cov[0][1]/(s1*s2):null;
+    const trace=cov[0][0]+cov[1][1],det=cov[0][0]*cov[1][1]-cov[0][1]**2;
+    let outside=false;
+    if(trace<1e-16)outside=Math.hypot(p.shock1,p.shock2)>1e-8;
+    else if(det<1e-10*trace*trace){const axis=cov[0][0]>=cov[1][1]?[cov[0][0],cov[1][0]]:[cov[0][1],cov[1][1]];outside=Math.abs(p.shock1*axis[1]-p.shock2*axis[0])/Math.hypot(...axis)>1e-8;}
+    $('shock-support-note').hidden=!outside;
+    $('shock-support-note').textContent='This pair of shocks is outside your selected distribution. The table shows a hypothetical transmission exercise; these particular shocks do not contribute to the displayed premia.';
+    $('total-shock-risk').innerHTML='Total productivity SD: '+fmt(100*s1,2)+'% / '+fmt(100*s2,2)+'%<br>Total productivity correlation: '+fmt(corr,3);
+    $('technology-constraint').textContent='α + η = '+fmt(p.alpha+p.eta,2)+'; must remain below 1. Sector 2 consumption share = '+fmt(1-p.theta,2)+'.';
+    const spread=Math.abs(c.linked.premium[0]-c.linked.premium[1]),eps=1e-7;
+    let sentence;
+    if(c.change.every(v=>Math.abs(v)<eps))sentence='At these settings, changing the sourcing arrangement leaves both leading premia unchanged.';
+    else if(c.change.every(v=>v< -eps))sentence='At these settings, links lower both sector premia.';
+    else if(c.change.every(v=>v>eps))sentence='At these settings, links raise both sector premia.';
+    else sentence='At these settings, links change the two sector premia differently.';
+    sentence+=' The spread between sectors is '+fmt(spread)+' percentage points.';
+    if(c.linked.variance<1e-16)sentence+=' Consumption has no first-order risk, so consumption betas are undefined.';
+    $('result-sentence').textContent=sentence;
+    const matrix=a=>'['+a.map(r=>'['+r.map(v=>fmt(v,6)).join(', ')+']').join(', ')+']';
+    $('equation-values').innerHTML='<strong>Your current solution</strong><br>Ω = '+matrix(c.linked.omega)+'<br>W = '+matrix(c.linked.W)+'<br>F = '+matrix(c.linked.F)+'<br>G = '+matrix(c.linked.G)+'<br>Σ = '+matrix(c.linked.cov)+'<br>Maximum terminal equilibrium residual: '+Math.max(c.own.residual,c.linked.residual).toExponential(2)+'.';
+  }
+  function svgStart(w,h,label){return '<svg viewBox="0 0 '+w+' '+h+'" role="img" aria-label="'+label+'"><title>'+label+'</title>';}
+  function axes(w,h,values,xLabel){
+    const left=w<400?43:56,right=18,top=39,bottom=45,plotW=w-left-right,plotH=h-top-bottom;
+    let lo=Math.min(0,...values),hi=Math.max(0,...values);if(hi-lo<1e-9){lo=0;hi=1;}
+    const range=hi-lo;hi+=range*.18;if(lo<0)lo-=range*.18;
+    const y=v=>top+(hi-v)/(hi-lo)*plotH,x=v=>left+v*plotW;
+    let s='<text class="axis-title" x="'+left+'" y="17">Approximate premium (%)</text>';
+    for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4,yy=y(v);s+='<line class="grid" x1="'+left+'" x2="'+(w-right)+'" y1="'+yy+'" y2="'+yy+'"/><text x="'+(left-7)+'" y="'+(yy+4)+'" text-anchor="end">'+(Math.abs(v)>=1000?plotNum(v):fmt(v,Math.abs(hi-lo)<.1?3:1))+'</text>';}
+    s+='<line class="axis" x1="'+left+'" x2="'+(w-right)+'" y1="'+y(0)+'" y2="'+y(0)+'"/>';
+    if(xLabel)s+='<text class="axis-title" x="'+(left+plotW/2)+'" y="'+(h-4)+'" text-anchor="middle">'+xLabel+'</text>';
+    return {s,x,y,left,right,top,bottom,plotW,plotH};
+  }
+  function renderPremium(c){
+    const el=$('premium-chart'),w=Math.max(240,el.clientWidth),h=270;
+    const a=axes(w,h,[...c.own.premium,...c.linked.premium],'');let s=svgStart(w,h,'Approximate sector premia: own-sector sourcing compared with your network')+a.s;
+    const bw=Math.min(48,a.plotW*.14),gap=Math.max(6,a.plotW*.025);
+    for(let j=0;j<2;j++){
+      const center=a.x(.25+.5*j);
+      for(let k=0;k<2;k++){
+        const v=(k===0?c.own:c.linked).premium[j],x=center+(k===0?-bw-gap/2:gap/2),yy=a.y(v),zero=a.y(0),height=Math.abs(yy-zero);
+        s+='<rect x="'+x+'" y="'+Math.min(yy,zero)+'" width="'+bw+'" height="'+Math.max(height,.5)+'" rx="2" fill="'+(k===0?'var(--own)':'var(--teal)')+'"><title>Sector '+(j+1)+', '+(k===0?'own-sector':'your network')+': '+pct(v)+'</title></rect>';
+        s+='<text class="bar-label" x="'+(x+bw/2)+'" y="'+(v>=0?yy-9:yy+17)+'" text-anchor="middle">'+(w<400||Math.abs(v)>=100?plotNum(v):fmt(v,3))+'</text>';
+      }
+      s+='<text x="'+center+'" y="'+(h-18)+'" text-anchor="middle">Sector '+(j+1)+'</text>';
+    }
+    el.innerHTML=s+'</svg>';
+  }
+  function renderPath(c,p,data){
+    const el=$('path-chart'),w=Math.max(240,el.clientWidth),h=280;
+    const a=axes(w,h,data.flatMap(d=>d.premium),'Transition toward target, τ');let s=svgStart(w,h,'Sector premia along the transition from own-sector sourcing to the target network')+a.s;
+    for(let i=0;i<=4;i++){const t=i/4,x=a.x(t);s+='<text x="'+x+'" y="'+(h-24)+'" text-anchor="'+(i===0?'start':i===4?'end':'middle')+'">'+fmt(t,2)+'</text>';}
+    s+='<line x1="'+a.x(0)+'" x2="'+a.x(1)+'" y1="'+a.y(c.own.premium[0])+'" y2="'+a.y(c.own.premium[0])+'" stroke="var(--own)" stroke-width="2" stroke-dasharray="5 5"/>';
+    for(let j=0;j<2;j++){
+      const d=data.map((r,i)=>(i===0?'M':'L')+a.x(r.tau)+','+a.y(r.premium[j])).join(' ');
+      s+='<path d="'+d+'" fill="none" stroke="var(--s'+(j+1)+')" stroke-width="2.5"'+(j===1?' stroke-dasharray="7 3"':'')+'/>';
+    }
+    const x=a.x(p.tau);s+='<line x1="'+x+'" x2="'+x+'" y1="'+a.top+'" y2="'+(h-a.bottom)+'" stroke="var(--muted)" stroke-width="1" stroke-dasharray="3 4"/>';
+    for(let j=0;j<2;j++)s+='<circle cx="'+x+'" cy="'+a.y(c.linked.premium[j])+'" r="4.5" fill="var(--s'+(j+1)+')"><title>Sector '+(j+1)+' at current transition: '+pct(c.linked.premium[j])+'</title></circle>';
+    el.innerHTML=s+'</svg>';
+  }
+  function renderNetwork(c){
+    const w=c.linked.W;
+    $('network-diagram').innerHTML='<svg viewBox="0 0 300 190" width="300" height="190" role="img" aria-label="Actual cross-sector purchases. Sector 1 buys '+fmt(w[0][1]*100,1)+' percent of intermediate inputs from sector 2; sector 2 buys '+fmt(w[1][0]*100,1)+' percent from sector 1."><defs><marker id="arrow-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--teal)"/></marker><marker id="arrow-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--gold)"/></marker></defs><circle cx="55" cy="94" r="32" fill="var(--teal-soft)"/><circle cx="245" cy="94" r="32" fill="#fbefe6"/><text x="55" y="99" text-anchor="middle" fill="var(--ink)" font-size="13">Sector 1</text><text x="245" y="99" text-anchor="middle" fill="var(--ink)" font-size="13">Sector 2</text><path d="M 78 70 Q 150 18 222 70" fill="none" stroke="var(--teal)" stroke-width="'+(1+6*w[1][0])+'" opacity="'+(w[1][0]>1e-9?1:.2)+'" marker-end="url(#arrow-1)"/><path d="M 222 117 Q 150 170 78 117" fill="none" stroke="var(--gold)" stroke-width="'+(1+6*w[0][1])+'" opacity="'+(w[0][1]>1e-9?1:.2)+'" marker-end="url(#arrow-2)"/><text x="150" y="28" text-anchor="middle" fill="var(--ink)" font-size="13">'+fmt(w[1][0]*100,1)+'%</text><text x="150" y="178" text-anchor="middle" fill="var(--ink)" font-size="13">'+fmt(w[0][1]*100,1)+'%</text></svg>';
+  }
+  function update(){
+    try{
+      const p=readInputs();bounds(p);const c=M.compare(p);const data=M.path(p);
+      current=p;last=c;pathData=data;
+      $('error').hidden=true;$('results').classList.remove('invalid');$('export').disabled=false;$('status').textContent='Equilibrium solved';
+      $('mobile-premia').textContent='Network premia: '+fmt(c.linked.premium[0],2)+'% / '+fmt(c.linked.premium[1],2)+'%';
+      renderTables(c,p);renderPremium(c);renderPath(c,p,data);renderNetwork(c);
+    }catch(e){$('error').textContent=e.message+' Results are withheld until the parameters are valid.';$('error').hidden=false;$('results').classList.add('invalid');$('export').disabled=true;$('status').textContent='Invalid parameters';$('mobile-premia').textContent='Invalid parameters';}
+  }
+  let resizePending=false;
+  const observer=new ResizeObserver(()=>{if(!resizePending){resizePending=true;requestAnimationFrame(()=>{resizePending=false;if(last){renderPremium(last);renderPath(last,current,pathData);}});}});
+  observer.observe($('premium-chart'));observer.observe($('path-chart'));
+  setInputs(M.defaults);update();
+})();
+
+</script>
+</body></html>
