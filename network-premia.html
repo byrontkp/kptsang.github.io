@@ -28,15 +28,17 @@
     <p id="scope-label" class="scope">Saving and investment adjust · Second-order expectations · One period, without annualization</p>
   </section>
   <div class="scenario-row">
+    <label for="comparison-mode">Research question <select id="comparison-mode"><option value="total">Total effect: sector sizes can change</option><option value="domar">Same reference Domar weights</option></select></label>
     <label for="capital-mode">Capital treatment <select id="capital-mode"><option value="endogenous">Saving and investment adjust</option><option value="fixed">Capital fixed: original demonstration</option></select></label>
-    <label for="preset">Starting example <select id="preset"><option value="baseline">Links lower premia and create a spread</option><option value="cobb">Cobb–Douglas inputs: equal sector premia</option><option value="risky2">Sector 2 is riskier: links raise premia</option><option value="common">Only a common productivity shock</option><option value="symmetric">Symmetric sectors and shocks</option><option value="custom" disabled>Custom scenario</option></select></label>
+    <label for="preset">Starting example <select id="preset"><option value="baseline">Baseline: unequal consumption shares</option><option value="cobb">Cobb–Douglas inputs: equal sector premia</option><option value="risky2">Sector 2 has more volatile shocks</option><option value="common">Only a common productivity shock</option><option value="symmetric">Symmetric sectors and shocks</option><option value="custom" disabled>Custom scenario</option></select></label>
     <div class="actions"><button id="reset" type="button">Reset</button><button id="export" type="button" class="primary">Save scenario</button></div>
   </div>
+  <p id="comparison-help" class="explainer">The total effect includes changes in sector size. Matching reference Domar weights asks whether sourcing matters beyond that size channel.</p>
   <div class="mobile-controls"><button id="toggle-parameters" type="button" aria-expanded="false" aria-controls="parameter-panel">Show parameters</button><span id="mobile-premia" aria-live="polite"></span></div>
   <div id="error" role="alert" hidden></div>
   <div class="workspace">
     <aside id="parameter-panel" class="parameters" aria-label="Model parameters">
-      <section class="control-group"><h2>1. Production links</h2><p>Move from own-sector inputs to your chosen sourcing arrangement.</p><div id="network-controls"></div><p class="help">Sourcing weights describe the technology. Actual expenditure shares also depend on equilibrium goods prices.</p></section>
+      <section class="control-group"><h2>1. Production links</h2><p id="network-intro">Move from own-sector inputs to your chosen sourcing arrangement.</p><div id="network-controls"></div><div id="domar-controls" hidden></div><p id="network-help" class="help">Sourcing weights describe the technology. Actual expenditure shares also depend on equilibrium goods prices.</p></section>
       <section class="control-group"><h2>2. Uncertainty</h2><p>Standard deviations of log productivity, in percent per period.</p><div id="shock-controls"></div><p class="help">The common shock affects both sectors equally and is independent of the two sector-specific shocks. Correlation applies to the sector-specific shocks.</p><div id="total-shock-risk" class="small-result"></div></section>
       <section class="control-group"><h2>3. Demand and technology</h2><div id="technology-controls"></div><p id="technology-constraint" class="help">Terminal technology requires α + η &lt; 1.</p></section>
       <details class="control-group" open><summary>4. Preferences, capital and productivity</summary><div id="other-controls"></div><p id="capital-help" class="help">Capital controls are inherited stocks at the start of date 0. The economy chooses the stocks carried into date 1.</p></details>
@@ -51,8 +53,9 @@
         <p id="result-sentence" class="result-sentence" aria-live="polite"></p>
         <div class="table-wrap"><table id="decomposition"><caption>Where the change comes from</caption><thead><tr><th scope="col">Component</th><th scope="col">Sector 1</th><th scope="col">Sector 2</th></tr></thead><tbody></tbody></table></div>
         <p class="help">A positive relative correction means a premium above the linked economy’s common component. It need not mean a premium above the own-sector benchmark.</p>
+        <div class="table-wrap"><table id="domar-table"><caption>Sector sizes at the terminal reference equilibrium</caption><thead><tr><th>Quantity</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><p id="domar-check" class="help"></p>
       </section>
-      <section id="investment-panel" class="panel" aria-labelledby="investment-title"><p class="eyebrow">CHOICES BEFORE THE SHOCKS</p><h2 id="investment-title">How do saving and investment respond?</h2><p class="explainer">Initial goods prices, consumption, investment and sector asset prices solve goods clearing, labor clearing and household Euler equations together. Expectations are approximated to second order using the chosen shock covariance.</p><div class="table-wrap"><table id="investment-table"><caption>Initial-period equilibrium</caption><thead><tr><th>Quantity</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><div class="table-wrap"><table id="capital-channel"><caption>Isolating the additional effect of capital reallocation</caption><thead><tr><th>Linked economy’s premium (%)</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div><p id="investment-checks" class="help"></p><p id="approximation-note" class="help"></p><details><summary>What does “second order” mean here?</summary><p class="help">The household’s expected discounted payoffs are expanded through shock variances and covariances. We solve those approximated Euler equations jointly with the exact resource accounts. No Gaussian distribution is imposed. This is a local approximation, not an exact solution for arbitrarily large shocks.</p><p class="help">The main charts evaluate the local covariance premium at the risk-adjusted capital solution. A strictly leading-order premium instead evaluates it at the zero-risk investment equilibrium. Their difference consists of higher-order terms, so it should not be interpreted as additional second-order precision.</p><div class="table-wrap"><table id="leading-table"><caption>Approximation-order comparison</caption><thead><tr><th>Your network’s premium (%)</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div></details></section>
+      <section id="investment-panel" class="panel" aria-labelledby="investment-title"><p class="eyebrow">CHOICES BEFORE THE SHOCKS</p><h2 id="investment-title">How do saving and investment respond?</h2><p class="explainer">Initial goods prices, consumption, investment and sector asset prices solve goods clearing, labor clearing and household Euler equations together. Expectations are approximated to second order using the chosen shock covariance.</p><div class="table-wrap"><table id="investment-table"><caption>Initial-period equilibrium</caption><thead><tr><th>Quantity</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><div class="table-wrap"><table id="capital-channel"><caption>Isolating the additional effect of capital reallocation</caption><thead><tr><th>Linked economy’s premium (%)</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div><p id="capital-channel-note" class="help" hidden></p><p id="investment-checks" class="help"></p><p id="approximation-note" class="help"></p><details><summary>What does “second order” mean here?</summary><p class="help">The household’s expected discounted payoffs are expanded through shock variances and covariances. We solve those approximated Euler equations jointly with the exact resource accounts. No Gaussian distribution is imposed. This is a local approximation, not an exact solution for arbitrarily large shocks.</p><p class="help">The main charts evaluate the local covariance premium at the risk-adjusted capital solution. A strictly leading-order premium instead evaluates it at the zero-risk investment equilibrium. Their difference consists of higher-order terms, so it should not be interpreted as additional second-order precision.</p><div class="table-wrap"><table id="leading-table"><caption>Approximation-order comparison</caption><thead><tr><th>Your network’s premium (%)</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div></details></section>
       <section class="panel" aria-labelledby="transmission-title">
         <p class="eyebrow">LINKS AND AGGREGATE RISK</p><h2 id="transmission-title">Who buys from whom?</h2>
         <div class="network-layout"><div id="network-diagram"></div><div><p class="small-label">Actual intermediate expenditure shares</p><div class="table-wrap"><table id="shares"><thead><tr><th>Buyer ↓ / supplier →</th><th>Sector 1</th><th>Sector 2</th></tr></thead><tbody></tbody></table></div><p class="help">Arrows run from supplier to buyer. Own-sector purchases are included in the table.</p></div></div>
@@ -60,13 +63,14 @@
         <p class="formula">Sector premium ≈ consumption beta × risk aversion × variance of log consumption</p>
         <p class="help">Consumption beta is a projection coefficient. It summarizes how the sector’s return covaries with consumption across the shock distribution.</p>
       </section>
-      <section class="panel" aria-labelledby="path-title"><p class="eyebrow">THE WHOLE SOURCING TRANSITION</p><h2 id="path-title">From own-sector inputs to the target network</h2><p id="path-scope" class="explainer">Each point solves a different sourcing arrangement, including its initial saving and investment. The underlying preferences, endowments, technology exponents and shocks remain fixed.</p><div class="legend"><span><i class="swatch s1"></i>Sector 1</span><span><i class="swatch s2"></i>Sector 2</span><span><i class="swatch baseline"></i>Own-sector premium</span></div><div class="chart-shell" id="path-chart"></div><p class="help">The vertical marker shows your current transition setting. The target weights are the two sourcing controls at the left.</p></section>
+      <section class="panel" aria-labelledby="path-title"><p class="eyebrow">THE WHOLE SOURCING TRANSITION</p><h2 id="path-title">From own-sector inputs to the target network</h2><p id="path-scope" class="explainer">Each point solves a different sourcing arrangement, including its initial saving and investment. The underlying preferences, endowments, technology exponents and shocks remain fixed.</p><div class="legend"><span><i class="swatch s1"></i>Sector 1</span><span><i class="swatch s2"></i>Sector 2</span><span><i class="swatch baseline"></i>Own-sector premium</span></div><div class="chart-shell" id="path-chart"></div><p id="path-hint" class="help">The vertical marker shows the current transition. The two sourcing controls set the target technology weights.</p></section>
       <section class="panel" aria-labelledby="shock-title"><p class="eyebrow">FOLLOW A PARTICULAR SHOCK</p><h2 id="shock-title">What happens when productivity changes?</h2><p class="explainer">Choose a small realization of the two productivity shocks. These controls illustrate transmission; they do not change the distribution used to calculate premia.</p><div id="realization-controls" class="two-controls"></div><p id="shock-support-note" class="help" hidden></p><div class="table-wrap"><table id="shock-table"><caption>First-order percentage responses</caption><thead><tr><th>Outcome</th><th>Own-sector</th><th>Your network</th></tr></thead><tbody></tbody></table></div><p class="help">Goods prices are measured relative to the consumption basket. With predetermined initial claim values, terminal-profit log changes equal return log innovations. Output changes equal profit changes minus goods-price changes here.</p></section>
     </div>
   </div>
   <section class="methods">
     <h2>What this demonstration establishes</h2><p>Production links can change the amount of consumption risk and each sector’s exposure to it. With endogenous investment, they also change the capital allocation before the shocks occur. The sign and the sector ranking depend on technology, final demand and the distribution of productivity shocks. These are local, illustrative model calculations, not estimates of US premia.</p>
-    <details><summary>Equations and assumptions</summary><div class="method-content"><p>There are two sectors. Terminal production is y<sub>j</sub> = z<sub>j</sub>k<sub>j</sub><sup>α</sup>M<sub>j</sub><sup>η</sup>, with α + η &lt; 1. The intermediate composite is CES with elasticity σ. Household consumption is Cobb–Douglas with expenditure shares θ and 1 − θ. Capital is predetermined when the terminal shocks arrive; there is no terminal labor or investment, and the terminal residual payoff is (1 − η)p<sub>j</sub>y<sub>j</sub>.</p><p>The primitive sourcing matrix is Ω(τ) = (1 − τ)I + τΩ*. The target off-diagonal weights are ω<sub>12</sub> and ω<sub>21</sub>. Actual shares satisfy W<sub>jk</sub> = ω<sub>jk</sub>p<sub>k</sub><sup>1−σ</sup> / Σ<sub>l</sub>ω<sub>jl</sub>p<sub>l</sub><sup>1−σ</sup>. Each comparison recomputes goods prices, expenditure shares and the terminal allocation.</p><p>Write L = I − ηW, A = L<sup>−1</sup>, ℓ = A′θ, δ = (1 − η)ℓ and S = diag(δ). The corrected response uses D = diag(W′δ) − W′SW, H = η(1 − σ)S<sup>−1</sup>A′D and B = L − (1 − η)H. Consumption responds with ℓ′, log returns with F = 1ℓ′ − HB<sup>−1</sup>, and log goods prices with G = −B<sup>−1</sup> + 1ℓ′. Revenue-share feedback is retained.</p><p>The covariance premium is RP = γFΣℓ. In percentage units, the page reports 100 × RP. It is the local approximation to E[log R] − log R<sub>f</sub> + ½Var(log R), rather than an exact finite-risk arithmetic excess return. There is no annualization. Large shock scales can make a local approximation less informative.</p><p>Productivity is log z<sub>j</sub> = log z̄<sub>j</sub> + a + ε<sub>j</sub>, where z̄ is the reference productivity setting. The common component a is independent of ε; Corr(ε<sub>1</sub>, ε<sub>2</sub>) is adjustable. Thus Σ<sub>11</sub> = σ<sub>a</sub>² + σ<sub>1</sub>², Σ<sub>22</sub> = σ<sub>a</sub>² + σ<sub>2</sub>² and Σ<sub>12</sub> = σ<sub>a</sub>² + ρσ<sub>1</sub>σ<sub>2</sub>. All covariances refer to the same period.</p><p>Demand shares remain strictly positive so both sectors are active in the own-sector benchmark. The common capital exponent, intermediate exponent and substitution elasticity follow the existing analytical model. Their sector-specific generalization would require a new derivation.</p><div id="equation-values"></div></div></details>
+    <details><summary>What does keeping Domar weights fixed mean?</summary><div class="method-content"><p>A terminal Domar weight is gross sector revenue divided by the value of final consumption: ℓ = (I − ηW′)<sup>−1</sup>θ. Because gross revenue includes intermediate transactions, Domar weights need not sum to one. With the common intermediate exponent here, each sector’s share of total gross revenue is (1 − η)ℓ<sub>j</sub>.</p><p>The total-effect comparison holds preferences, demand, technology exponents and shock moments fixed while changing primitive sourcing weights. Equilibrium sector sizes can change. The matched comparison instead chooses sourcing technologies that preserve the own-sector reference Domar weights θ/(1 − η). Demand and shock parameters are not recalibrated to force the match.</p><p>For two sectors, the restriction is θ<sub>1</sub>W<sub>12</sub> = θ<sub>2</sub>W<sub>21</sub>. One cross-sector intensity therefore determines both actual expenditure shares. At intensity s and transition τ, W<sub>12</sub> = τs min(1, θ<sub>2</sub>/θ<sub>1</sub>) and W<sub>21</sub> = τs min(1, θ<sub>1</sub>/θ<sub>2</sub>). The program finds the primitive CES weights consistent with these shares and equilibrium prices. With endogenous investment, it solves the matching condition jointly with the initial equilibrium.</p><p>Matching holds at the terminal reference equilibrium used in the main charts. It does not fix absolute revenues, market capitalizations, initial-period sector sizes or revenues in every shock realization. After a shock, technology weights stay fixed and actual expenditure shares respond to prices. These different responses are precisely what can generate different premia.</p><p>At matched Domar weights and unchanged shock moments, the local consumption-risk component and the reference revenue-weighted average premium are identical across the two economies. Any main-chart premium difference comes from relative return exposure. This is a test of differences across sectors, not a test of whether links raise average compensation for aggregate risk. Matching removes an economically meaningful part of the total network effect; neither comparison is universally better. The chosen balanced sourcing path is a different counterfactual from the unrestricted path; it is not a unique decomposition of that original experiment.</p><p>The match is imposed at risk-adjusted capital when investment is endogenous. The separate strictly leading-order check keeps the same primitive technology and evaluates zero-risk capital; its Domar weights can differ by higher-order terms. Changing initial conditions or investment preferences may change the required technology weights while leaving the main-chart terminal exposures fixed by the selected expenditure shares.</p></div></details>
+    <details><summary>Equations and assumptions</summary><div class="method-content"><p>There are two sectors. Terminal production is y<sub>j</sub> = z<sub>j</sub>k<sub>j</sub><sup>α</sup>M<sub>j</sub><sup>η</sup>, with α + η &lt; 1. The intermediate composite is CES with elasticity σ. Household consumption is Cobb–Douglas with expenditure shares θ and 1 − θ. Capital is predetermined when the terminal shocks arrive; there is no terminal labor or investment, and the terminal residual payoff is (1 − η)p<sub>j</sub>y<sub>j</sub>.</p><p>In the total-effect mode, the primitive sourcing matrix is Ω(τ) = (1 − τ)I + τΩ*. The target off-diagonal weights are ω<sub>12</sub> and ω<sub>21</sub>. Actual shares satisfy W<sub>jk</sub> = ω<sub>jk</sub>p<sub>k</sub><sup>1−σ</sup> / Σ<sub>l</sub>ω<sub>jl</sub>p<sub>l</sub><sup>1−σ</sup>. Each comparison recomputes goods prices, expenditure shares and the terminal allocation.</p><p>Write L = I − ηW, A = L<sup>−1</sup>, ℓ = A′θ, δ = (1 − η)ℓ and S = diag(δ). The corrected response uses D = diag(W′δ) − W′SW, H = η(1 − σ)S<sup>−1</sup>A′D and B = L − (1 − η)H. Consumption responds with ℓ′, log returns with F = 1ℓ′ − HB<sup>−1</sup>, and log goods prices with G = −B<sup>−1</sup> + 1ℓ′. Revenue-share feedback is retained.</p><p>The covariance premium is RP = γFΣℓ. In percentage units, the page reports 100 × RP. It is the local approximation to E[log R] − log R<sub>f</sub> + ½Var(log R), rather than an exact finite-risk arithmetic excess return. There is no annualization. Large shock scales can make a local approximation less informative.</p><p>Productivity is log z<sub>j</sub> = log z̄<sub>j</sub> + a + ε<sub>j</sub>, where z̄ is the reference productivity setting. The common component a is independent of ε; Corr(ε<sub>1</sub>, ε<sub>2</sub>) is adjustable. Thus Σ<sub>11</sub> = σ<sub>a</sub>² + σ<sub>1</sub>², Σ<sub>22</sub> = σ<sub>a</sub>² + σ<sub>2</sub>² and Σ<sub>12</sub> = σ<sub>a</sub>² + ρσ<sub>1</sub>σ<sub>2</sub>. All covariances refer to the same period.</p><p>Demand shares remain strictly positive so both sectors are active in the own-sector benchmark. The common capital exponent, intermediate exponent and substitution elasticity follow the existing analytical model. Their sector-specific generalization would require a new derivation.</p><div id="equation-values"></div></div></details>
     <details><summary>Initial-period equations and the approximation</summary><div class="method-content"><p>Date-0 production uses inherited capital, labor and intermediates, with labor exponent ξ = 1 − α − η and aggregate labor fixed at one. The date-0 productivity level is one. Investment is I<sub>j</sub> = K<sub>j</sub> − (1 − δ)K<sub>j,old</sub>. Under the retained Kekre–Lenel external-cost convention, q<sub>j</sub> = p<sub>j0</sub>(K<sub>j</sub>/K<sub>j,old</sub>)<sup>χ</sup> and investment absorbs (K<sub>j</sub>/K<sub>j,old</sub>)<sup>χ</sup>I<sub>j</sub> units of good j. Capital producers take sector-wide growth as given. Disinvestment is permitted, as in the maintained convention.</p><p>The terminal claim pays π<sub>j</sub> = (1 − η)p<sub>j1</sub>y<sub>j1</sub>/K<sub>j</sub>, preserving the slides’ residual-profit payoff. The SDF is M = [β/(1 − β)]C<sub>0</sub><sup>1/ψ</sup>μ<sup>γ−1/ψ</sup>C<sub>1</sub><sup>−γ</sup>, where μ is the Epstein–Zin certainty equivalent. The system imposes q<sub>j</sub> ≈ E[Mπ<sub>j</sub>] using a second-order expansion of log expectations. This is a decentralized equilibrium calculation, not a planner problem that internalizes the investment externality.</p><p>Let c = log C<sub>1</sub> and d<sub>j</sub> = log π<sub>j</sub>. At the reference terminal equilibrium, their gradients are ℓ and f<sub>j</sub>, and their Hessians are Q<sub>c</sub> and Q<sub>j</sub>. The certainty-equivalent correction is u = ½ tr(Q<sub>c</sub>Σ) + ½(1 − γ)ℓ′Σℓ. The log-pricing correction is a<sub>j</sub> = (γ − 1/ψ)u + ½ tr[(Q<sub>j</sub> − γQ<sub>c</sub>)Σ] + ½(f<sub>j</sub> − γℓ)′Σ(f<sub>j</sub> − γℓ). The solver uses log q<sub>j</sub> = log[β/(1 − β)] + (log C<sub>0</sub> − c̄)/ψ + d̄<sub>j</sub> + a<sub>j</sub>.</p><p>Patience and the EIS now affect saving and investment. They can change network premia through the resulting capital allocation and terminal expenditure shares. The fixed-capital mode intentionally has no such channel. Shock persistence remains absent because there is only one uncertain terminal date; the controls specify its conditional covariance directly.</p><p>The deterministic and stochastic reference equilibria are numerical solutions, not a general uniqueness theorem. Small residuals establish the equations of the local approximation, not its accuracy for arbitrarily large shocks or unspecified higher moments.</p></div></details>
   </section>
   <footer>Research illustration · All calculations run locally · A saved scenario includes parameters and results</footer>
@@ -249,14 +253,14 @@
   }
   const norm=v=>Math.max(...v.map(Math.abs));
   function newton(fun,start){
-    let x=start.slice(),fx=fun(x);
+    let x=start.slice(),fx=fun(x);const dimension=x.length;
     for(let iteration=0;iteration<65;iteration++){
       if(norm(fx)<2e-10)return x;
-      const J=Array.from({length:4},()=>Array(4).fill(0));
-      for(let j=0;j<4;j++){
+      const J=Array.from({length:dimension},()=>Array(dimension).fill(0));
+      for(let j=0;j<dimension;j++){
         const h=1e-5,plus=x.slice(),minus=x.slice();plus[j]+=h;minus[j]-=h;
         let fp,fm;try{fp=fun(plus);fm=fun(minus);}catch(e){fp=fun(plus);fm=fx;minus[j]=x[j];}
-        for(let i=0;i<4;i++)J[i][j]=(fp[i]-fm[i])/(plus[j]-minus[j]);
+        for(let i=0;i<dimension;i++)J[i][j]=(fp[i]-fm[i])/(plus[j]-minus[j]);
       }
       let step=linear(J,fx.map(v=>-v));const size=norm(step);if(size>3)step=step.map(v=>v*3/size);
       let accepted=false;
@@ -292,7 +296,95 @@
     let previous=null;
     return Array.from({length:steps+1},(_,i)=>{const tau=i/steps;previous=solve(p,M.target(p,tau),previous);return {tau,premium:previous.premium,common:previous.common,consumptionSd:previous.consumptionSd,capital:previous.date0.k};});
   }
-  const api={defaults,curvature,moments,date0,conditions,solve,compare,path};root.NetworkInvestment=api;
+  const api={defaults,curvature,moments,date0,conditions,solve,compare,path,newton};root.NetworkInvestment=api;
+  if(typeof module!=='undefined'&&module.exports)module.exports=api;
+})(typeof globalThis!=='undefined'?globalThis:this);
+
+</script>
+<script>
+/* Compare sourcing technologies with the same reference terminal Domar weights.
+   With common eta and theta fixed, W' theta = theta preserves ell=theta/(1-eta).
+   Target ACTUAL expenditure shares. Solve primitive CES weights jointly with
+   equilibrium prices; do not freeze expenditure shares after productivity shocks. */
+(function(root){
+  'use strict';
+  const M=root.NetworkModel||(typeof require!=='undefined'?require('./model.js'):null);
+  const I=root.NetworkInvestment||(typeof require!=='undefined'?require('./investment.js'):null);
+  const defaults={matchIntensity:.4};
+  function target(p,tau=p.tau){
+    const s=tau*p.matchIntensity;
+    if(!(p.matchIntensity>=0&&p.matchIntensity<=1))throw Error('Cross-sector intensity must be between 0 and 1.');
+    const a=s*Math.min(1,(1-p.theta)/p.theta),b=s*Math.min(1,p.theta/(1-p.theta));
+    return [[1-a,a],[b,1-b]];
+  }
+  function primitive(p,W,d){
+    const lp=[(1-p.theta)*d,-p.theta*d];
+    return W.map(row=>{
+      const raw=row.map((w,j)=>w===0?-Infinity:Math.log(w)+(p.sigma-1)*lp[j]);
+      const max=Math.max(...raw),sum=raw.reduce((a,v)=>a+Math.exp(v-max),0);
+      return raw.map(v=>Math.exp(v-max)/sum);
+    });
+  }
+  function check(p,e,W){
+    const targetDomar=[p.theta/(1-p.eta),(1-p.theta)/(1-p.eta)];
+    const error=Math.max(...e.ell.map((v,j)=>Math.abs(v-targetDomar[j])));
+    const shareError=Math.max(...e.W.flat().map((v,j)=>Math.abs(v-W.flat()[j])));
+    if(error>1e-7||shareError>1e-8)throw Error('The reference sector sizes could not be matched at these settings.');
+    return {...e,domarMatch:{target:targetDomar,maximumError:error,targetShares:W,shareError}};
+  }
+  function fixed(p,W){
+    const ell=[p.theta/(1-p.eta),(1-p.theta)/(1-p.eta)];
+    function residual(d){
+      const lp=[(1-p.theta)*d,-p.theta*d],omega=primitive(p,W,d);
+      const h=lp.map((v,j)=>v-(1-p.eta)*Math.log(ell[j])+Math.log(j?p.z2:p.z1)+p.alpha*Math.log(j?p.k2:p.k1)+p.eta*Math.log(p.eta)-p.eta*M.inputPrice(omega[j],lp,p.sigma).pm);
+      return h[0]-h[1];
+    }
+    let lo=-1,hi=1,fl=residual(lo),fh=residual(hi);
+    for(let i=0;fl*fh>0&&i<15;i++){lo*=2;hi*=2;fl=residual(lo);fh=residual(hi);}
+    if(fl*fh>0)throw Error('Could not match sector sizes with a valid terminal price ratio.');
+    let d=0;
+    for(let i=0;i<100;i++){d=(lo+hi)/2;const f=residual(d);if(Math.abs(f)<1e-12)break;if(fl*f<=0){hi=d;fh=f;}else{lo=d;fl=f;}}
+    return check(p,M.economy(p,primitive(p,W,d)),W);
+  }
+  function endogenous(p,W,own,previous=null){
+    if(W[0][1]===0&&W[1][0]===0)return check(p,own,W);
+    if(Math.abs(p.sigma-1)<1e-8)return check(p,I.solve(p,W,previous||own),W);
+    const initial=previous?.matchedState||[...own.state,own.lp[0]-own.lp[1]];
+    function equations(v,scale){
+      const omega=primitive(p,W,v[4]);const c=I.conditions(p,omega,v.slice(0,4),scale);
+      return [...c.residual,c.terminal.lp[0]-c.terminal.lp[1]-v[4]];
+    }
+    let state;
+    try{state=I.newton(v=>equations(v,1),initial);}
+    catch(error){state=I.newton(v=>equations(v,0),initial);for(const s of [.25,.5,.75,1])state=I.newton(v=>equations(v,s),state);}
+    const omega=primitive(p,W,state[4]);
+    // The zero-risk comparison uses the SAME final primitive omega; it must not
+    // be recalibrated independently when reporting the approximation-order check.
+    const e=I.solve(p,omega,{state:state.slice(0,4),deterministicState:state.slice(0,4)});
+    return check(p,{...e,matchedState:state},W);
+  }
+  function compare(p0,mode='endogenous'){
+    const p={...I.defaults,...defaults,...p0};M.validate(p);const W=target(p);
+    const own=mode==='endogenous'?I.solve(p,M.algebra.eye()):M.economy(p,M.algebra.eye());
+    const linked=mode==='endogenous'?endogenous(p,W,own):fixed(p,W);
+    const out={parameters:p,mode,comparisonMode:'domar',own,linked,change:linked.premium.map((v,j)=>v-own.premium[j]),commonChange:linked.common-own.common};
+    if(mode==='endogenous'){
+      const frozen=M.economy({...p,k1:own.date0.k[0],k2:own.date0.k[1]},linked.omega);
+      out.frozenCapitalPremium=frozen.premium;
+      out.capitalReallocationEffect=linked.premium.map((v,j)=>v-frozen.premium[j]);
+    }
+    return out;
+  }
+  function path(p0,mode='endogenous',steps=24){
+    const p={...I.defaults,...defaults,...p0};M.validate(p);
+    const own=mode==='endogenous'?I.solve(p,M.algebra.eye()):M.economy(p,M.algebra.eye());
+    let previous=null;
+    return Array.from({length:steps+1},(_,i)=>{
+      const tau=i/steps,W=target(p,tau),e=mode==='endogenous'?endogenous(p,W,own,previous):fixed(p,W);previous=e;
+      return {tau,premium:e.premium,common:e.common,consumptionSd:e.consumptionSd,domar:e.ell,domarMatch:e.domarMatch,omega:e.omega,actualShares:e.W,...(e.date0?{capital:e.date0.k}:{})};
+    });
+  }
+  const api={defaults,target,primitive,fixed,endogenous,compare,path};root.NetworkDomar=api;
   if(typeof module!=='undefined'&&module.exports)module.exports=api;
 })(typeof globalThis!=='undefined'?globalThis:this);
 
@@ -300,11 +392,12 @@
 <script>
 (function () {
   'use strict';
-  const M=window.NetworkModel,I=window.NetworkInvestment,defaults={...M.defaults,...I.defaults};
+  const M=window.NetworkModel,I=window.NetworkInvestment,D=window.NetworkDomar,defaults={...M.defaults,...I.defaults,...D.defaults};
   const controls=[
     ['tau','network-controls','Transition toward target, τ',0,1,.01,'','Own-sector','Target'],
     ['cross12','network-controls','Sector 1: target weight on sector 2',0,1,.01,'','0','1'],
     ['cross21','network-controls','Sector 2: target weight on sector 1',0,1,.01,'','0','1'],
+    ['matchIntensity','domar-controls','Target cross-sector intensity',0,1,.01,'','No cross-sector purchases','Maximum feasible'],
     ['sd1','shock-controls','Sector 1 shock standard deviation',0,15,.1,'%','0%','15%'],
     ['sd2','shock-controls','Sector 2 shock standard deviation',0,15,.1,'%','0%','15%'],
     ['sdCommon','shock-controls','Common shock standard deviation',0,15,.1,'%','0%','15%'],
@@ -328,6 +421,7 @@
   const $=id=>document.getElementById(id);
   let current={...defaults},last=null,pathData=null,scheduled=false,pathKey='';
   const endogenous=()=>$('capital-mode').value==='endogenous';
+  const matched=()=>$('comparison-mode').value==='domar';
   const fmt=(v,n=3)=>v===null?'Undefined':(Math.abs(v)<.5*10**(-n)?0:v).toLocaleString('en-US',{minimumFractionDigits:n,maximumFractionDigits:n});
   const signed=(v,n=3)=>(v> .5*10**(-n)?'+':'')+fmt(v,n);
   const pct=v=>fmt(v)+'%';
@@ -352,15 +446,24 @@
   $('preset').addEventListener('change',()=>{if(M.presets[$('preset').value]){setInputs(M.presets[$('preset').value]);update();}});
   $('reset').addEventListener('click',()=>{$('preset').value='baseline';setInputs(defaults);update();});
   function setMode(){
-    const e=endogenous();
+    const e=endogenous(),d=matched();
+    for(const key of ['cross12','cross21'])$(key).closest('.control').hidden=d;
+    $('domar-controls').hidden=!d;
+    $('comparison-help').textContent=d?'This comparison asks whether sourcing changes premia beyond sector size. It matches each sector’s terminal reference Domar weight to the own-sector benchmark; it does not hold revenues fixed after shocks.':'This comparison measures the total effect of changing sourcing, including changes in equilibrium sector size. Use “Same reference Domar weights” to examine a different sourcing experiment with that size channel held fixed.';
+    $('network-intro').textContent=d?'Change cross-sector purchases while preserving reference sector sizes. The two purchase shares must move together.':'Move from own-sector inputs to your chosen sourcing arrangement.';
+    if(!d)$('network-help').textContent='Sourcing weights describe the technology. Actual expenditure shares also depend on equilibrium goods prices.';
     $('investment-parameter-group').hidden=!e;$('investment-panel').hidden=!e;
     $('scope-label').textContent=e?'Saving and investment adjust · Second-order expectations · One period, without annualization':'Capital fixed · Local covariance premia · One period, without annualization';
-    $('comparison-scope').textContent=e?'Both economies start with the same inherited capital, preferences, demand and shock moments. Changing sourcing also changes saving and the capital stocks chosen for tomorrow.':'Both economies have the same terminal capital stocks, demand, technology exponents and shock moments. Only the sourcing arrangement changes.';
+    $('comparison-scope').textContent=(e?'Both economies start with the same inherited capital, preferences, demand and shock moments. Saving and investment adjust.':'Both economies have the same terminal capital stocks, demand, technology exponents and shock moments.')+(d?' Sourcing technologies are chosen to keep reference terminal Domar weights identical.':' Reference sector sizes can change when sourcing changes.');
     $('capital-help').textContent=e?'Capital controls are inherited stocks at the start of date 0. The economy chooses the stocks carried into date 1.':'Capital controls set the stocks used in terminal production. Saving and investment are not solved in this mode.';
-    $('path-scope').textContent=e?'Each point solves a different sourcing arrangement, including its initial saving and investment. The underlying preferences, endowments, technology exponents and shocks remain fixed.':'Each point solves a different sourcing arrangement at the same terminal capital stocks and shock moments.';
+    $('path-scope').textContent=d?'Every point preserves the own-sector reference Domar weights. Actual cross-sector expenditure shares increase along the balanced path; the required technology weights are solved at each point.':(e?'Each point solves a different sourcing arrangement, including its initial saving and investment. The underlying preferences, endowments, technology exponents and shocks remain fixed.':'Each point solves a different sourcing arrangement at the same terminal capital stocks and shock moments.');
+    $('path-hint').textContent=d?'The vertical marker shows the current transition. The single intensity control sets the target balanced purchase shares.':'The vertical marker shows the current transition. The two sourcing controls set the target technology weights.';
+    $('capital-channel-note').hidden=!d;
+    $('capital-channel-note').textContent='This intermediate comparison holds the linked economy’s chosen technology fixed while changing capital. The intermediate allocation need not preserve the Domar match; the final linked allocation does.';
     for(const key of ['k1','k2']){const label='Sector '+key[1]+(e?' inherited capital':' terminal capital');document.querySelector('label[for="'+key+'"]').textContent=label;$(key).setAttribute('aria-label',label);$(key+'-range').setAttribute('aria-label',label+' slider');}
   }
   $('capital-mode').addEventListener('change',()=>{setMode();update();});
+  $('comparison-mode').addEventListener('change',()=>{setMode();update();});
   $('toggle-parameters').addEventListener('click',()=>{
     const open=$('toggle-parameters').getAttribute('aria-expanded')!=='true';
     $('toggle-parameters').setAttribute('aria-expanded',String(open));
@@ -369,12 +472,21 @@
   });
   $('export').addEventListener('click',()=>{
     if(!last)return;
-    const content={model:'Corrected two-period production network',scope:endogenous()?'Initial goods accounts and private Euler equations solved using second-order log expectations. Main premia evaluated at risk-adjusted capital; leadingPremium uses zero-risk capital. No full shock law assumed. Percent per period, no annualization.':'Conditional on predetermined capital; local covariance premia in percent per period; no annualization; no date-0 investment solution.',savedAt:new Date().toISOString(),...last,transmission:{own:M.shock(last.own,current),linked:M.shock(last.linked,current)},sourcingPath:pathData};
+    const content={model:'Corrected two-period production network',scope:endogenous()?'Initial goods accounts and private Euler equations solved using second-order log expectations. Main premia evaluated at risk-adjusted capital; leadingPremium uses zero-risk capital. No full shock law assumed. Percent per period, no annualization.':'Conditional on predetermined capital; local covariance premia in percent per period; no annualization; no date-0 investment solution.',comparisonDescription:matched()?'Matches own-sector reference terminal Domar weights only; primitive sourcing weights remain fixed after shocks. A different counterfactual, not a unique size-channel decomposition.':'Total effect of changing primitive sourcing weights, including changes in equilibrium sector sizes.',savedAt:new Date().toISOString(),...last,transmission:{own:M.shock(last.own,current),linked:M.shock(last.linked,current)},sourcingPath:pathData};
     const url=URL.createObjectURL(new Blob([JSON.stringify(content,null,2)],{type:'application/json'}));const a=document.createElement('a');a.href=url;a.download='network-premium-scenario.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   });
   function renderTables(c,p){
+    const economies=[c.own,c.linked];
+    table('domar-table',[
+      ...[0,1].map(j=>row('Sector '+(j+1)+' Domar weight',economies.map(e=>fmt(e.ell[j],4)))),
+      ...[0,1].map(j=>row('Sector '+(j+1)+' share of gross revenue',economies.map(e=>fmt(100*e.delta[j],2)+'%')))
+    ]);
+    $('domar-check').textContent=(matched()?'Matched to the current own-sector benchmark. Maximum weight difference: '+c.linked.domarMatch.maximumError.toExponential(1)+'. ':'These weights are allowed to change. ')+ 'Domar weight = gross sector revenue / aggregate value added at the terminal date. '+(matched()?'The match fixes relative reference size, not absolute revenues or market capitalization. With shock moments unchanged, it also fixes common consumption risk and the reference revenue-weighted average premium; sector premia can still differ.':'It is distinct from market capitalization.');
+    if(matched()){
+      const target=D.target(p,1);
+      $('network-help').textContent='At the target, sector 1 buys '+fmt(100*target[0][1],1)+'% from sector 2; sector 2 buys '+fmt(100*target[1][0],1)+'% from sector 1. Intensity 1 is the largest cross-sector trade consistent with the Domar match. Actual shares and the implied technology weights are different objects.';
+    }
     if(endogenous()){
-      const economies=[c.own,c.linked];
       table('investment-table',[
         row('Initial consumption',economies.map(e=>fmt(e.date0.C,5))),
         ...[0,1].map(j=>row('Sector '+(j+1)+' capital for tomorrow',economies.map(e=>fmt(e.date0.k[j],4)))),
@@ -406,6 +518,7 @@
     table('risk-table',[
       row('Consumption standard deviation (%)',[pct(c.own.consumptionSd),pct(c.linked.consumptionSd)]),
       row('Common premium component (%)',[pct(c.own.common),pct(c.linked.common)]),
+      row('Reference revenue-weighted average premium (%)',economies.map(e=>pct(e.delta.reduce((sum,w,j)=>sum+w*e.premium[j],0)))),
       row('Sector 1 consumption beta',[fmt(c.own.beta[0]),fmt(c.linked.beta[0])]),
       row('Sector 2 consumption beta',[fmt(c.own.beta[1]),fmt(c.linked.beta[1])]),
       row('Consumption change per 1% sector 1 productivity rise (%)',[fmt(c.own.ell[0]),fmt(c.linked.ell[0])]),
@@ -489,10 +602,11 @@
   }
   function update(){
     try{
-      const p=readInputs();bounds(p);const solver=endogenous()?I:M,c=solver.compare(p);
-      const key=JSON.stringify([endogenous(),Object.fromEntries(Object.entries(p).filter(([k])=>!['tau','shock1','shock2'].includes(k)))]);
+      const p=readInputs();bounds(p);const solver=endogenous()?I:M,mode=endogenous()?'endogenous':'fixed';
+      const c=matched()?D.compare(p,mode):{...solver.compare(p),mode,comparisonMode:'total'};
+      const key=JSON.stringify([endogenous(),matched(),Object.fromEntries(Object.entries(p).filter(([k])=>!['tau','shock1','shock2'].includes(k)))]);
       let data=pathData;
-      if(key!==pathKey){try{data=solver.path(p);}catch(e){data=null;}pathKey=key;}
+      if(key!==pathKey){try{data=matched()?D.path(p,mode):solver.path(p);}catch(e){data=null;}pathKey=key;}
       current=p;last=c;pathData=data;
       $('error').hidden=true;$('results').classList.remove('invalid');$('export').disabled=false;$('status').textContent=endogenous()?'Approximate equilibrium solved':'Terminal equilibrium solved';
       $('mobile-premia').textContent='Network premia: '+fmt(c.linked.premium[0],2)+'% / '+fmt(c.linked.premium[1],2)+'%';
