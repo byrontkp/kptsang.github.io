@@ -86,15 +86,6 @@
     "status_note": "February 2026, under review.",
     "links": { "pdf": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6117107" }
   },
-  {
-    "date": "2026-10-07",
-    "year": 2026,
-    "month": 10,
-    "title": "Migration Talk and Platform Overlap: Network Exposure in #EconTwitter",
-    "authors": ["Kwok Ping Tsang", "Tin Cheuk Leung"],
-    "status_note": "October 2026, resubmitted.",
-    "links": { "pdf": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5923585" }
-  },
     {
     "date": "2026-04-01",
     "year": 2026,
@@ -114,3 +105,4 @@
     "links": { "pdf": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4249510" }
   }
 ]
+

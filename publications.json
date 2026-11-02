@@ -1,5 +1,22 @@
 [
 {
+  "id": "tsang-leung-migration-talk-platform-overlap",
+  "title": "Migration Talk and Platform Overlap: Network Exposure in #EconTwitter",
+  "authors": [
+    "Kwok Ping Tsang",
+    "Tin Cheuk Leung"
+  ],
+  "year": 2026,
+  "venue": "Review of Network Economics",
+  "links": {
+    "pdf": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5923585"
+  },
+  "type": "publication",
+  "status": "accepted",
+  "status_note": "accepted",
+  "date": "2026"
+},
+{
     "id": "tsang-minstate",
     "title": "Division of Labor and the Minimal State",
     "authors": [
@@ -619,3 +636,4 @@
     "date": "2009"
   }
 ]
+

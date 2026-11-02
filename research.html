@@ -181,7 +181,7 @@
           const blocks = byYear.get(y).map(p => {
             const title = safeText(p.title);
             const withLine = coauthorText(p.authors);
-            const venue = safeText(p.venue);
+            const venue = [safeText(p.venue), safeText(p.status_note)].filter(Boolean).join(", ");
             const links = p.links || {};
             const pdf = links.pdf || "";
             const journal = links.journal || "";
@@ -230,3 +230,4 @@
   </script>
 </body>
 </html>
+
