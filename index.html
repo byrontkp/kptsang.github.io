@@ -440,7 +440,7 @@
 
         root.innerHTML = pubs.map(p => {
           const title = safeText(p.title);
-          const venue = [safeText(p.venue), safeText(p.status_note)].filter(Boolean).join(", ");
+          const venue = safeText(p.venue);
           const year = p.year || (p.date ? p.date.slice(0, 4) : "");
           const withLine = coauthorText(p.authors);
           const meta = [withLine, year].filter(Boolean).join(" • ");
