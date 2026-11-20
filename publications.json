@@ -18,17 +18,19 @@
 },
 {
     "id": "tsang-minstate",
-    "title": "Division of Labor and the Minimal State",
+    "title": "Division of Labour and the Minimal State",
     "authors": [
       "Kwok Ping Tsang"
     ],
     "year": 2026,
-    "venue": "Economics and Philosophy",
+    "venue": "Economics & Philosophy",
     "links": {
+      "journal": "https://doi.org/10.1017/S0266267126100820",
       "pdf": "https://drive.google.com/file/d/1NEq5EjiUaEV-1urOd2w6HAnF4JPACpoE/view?usp=drive_link"
     },
     "type": "publication",
-    "status": "accepted",
+    "status": "published",
+    "status_note": "First View, pp. 1–14",
     "date": "2026"
   },
     {
@@ -40,11 +42,13 @@
     "year": 2026,
     "venue": "Public Choice",
     "links": {
+      "journal": "https://doi.org/10.1007/s11127-026-01428-z",
       "pdf": "/assets/papers/PC_2026.pdf",
     "package": "https://drive.google.com/file/d/1YACeuFiriG_T4AW3vpIeHJywFbdjuxSo/view?usp=drive_link"
     },
     "type": "publication",
-    "status": "accepted",
+    "status": "published",
+    "status_note": "published online June 10, 2026",
     "date": "2026"
   },
   {
@@ -56,10 +60,12 @@
     "year": 2026,
     "venue": "The B.E. Journal of Theoretical Economics",
     "links": {
+      "journal": "https://doi.org/10.1515/bejte-2025-0137",
       "pdf": "/assets/papers/BEJTE_2026.pdf"
     },
     "type": "publication",
-    "status": "accepted",
+    "status": "published",
+    "status_note": "26(2), pp. 243–259",
     "date": "2026"
   },
   {
