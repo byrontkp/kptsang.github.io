@@ -443,7 +443,8 @@
           const venue = safeText(p.venue);
           const year = p.year || (p.date ? p.date.slice(0, 4) : "");
           const withLine = coauthorText(p.authors);
-          const publicationDetail = p.status === "published" ? safeText(p.status_note) : "";
+          const showDetail = p.status === "published" || p.status_note === "forthcoming";
+          const publicationDetail = showDetail ? safeText(p.status_note) : "";
           const meta = [withLine, year, publicationDetail].filter(Boolean).join(" • ");
           const links = p.links || {};
           const pdf = links.pdf || "#";
